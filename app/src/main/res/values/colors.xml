@@ -7,4 +7,24 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="blue_10">#05242e</color>
+    <color name="blue_20">#0a475c</color>
+    <color name="blue_30">#0f6b8a</color>
+    <color name="blue_40">#148fb8</color>
+    <color name="blue_50">#19b3e6</color>
+    <color name="blue_60">#47c2eb</color>
+    <color name="blue_70">#75d1f0</color>
+    <color name="blue_80">#a3e0f5</color>
+    <color name="blue_90">#d1f0fa</color>
+    <color name="blue_95">#e8f7fc</color>
+    <color name="melon">#FEC5BB</color>
+    <color name="pale_pink">#FCD5CE</color>
+    <color name="misty_rose">#FAE1DD</color>
+    <color name="seashell">#F8EDEB</color>    <!--用作白天的页面背景色-->
+    <color name="platinum">#E8E8E4</color>
+    <color name="platinum_2">#D8E2DC</color>
+    <color name="linen">#ECE4DB</color>
+    <color name="unbleached_silk">#FFE5D9</color>
+    <color name="peach_puff">#FFD7BA</color>
+    <color name="peach_crayola">#FEC89A</color>
 </resources>

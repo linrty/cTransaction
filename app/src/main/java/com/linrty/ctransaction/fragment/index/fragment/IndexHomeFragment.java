@@ -10,6 +10,16 @@ import android.view.ViewGroup;
 
 import com.linrty.ctransaction.R;
 
+ /**
+  * @ClassName:      IndexHomeFragment
+  * @Description:    java类作用描述
+  * @Author:         Linrty
+  * @CreateDate:     2022/3/10
+  * @UpdateUser:     updater
+  * @UpdateDate:     2022/3/10
+  * @UpdateRemark:   更新内容
+  * @Version:        1.0
+  */
 
 public class IndexHomeFragment extends Fragment {
 
