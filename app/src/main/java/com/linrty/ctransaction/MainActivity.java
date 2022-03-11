@@ -4,9 +4,12 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.NavController;
 import androidx.navigation.NavControllerKt;
+import androidx.navigation.Navigation;
+import androidx.navigation.fragment.NavHostFragment;
 
 import android.os.Bundle;
 
+import com.linrty.ctransaction.databinding.ActivityMainBinding;
 import com.linrty.ctransaction.fragment.index.IndexViewModel;
 
 /**
@@ -24,11 +27,14 @@ public class MainActivity extends AppCompatActivity {
 
     NavController navController;
     IndexViewModel indexViewModel;
+    ActivityMainBinding activityMainBinding;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        activityMainBinding = ActivityMainBinding.inflate(getLayoutInflater());
+        setContentView(activityMainBinding.getRoot());
+        init();
     }
 
      /**
@@ -38,6 +44,9 @@ public class MainActivity extends AppCompatActivity {
       */
 
     private void init(){
+        // 获取NavHost对应的NavController实例，用来控制这个activity内的NavHost页面的导航
+        NavHostFragment navHostFragment = (NavHostFragment) getSupportFragmentManager().findFragmentById(R.id.mainNavHost);
+        navController = navHostFragment.getNavController();
         // 创建一个ViewModel，并且该ViewModel的生命周期是随着自身Activity的
         indexViewModel = new ViewModelProvider(this).get(IndexViewModel.class);
     }

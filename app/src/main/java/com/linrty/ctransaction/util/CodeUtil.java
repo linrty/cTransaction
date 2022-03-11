@@ -10,9 +10,9 @@ public interface CodeUtil {
       */
     public static final int CODE_FRAGMENT_INDEX = 100;
     public static final int CODE_FRAGMENT_INDEX_HOME = 101;
-    public static final int CODE_FRAGMENT_INDEX_USER = 102;
+    public static final int CODE_FRAGMENT_INDEX_WORK = 102;
     public static final int CODE_FRAGMENT_INDEX_MESSAGE = 103;
-    public static final int CODE_FRAGMENT_INDEX_WORK = 104;
+    public static final int CODE_FRAGMENT_INDEX_USER = 104;
 
 
 
