@@ -1,5 +1,7 @@
 package com.linrty.ctransaction;
 
+import static com.blankj.utilcode.util.BarUtils.transparentStatusBar;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.NavController;
@@ -49,5 +51,6 @@ public class MainActivity extends AppCompatActivity {
         navController = navHostFragment.getNavController();
         // 创建一个ViewModel，并且该ViewModel的生命周期是随着自身Activity的
         indexViewModel = new ViewModelProvider(this).get(IndexViewModel.class);
+        transparentStatusBar(this);
     }
 }

@@ -7,16 +7,8 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
-    <color name="blue_10">#05242e</color>
-    <color name="blue_20">#0a475c</color>
-    <color name="blue_30">#0f6b8a</color>
-    <color name="blue_40">#148fb8</color>
-    <color name="blue_50">#19b3e6</color>
-    <color name="blue_60">#47c2eb</color>
-    <color name="blue_70">#75d1f0</color>
-    <color name="blue_80">#a3e0f5</color>
-    <color name="blue_90">#d1f0fa</color>
-    <color name="blue_95">#e8f7fc</color>
+    
+    
     <color name="melon">#FEC5BB</color>
     <color name="pale_pink">#FCD5CE</color>
     <color name="misty_rose">#FAE1DD</color>
@@ -27,4 +19,48 @@
     <color name="unbleached_silk">#FFE5D9</color>
     <color name="peach_puff">#FFD7BA</color>
     <color name="peach_crayola">#FEC89A</color>
+    
+    
+    <color name="red_400">#E45656</color>   <!--error dark-->
+    <color name="red_300">#F56C6C</color>   <!--error-->
+    <color name="red_200">#f7b2b2</color>   <!--error disable-->
+    <color name="red_100">#fef0f0</color>   <!--error light-->
+    
+    <color name="orange_400">#f1a532</color>   <!--warning dark-->
+    <color name="orange_300">#f9ae3d</color>   <!--warning-->
+    <color name="orange_200">#f9d39b</color>   <!--warning disable-->
+    <color name="orange_100">#fdf6ec</color>   <!--warning light-->
+    
+    <color name="green_400">#53c21d</color>   <!--success dark-->
+    <color name="green_300">#5ac725</color>   <!--success-->
+    <color name="green_200">#a9e08f</color>   <!--success disable-->
+    <color name="green_100">#f5fff0</color>   <!--success light-->
+
+    <color name="grey_400">#767a82</color>    <!--info dark-->
+    <color name="grey_300">#909399</color>    <!--info-->
+    <color name="grey_200">#c4c6c9</color>    <!--info disable-->
+    <color name="grey_100">#f4f4f5</color>    <!--info light-->
+    <color name="grey_90">#f3f4f6</color>     <!--background color-->
+
+    <color name="black_400">#303133</color>   <!--main word-->
+    <color name="black_300">#606266</color>   <!--rule word-->
+    <color name="black_200">#909399</color>   <!--secondary word-->
+    <color name="black_100">#c0c4cc</color>   <!--占位文字-->
+    
+    
+    <color name="blue_100">#061a2d</color>
+    <color name="blue_90">#0d3359</color>     <!---->
+    <color name="blue_80">#134d86</color>
+    <color name="blue_70">#1a66b3</color>
+    <color name="blue_60">#2080df</color>
+    <color name="blue_50">#4d99e5</color>
+    <color name="blue_40">#79b3ec</color>
+    <color name="blue_30">#a6ccf2</color>
+    <color name="blue_20">#d2e6f9</color>
+    <color name="blue_10">#e9f2fc</color>
+
+    <color name="line_40">#9a9998</color>
+    <color name="line_30">#b4b3b1</color>
+    <color name="line_20">#ceccca</color>
+    <color name="line_10">#e7e6e4</color>
 </resources>

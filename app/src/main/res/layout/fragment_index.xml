@@ -20,7 +20,7 @@
                 android:id="@+id/indexViewPager"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
-                app:layout_constraintBottom_toTopOf="@+id/indexTabbarGuideline"
+                app:layout_constraintBottom_toTopOf="@+id/divider"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -29,13 +29,25 @@
                 android:id="@+id/indexTabbarGuideline"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:background="@color/line_40"
                 android:orientation="horizontal"
                 app:layout_constraintGuide_percent="0.93" />
+
+            <View
+                android:id="@+id/divider"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/line_40"
+                app:layout_constraintBottom_toBottomOf="@+id/indexTabbarGuideline"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/indexTabbarGuideline" />
 
             <LinearLayout
                 android:id="@+id/indexTabbarLinearLayout"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
+                android:background="@color/blue_20"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <attr name="error" format="color" />
+    <attr name="errorDark" format="color"/>
+    <attr name="errorDisable" format="color"/>
+    <attr name="errorLight" format="color" />
+
+    <attr name="success" format="color"/>
+    <attr name="successDark" format="color"/>
+    <attr name="successDisable" format="color"/>
+    <attr name="successLight" format="color" />
+
+    <attr name="warning" format="color"/>
+    <attr name="warningDark" format="color"/>
+    <attr name="warningDisable" format="color"/>
+    <attr name="warningLight" format="color"/>
+
+    <attr name="info" format="color" />
+    <attr name="infoDark" format="color"/>
+    <attr name="infoDisable" format="color"/>
+    <attr name="infoLight" format="color"/>
+
+    <attr name="mainWord" format="color"/>
+    <attr name="ruleWord" format="color"/>
+    <attr name="secondaryWord" format="color"/>
+    <attr name="placeholderWord" format="color"/>
+
+    <attr name="backgroundColor" format="color" />
+
+    <attr name="colorPrimary100" format="color"/>
+    <attr name="colorPrimary90" format="color"/>
+    <attr name="colorPrimary80" format="color"/>
+    <attr name="colorPrimary70" format="color"/>
+    <attr name="colorPrimary60" format="color"/>
+    <attr name="colorPrimary50" format="color"/>
+    <attr name="colorPrimary40" format="color"/>
+    <attr name="colorPrimary30" format="color"/>
+    <attr name="colorPrimary20" format="color"/>
+    <attr name="colorPrimary10" format="color"/>
+</resources>
