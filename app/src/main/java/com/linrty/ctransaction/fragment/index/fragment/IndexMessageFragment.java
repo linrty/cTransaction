@@ -28,10 +28,6 @@ public class IndexMessageFragment extends Fragment {
         // Required empty public constructor
     }
 
-    public static IndexMessageFragment newInstance(String param1, String param2) {
-        IndexMessageFragment fragment = new IndexMessageFragment();
-        return fragment;
-    }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {

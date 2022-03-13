@@ -2,6 +2,7 @@ package com.linrty.ctransaction.fragment.index.fragment;
 
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
 import androidx.databinding.DataBindingUtil;
 import androidx.fragment.app.Fragment;
 
@@ -9,7 +10,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.drake.brv.BR;
+import com.linrty.ctransaction.BR;
 import com.linrty.ctransaction.R;
 import com.linrty.ctransaction.databinding.FragmentIndexWorkBinding;
 import com.linrty.ctransaction.fragment.index.fragment.model.IndexWorkListItemModel;
@@ -37,18 +38,13 @@ public class IndexWorkFragment extends Fragment {
         // Required empty public constructor
     }
 
-    public static IndexWorkFragment newInstance(String param1, String param2) {
-        IndexWorkFragment fragment = new IndexWorkFragment();
-        return fragment;
-    }
-
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         fragmentIndexWorkBinding = DataBindingUtil.inflate(inflater,R.layout.fragment_index_work,container,false);
@@ -56,7 +52,7 @@ public class IndexWorkFragment extends Fragment {
         for (int i=0;i<10;i++){
             list.add(new IndexWorkListItemModel().setName(String.valueOf(i)));
         }
-        RecyclerViewUtil.INSTANCE.bindingIndexWorkList(fragmentIndexWorkBinding.indexWorkRV,BR.indexWorkItemData,list);
+        RecyclerViewUtil.INSTANCE.bindingIndexWorkList(fragmentIndexWorkBinding.indexWorkRV, BR.indexWorkItemData,list,getActivity(),getContext());
         return fragmentIndexWorkBinding.getRoot();
     }
 }

@@ -44,6 +44,7 @@ dependencies {
     def util_version = '1.31.0'
     def web3j_version = "4.8.7-android"
     def swipe_layout_version = "1.2.0"
+    def x_popup_version = "2.7.6"
 
     implementation 'androidx.appcompat:appcompat:1.3.1'
     implementation 'com.google.android.material:material:1.4.0'
@@ -114,7 +115,10 @@ dependencies {
     // swipeLayout,列表项滑动弹出选项
     //implementation "com.daimajia.swipelayout:library:$swipe_layout_version"
 
+    // BRV,RecyclerView的Adapter帮助类
     implementation 'com.github.liangjingkanji:BRV:1.3.54'
 
+    // 各种弹窗工具
+    implementation "com.github.li-xiaojun:XPopup:$x_popup_version"
 
 }
