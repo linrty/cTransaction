@@ -15,10 +15,6 @@ object RecyclerViewUtil {
         BRV.modelId = modelId
         rv.linear().setup {
             addType<IndexWorkListItemModel>(R.layout.item_index_work_list)
-            R.id.textView.onLongClick {
-                BottomSheetUtil.showSimpleBottomSheetList(true, true, "This is Title!!!",
-                    3, false, false,activity,context)
-            }
         }.models = data
     }
 }

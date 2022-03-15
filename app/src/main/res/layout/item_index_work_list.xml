@@ -8,18 +8,130 @@
             name="indexWorkItemData"
             type="com.linrty.ctransaction.fragment.index.fragment.model.IndexWorkListItemModel" />
     </data>
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="match_parent"
-        android:layout_height="100dp">
 
-        <TextView
-            android:id="@+id/textView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@{indexWorkItemData.name}"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="90dp"
+        android:layout_margin="5dp"
+        android:translationZ="3dp"
+        app:cardBackgroundColor="@color/blue_80"
+        app:cardCornerRadius="7dp"
+        app:cardElevation="10dp">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/indexWorkItemTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="测试作品文字标题"
+                android:textColor="?attr/colorOnPrimary"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="@+id/indexWorkItemLeft"
+                app:layout_constraintTop_toTopOf="@+id/indexWorkItemTop"
+                tools:text="测试作品文字标题" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/indexWorkItemLeft"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_percent="0.02" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/indexWorkItemTop"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintGuide_percent="0.1" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/indexWorkItemRight"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_percent="0.98" />
+
+            <TextView
+                android:id="@+id/indexWorkItemTimeTV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="2022年03月21日"
+                android:textColor="?attr/colorOnPrimary"
+                app:layout_constraintBottom_toTopOf="@+id/indexWorkItemBottom"
+                app:layout_constraintEnd_toStartOf="@+id/indexWorkItemRight"
+                app:layout_constraintTop_toTopOf="@+id/indexWorkItemTop"
+                tools:text="2022年03月21日" />
+
+            <TextView
+                android:id="@+id/indexWorkItemTag"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/shape_success_tag"
+                android:paddingStart="10dp"
+                android:paddingTop="2dp"
+                android:paddingEnd="10dp"
+                android:paddingBottom="2dp"
+                android:text="私人"
+                android:textColor="?attr/colorOnPrimary"
+                android:textSize="14sp"
+                app:layout_constraintBottom_toTopOf="@+id/indexWorkItemBottom"
+                app:layout_constraintStart_toStartOf="@+id/indexWorkItemLeft"
+                tools:text="私人" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/indexWorkItemBottom"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintGuide_percent="0.9" />
+
+            <ImageView
+                android:id="@+id/indexWorkItemLookIcon"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="2dp"
+                app:layout_constraintBottom_toBottomOf="@+id/indexWorkItemTag"
+                app:layout_constraintStart_toEndOf="@+id/indexWorkItemTag"
+                app:layout_constraintTop_toTopOf="@+id/indexWorkItemTag"
+                app:srcCompat="@drawable/ic_eye" />
+
+            <TextView
+                android:id="@+id/indexWorkItemLookNum"
+                android:layout_width="32dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:text="999+"
+                android:textColor="?attr/colorOnPrimary"
+                app:layout_constraintBottom_toBottomOf="@+id/indexWorkItemLookIcon"
+                app:layout_constraintStart_toEndOf="@+id/indexWorkItemLookIcon"
+                app:layout_constraintTop_toTopOf="@+id/indexWorkItemLookIcon" />
+
+            <ImageView
+                android:id="@+id/indexWorkItemLikeIcon"
+                android:layout_width="22dp"
+                android:layout_height="22dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="2dp"
+                app:layout_constraintBottom_toBottomOf="@+id/indexWorkItemLookIcon"
+                app:layout_constraintStart_toEndOf="@+id/indexWorkItemLookNum"
+                app:layout_constraintTop_toTopOf="@+id/indexWorkItemLookIcon"
+                app:srcCompat="@drawable/ic_heart_fill" />
+
+            <TextView
+                android:id="@+id/indexWorkItemLickNum"
+                android:layout_width="32dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:text="999+"
+                android:textColor="?attr/colorOnPrimary"
+                app:layout_constraintBottom_toBottomOf="@+id/indexWorkItemLikeIcon"
+                app:layout_constraintStart_toEndOf="@+id/indexWorkItemLikeIcon"
+                app:layout_constraintTop_toTopOf="@+id/indexWorkItemLikeIcon" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
 </layout>

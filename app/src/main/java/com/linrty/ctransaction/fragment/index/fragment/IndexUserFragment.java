@@ -22,7 +22,7 @@ import com.qmuiteam.qmui.widget.dialog.QMUIBottomSheet;
 
 /**
   * @ClassName:      IndexUserFragment
-  * @Description:    java类作用描述
+  * @Description:    用于展示用户个人信息的Fragment
   * @Author:         Linrty
   * @CreateDate:     2022/3/10
   * @UpdateUser:     updater

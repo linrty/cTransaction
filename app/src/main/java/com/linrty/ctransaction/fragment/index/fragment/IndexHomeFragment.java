@@ -2,17 +2,21 @@ package com.linrty.ctransaction.fragment.index.fragment;
 
 import android.os.Bundle;
 
+import androidx.appcompat.widget.Toolbar;
+import androidx.databinding.DataBindingUtil;
 import androidx.fragment.app.Fragment;
 
+import android.provider.ContactsContract;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import com.linrty.ctransaction.R;
+import com.linrty.ctransaction.databinding.FragmentIndexHomeBinding;
 
- /**
+/**
   * @ClassName:      IndexHomeFragment
-  * @Description:    java类作用描述
+  * @Description:    用于展示Home，App首页的Fragment
   * @Author:         Linrty
   * @CreateDate:     2022/3/10
   * @UpdateUser:     updater
@@ -23,7 +27,7 @@ import com.linrty.ctransaction.R;
 
 public class IndexHomeFragment extends Fragment {
 
-
+    FragmentIndexHomeBinding fragmentIndexHomeBinding;
 
     public IndexHomeFragment() {
         // Required empty public constructor
@@ -40,8 +44,8 @@ public class IndexHomeFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-
-        return inflater.inflate(R.layout.fragment_index_home, container, false);
+        fragmentIndexHomeBinding = DataBindingUtil.inflate(inflater,R.layout.fragment_index_home,container,false);
+        return fragmentIndexHomeBinding.getRoot();
     }
 
 }

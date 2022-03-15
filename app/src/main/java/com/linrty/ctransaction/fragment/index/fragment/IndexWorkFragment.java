@@ -21,7 +21,7 @@ import java.util.List;
 
 /**
   * @ClassName:      IndexWorkFragment
-  * @Description:    java类作用描述
+  * @Description:    用于展示用于个人拥有的数字版权作评列表
   * @Author:         Linrty
   * @CreateDate:     2022/3/10
   * @UpdateUser:     updater

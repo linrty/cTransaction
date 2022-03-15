@@ -10,7 +10,10 @@ import androidx.navigation.Navigation;
 import androidx.navigation.fragment.NavHostFragment;
 
 import android.os.Bundle;
+import android.util.Log;
 
+import com.hyphenate.EMCallBack;
+import com.hyphenate.chat.EMClient;
 import com.linrty.ctransaction.databinding.ActivityMainBinding;
 import com.linrty.ctransaction.fragment.index.IndexViewModel;
 
@@ -52,5 +55,24 @@ public class MainActivity extends AppCompatActivity {
         // 创建一个ViewModel，并且该ViewModel的生命周期是随着自身Activity的
         indexViewModel = new ViewModelProvider(this).get(IndexViewModel.class);
         transparentStatusBar(this);
+        EMClient.getInstance().login("18045121","aaa",new EMCallBack() {
+            //回调
+            @Override
+            public void onSuccess() {
+                EMClient.getInstance().groupManager().loadAllGroups();
+                EMClient.getInstance().chatManager().loadAllConversations();
+                Log.d("main", "登录聊天服务器成功！");
+            }
+
+            @Override
+            public void onProgress(int progress, String status) {
+
+            }
+
+            @Override
+            public void onError(int code, String message) {
+                Log.d("main", "登录聊天服务器失败！");
+            }
+        });
     }
 }
