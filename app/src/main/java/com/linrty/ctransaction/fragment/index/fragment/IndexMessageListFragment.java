@@ -1,5 +1,8 @@
 package com.linrty.ctransaction.fragment.index.fragment;
- /**
+
+import com.hyphenate.easeui.modules.conversation.EaseConversationListFragment;
+
+/**
   * @ClassName:      IndexMessageListFragment
   * @Description:    用于展示消息列表的Fragment
   * @Author:         Linrty
@@ -10,5 +13,6 @@ package com.linrty.ctransaction.fragment.index.fragment;
   * @Version:        1.0
   */
 
-public class IndexMessageListFragment {
+public class IndexMessageListFragment extends EaseConversationListFragment {
+
 }

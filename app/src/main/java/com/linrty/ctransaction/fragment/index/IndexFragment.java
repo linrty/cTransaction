@@ -118,6 +118,8 @@ public class IndexFragment extends Fragment {
         }
         // 初始化适配器，隶属于本Fragment
         indexFragmentAdapter = new ViewPageFragmentAdapter(this,indexFragments);
+        // 设置VIewPager预加载数量，如果不设置的话每次重新启动APP进入首页时切换页面都会卡一下
+        fragmentIndexBinding.indexViewPager.setOffscreenPageLimit(4);
         // 设置ViewPage对应的适配器
         fragmentIndexBinding.indexViewPager.setAdapter(indexFragmentAdapter);
         // 关闭左右滑动手势来切换页面

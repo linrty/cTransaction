@@ -131,9 +131,29 @@ dependencies {
     implementation "io.hyphenate:ease-im-kit:$EaseIMKit_version"
     implementation "io.hyphenate:hyphenate-chat:$EaseIMKit_version"
 
+    implementation 'org.eclipse.paho:org.eclipse.paho.client.mqttv3:1.1.0'
+    implementation 'org.eclipse.paho:org.eclipse.paho.android.service:1.1.1'
+
     // search
     //implementation "com.github.mancj:MaterialSearchBar:$SearchBar_version"
 
     implementation 'io.github.lapism:search:1.2.1'
+
+    implementation  'io.github.scwang90:refresh-layout-kernel:2.0.5'      //核心必须依赖
+    implementation  'io.github.scwang90:refresh-header-classics:2.0.5'    //经典刷新头
+    implementation  'io.github.scwang90:refresh-header-radar:2.0.5'       //雷达刷新头
+    implementation  'io.github.scwang90:refresh-header-falsify:2.0.5'     //虚拟刷新头
+    implementation  'io.github.scwang90:refresh-header-material:2.0.5'    //谷歌刷新头
+    implementation  'io.github.scwang90:refresh-header-two-level:2.0.5'   //二级刷新头
+    implementation  'io.github.scwang90:refresh-footer-ball:2.0.5'        //球脉冲加载
+    implementation  'io.github.scwang90:refresh-footer-classics:2.0.5'    //经典加载
+
+
+    // 协程库(版本可自定)
+    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.5.1'
+// OkHttp(版本可自定, 要求OkHttp4以上版本)
+    implementation 'com.squareup.okhttp3:okhttp:4.9.1'
+// Net
+    implementation 'com.github.liangjingkanji:Net:3.1.2'
 
 }
