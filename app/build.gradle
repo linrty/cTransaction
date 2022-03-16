@@ -13,6 +13,7 @@ android {
         versionCode 1
         versionName "1.0"
 
+        vectorDrawables.useSupportLibrary = true
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
@@ -49,6 +50,8 @@ dependencies {
     def EaseIMKit_version = "3.9.0"
     def SearchBar_version = "0.8.5"
 
+    // SearchBar
+    implementation project(':library')
     implementation 'androidx.appcompat:appcompat:1.3.1'
     implementation 'com.google.android.material:material:1.4.0'
     implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
@@ -129,7 +132,7 @@ dependencies {
     implementation "io.hyphenate:hyphenate-chat:$EaseIMKit_version"
 
     // search
-    implementation "com.github.mancj:MaterialSearchBar:$SearchBar_version"
+    //implementation "com.github.mancj:MaterialSearchBar:$SearchBar_version"
 
     implementation 'io.github.lapism:search:1.2.1'
 

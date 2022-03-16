@@ -88,19 +88,19 @@
 
         <com.mancj.materialsearchbar.MaterialSearchBar
             android:id="@+id/searchBar"
-            style="@style/MaterialSearchBarLight"
+            style="@style/MaterialSearchBarDark"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="8dp"
             android:fitsSystemWindows="true"
-            app:mt_backIconTint="?attr/colorOnPrimary"
-            app:mt_clearIconTint="?attr/colorOnPrimary"
+            app:mt_backIconTint="@color/blue_30"
+            app:mt_clearIconTint="@color/blue_30"
             app:mt_hintColor="?attr/colorOnPrimary"
             app:mt_placeholder="搜索"
-            app:mt_placeholderColor="@color/blue_60"
+            app:mt_placeholderColor="?attr/colorOnPrimary"
             app:mt_roundedSearchBarEnabled="true"
             app:mt_searchBarColor="?attr/colorPrimary"
-            app:mt_searchIconTint="?attr/colorOnPrimary"
+            app:mt_searchIconTint="@color/blue_30"
             app:mt_textColor="?attr/colorOnPrimary" />
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"

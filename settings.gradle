@@ -1,2 +1,3 @@
 rootProject.name = "cTransaction"
 include ':app'
+include ':library'
