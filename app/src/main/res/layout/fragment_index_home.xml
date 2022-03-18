@@ -85,7 +85,6 @@
             android:background="?attr/colorOnPrimary">
 
         </com.google.android.material.appbar.AppBarLayout>
-
         <com.mancj.materialsearchbar.MaterialSearchBar
             android:id="@+id/searchBar"
             style="@style/MaterialSearchBarDark"

@@ -15,29 +15,158 @@
             android:id="@+id/linearLayout5"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="?attr/colorPrimary"
-            android:fitsSystemWindows="true"
+
             android:orientation="vertical"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
 
-            <androidx.appcompat.widget.Toolbar
+
+            <com.linrty.ctransaction.common.ArcView
                 android:layout_width="match_parent"
-                android:layout_height="?attr/actionBarSize"
-                app:title="用户"
-                app:titleTextColor="?attr/colorOnPrimary" />
+                android:layout_height="250dp"
+                android:fitsSystemWindows="true"
+                app:arcHeight="40dp"
+                app:bgColor="@color/blue_70"
+                app:lgColor="?attr/colorPrimary" />
         </LinearLayout>
 
-        <Button
-            android:id="@+id/button45"
+        <com.qmuiteam.qmui.widget.QMUIRadiusImageView
+            android:id="@+id/QMUIRadiusImageView"
+            android:layout_width="64dp"
+            android:layout_height="64dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginBottom="120dp"
+            app:layout_constraintBottom_toBottomOf="@+id/linearLayout5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:qmui_border_color="?attr/colorOnPrimary"
+            app:qmui_border_width="1dp"
+            app:qmui_is_circle="true"
+            app:srcCompat="@drawable/ic_launcher_background" />
+
+        <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Button"
+            android:layout_marginStart="16dp"
+            android:text="Linrty"
+            android:textColor="?attr/colorOnPrimary"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@+id/QMUIRadiusImageView"
+            app:layout_constraintStart_toEndOf="@+id/QMUIRadiusImageView"
+            app:layout_constraintTop_toTopOf="@+id/QMUIRadiusImageView" />
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardView"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="-80dp"
+            android:layout_marginRight="20dp"
+            android:translationZ="3dp"
+            app:cardBackgroundColor="?attr/colorOnPrimary"
+            app:cardCornerRadius="7dp"
+            app:cardElevation="10dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/linearLayout5">
+
+        </androidx.cardview.widget.CardView>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginTop="24dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/linearLayout5" />
+            app:layout_constraintTop_toBottomOf="@+id/cardView">
+
+            <com.qmuiteam.qmui.widget.grouplist.QMUIGroupListView
+                android:id="@+id/indexUserGroupList"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:orientation="vertical"
+                android:padding="0dp"
+                android:showDividers="middle"
+                android:theme="@style/QMUI.GroupListSectionView"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <com.qmuiteam.qmui.widget.grouplist.QMUICommonListItemView
+                    android:id="@+id/indexUserItem1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="0dp"
+                    android:paddingRight="0dp"
+                    android:theme="@style/QMUI.CommonListItemView"
+                    app:qmui_accessory_type="custom"
+                    app:qmui_bottomDividerColor="@color/line_40"
+                    app:qmui_bottomDividerHeight="1dp" />
+
+                <com.qmuiteam.qmui.widget.grouplist.QMUICommonListItemView
+                    android:id="@+id/indexUserItem2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="0dp"
+                    android:paddingRight="0dp"
+                    android:theme="@style/QMUI.CommonListItemView"
+                    app:qmui_accessory_type="custom"
+                    app:qmui_bottomDividerColor="@color/line_40"
+                    app:qmui_bottomDividerHeight="1dp" />
+
+                <com.qmuiteam.qmui.widget.grouplist.QMUICommonListItemView
+                    android:id="@+id/indexUserItem3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="0dp"
+                    android:paddingRight="0dp"
+                    android:theme="@style/QMUI.CommonListItemView"
+                    app:qmui_accessory_type="custom"
+                    app:qmui_bottomDividerColor="@color/line_40"
+                    app:qmui_bottomDividerHeight="1dp" />
+
+                <com.qmuiteam.qmui.widget.grouplist.QMUICommonListItemView
+                    android:id="@+id/indexUserItem4"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="0dp"
+                    android:paddingRight="0dp"
+                    android:theme="@style/QMUI.CommonListItemView"
+                    app:qmui_accessory_type="custom"
+                    app:qmui_topDividerColor="@color/line_40" />
+            </com.qmuiteam.qmui.widget.grouplist.QMUIGroupListView>
+
+            <com.qmuiteam.qmui.widget.roundwidget.QMUIRoundButton
+                android:id="@+id/indexUserLogoutButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="128dp"
+                android:layout_marginRight="20dp"
+                android:clickable="true"
+                android:gravity="center"
+                android:minHeight="48dp"
+                android:padding="10dp"
+                android:text="退出登录"
+                android:textColor="?attr/colorOnPrimary"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:theme="@style/QMUI.RoundButton"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/indexUserGroupList"
+                app:qmui_alpha_disabled="1"
+                app:qmui_alpha_pressed="0.5"
+                app:qmui_backgroundColor="?attr/error"
+                app:qmui_borderColor="?attr/error"
+                app:qmui_borderWidth="1dp"
+                app:qmui_radius="4dp" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </layout>

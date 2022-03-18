@@ -1,15 +1,12 @@
 package com.linrty.ctransaction.fragment.index.fragment;
 
 import android.os.Bundle;
-
-import androidx.appcompat.widget.Toolbar;
-import androidx.databinding.DataBindingUtil;
-import androidx.fragment.app.Fragment;
-
-import android.provider.ContactsContract;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import androidx.databinding.DataBindingUtil;
+import androidx.fragment.app.Fragment;
 
 import com.linrty.ctransaction.R;
 import com.linrty.ctransaction.databinding.FragmentIndexHomeBinding;

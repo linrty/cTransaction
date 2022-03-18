@@ -1,24 +1,18 @@
 package com.linrty.ctransaction.fragment.index.fragment;
 
-import android.app.Activity;
-import android.content.Context;
 import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
 
 import androidx.databinding.DataBindingUtil;
 import androidx.fragment.app.Fragment;
 
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.Toast;
-
 import com.linrty.ctransaction.R;
 import com.linrty.ctransaction.databinding.FragmentIndexUserBinding;
-import com.linrty.ctransaction.plugin.BottomSheetUtil;
-import com.lxj.xpopup.XPopup;
-import com.lxj.xpopup.interfaces.OnSelectListener;
-import com.qmuiteam.qmui.skin.QMUISkinManager;
-import com.qmuiteam.qmui.widget.dialog.QMUIBottomSheet;
+import com.qmuiteam.qmui.util.QMUIDisplayHelper;
+import com.qmuiteam.qmui.widget.grouplist.QMUICommonListItemView;
+import com.qmuiteam.qmui.widget.grouplist.QMUIGroupListView;
 
 /**
   * @ClassName:      IndexUserFragment
@@ -50,7 +44,15 @@ public class IndexUserFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         fragmentIndexUserBinding = DataBindingUtil.inflate(inflater,R.layout.fragment_index_user,container,false);
-        fragmentIndexUserBinding.button45.setOnClickListener(new View.OnClickListener() {
+        fragmentIndexUserBinding.indexUserItem1.setText("Item 3");
+        fragmentIndexUserBinding.indexUserItem1.setAccessoryType(QMUICommonListItemView.ACCESSORY_TYPE_CHEVRON);
+        fragmentIndexUserBinding.indexUserItem2.setText("Item 4");
+        fragmentIndexUserBinding.indexUserItem2.setAccessoryType(QMUICommonListItemView.ACCESSORY_TYPE_CHEVRON);
+        fragmentIndexUserBinding.indexUserItem3.setText("Item 5");
+        fragmentIndexUserBinding.indexUserItem3.setAccessoryType(QMUICommonListItemView.ACCESSORY_TYPE_CHEVRON);
+        fragmentIndexUserBinding.indexUserItem4.setText("Item 6");
+        fragmentIndexUserBinding.indexUserItem4.setAccessoryType(QMUICommonListItemView.ACCESSORY_TYPE_CHEVRON);
+        /*fragmentIndexUserBinding.button45.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 // 这种弹窗从 1.0.0版本开始实现了优雅的手势交互和智能嵌套滚动
@@ -64,7 +66,7 @@ public class IndexUserFragment extends Fragment {
                                 })
                         .show();
             }
-        });
+        });*/
         return fragmentIndexUserBinding.getRoot();
     }
 
