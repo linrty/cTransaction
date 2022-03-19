@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="swapTitle">
+        <item>文件上传</item>
+        <item>文件下载</item>
+    </string-array>
+</resources>

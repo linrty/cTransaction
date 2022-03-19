@@ -7,5 +7,17 @@
     <fragment
         android:id="@+id/indexFragment"
         android:name="com.linrty.ctransaction.fragment.index.IndexFragment"
-        android:label="IndexFragment" />
+        android:label="IndexFragment" >
+        <action
+            android:id="@+id/action_indexFragment_to_swapFragment"
+            app:destination="@id/swapFragment"
+            app:enterAnim="@anim/slide_from_right_top"
+            app:exitAnim="@anim/slide_to_hide"
+            app:popEnterAnim="@anim/slide_to_show"
+            app:popExitAnim="@anim/slide_to_right_top" />
+    </fragment>
+    <fragment
+        android:id="@+id/swapFragment"
+        android:name="com.linrty.ctransaction.fragment.swap.SwapFragment"
+        android:label="SwapFragment" />
 </navigation>

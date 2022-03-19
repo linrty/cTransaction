@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+    
+    <data>
+        <variable
+            name="swapData"
+            type="com.linrty.ctransaction.fragment.index.IndexViewModel" />
+    </data>
+    
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:id="@+id/linearLayout3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="?attr/colorPrimary"
+            android:fitsSystemWindows="true"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <com.google.android.material.appbar.MaterialToolbar
+                android:id="@+id/swapToolBar"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                app:navigationIcon="@drawable/ic_left"
+                app:subtitle="传输列表"
+                app:subtitleTextColor="?attr/colorOnPrimary"
+                app:subtitleCentered="true"
+                app:titleCentered="true"
+
+                app:titleTextColor="?attr/colorOnPrimary" />
+        </LinearLayout>
+
+        <com.gigamole.navigationtabstrip.NavigationTabStrip
+            android:id="@+id/swapTabbar"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="?attr/colorPrimary"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/linearLayout3"
+            app:nts_active_color="@color/blue_50"
+            app:nts_animation_duration="300"
+            app:nts_color="?attr/errorDark"
+            app:nts_corners_radius="7dp"
+            app:nts_inactive_color="?attr/colorOnPrimary"
+            app:nts_size="15sp"
+            app:nts_titles="@array/swapTitle"
+            app:nts_type="point"
+            app:nts_weight="7dp" />
+
+        <androidx.viewpager2.widget.ViewPager2
+            android:id="@+id/swapVP"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/swapTabbar" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

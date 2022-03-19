@@ -14,6 +14,12 @@ public interface CodeUtil {
     public static final int CODE_FRAGMENT_INDEX_MESSAGE = 103;
     public static final int CODE_FRAGMENT_INDEX_USER = 104;
 
+    /**
+     * swap
+     */
+    public static final int CODE_FRAGMENT_SWAP = 200;
+    public static final int CODE_FRAGMENT_SWAP_UPLOAD = 201;
+    public static final int CODE_FRAGMENT_SWAP_DOWNLOAD = 202;
 
 
 }

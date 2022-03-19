@@ -139,32 +139,22 @@
                     app:qmui_topDividerColor="@color/line_40" />
             </com.qmuiteam.qmui.widget.grouplist.QMUIGroupListView>
 
-            <com.qmuiteam.qmui.widget.roundwidget.QMUIRoundButton
-                android:id="@+id/indexUserLogoutButton"
-                android:layout_width="match_parent"
+            <com.google.android.material.button.MaterialButton
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginLeft="20dp"
+                android:layout_marginStart="20dp"
                 android:layout_marginTop="128dp"
-                android:layout_marginRight="20dp"
-                android:clickable="true"
-                android:gravity="center"
-                android:minHeight="48dp"
-                android:padding="10dp"
+                android:layout_marginEnd="20dp"
+                android:backgroundTint="?attr/error"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"
                 android:text="退出登录"
-                android:textColor="?attr/colorOnPrimary"
-                android:textSize="18sp"
+                android:textSize="16sp"
                 android:textStyle="bold"
-                android:theme="@style/QMUI.RoundButton"
+                app:cornerRadius="7dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/indexUserGroupList"
-                app:qmui_alpha_disabled="1"
-                app:qmui_alpha_pressed="0.5"
-                app:qmui_backgroundColor="?attr/error"
-                app:qmui_borderColor="?attr/error"
-                app:qmui_borderWidth="1dp"
-                app:qmui_radius="4dp" />
+                app:layout_constraintTop_toBottomOf="@+id/indexUserGroupList" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>

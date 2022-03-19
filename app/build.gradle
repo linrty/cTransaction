@@ -126,8 +126,6 @@ dependencies {
     // 各种弹窗工具
     implementation "com.github.li-xiaojun:XPopup:$x_popup_version"
 
-    implementation 'co.lujun:androidtagview:1.1.7'
-
     // 即时通讯
     implementation "io.hyphenate:ease-im-kit:$EaseIMKit_version"
     implementation "io.hyphenate:hyphenate-chat:$EaseIMKit_version"
@@ -156,5 +154,11 @@ dependencies {
     implementation 'com.squareup.okhttp3:okhttp:4.9.1'
 // Net
     implementation 'com.github.liangjingkanji:Net:3.1.2'
+
+    // process button
+    implementation 'com.github.razir.progressbutton:progressbutton:2.1.0'
+
+    // Tabbar
+    implementation 'com.github.devlight.navigationtabstrip:navigationtabstrip:1.0.4'
 
 }

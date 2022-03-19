@@ -4,6 +4,7 @@ import static com.linrty.ctransaction.util.CodeUtil.*;
 
 import android.annotation.SuppressLint;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
@@ -66,9 +67,15 @@ public class IndexFragment extends Fragment {
        */
     IndexViewModel indexViewModel;
 
+      /**
+       * 记录是否是点击事件
+       */
     Boolean isClick;
 
-
+      /**
+       * 是否是第一次加载Fragment
+       */
+    Boolean isFirstLoad;
 
     public IndexFragment(){
         // Required empty public constructor
@@ -81,6 +88,8 @@ public class IndexFragment extends Fragment {
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        initData();
+        isFirstLoad = true;
     }
 
 
@@ -90,7 +99,25 @@ public class IndexFragment extends Fragment {
         // 与指定的视图进行绑定
         fragmentIndexBinding = DataBindingUtil.inflate(inflater, R.layout.fragment_index,container,false);
         init();
+        // 除了第一次加载视图会改true为false,其他每次加载都是false
+        isFirstLoad = false;
         return fragmentIndexBinding.getRoot();
+    }
+
+      /**
+       * 初始化页面数据,有些类必须放在此处初始化防止二次加载,丢失数据
+       */
+    private void initData(){
+        // 初始化ViewModel，该ViewModel是从父级的Activity内获取的，即该ViewModel随Activity的生命周期
+        indexViewModel = new ViewModelProvider(requireActivity()).get(IndexViewModel.class);
+        indexFragments = new ArrayList<>();
+        // 添加子Fragment的顺序不能乱，必须按照该顺序，不然ViewPager2就不好确认哪个页面和对应的index
+        indexFragments.add(new IndexHomeFragment());
+        indexFragments.add(new IndexWorkFragment());
+        indexFragments.add(new IndexMessageFragment());
+        indexFragments.add(new IndexUserFragment());
+        // 初始化指定的展示页面,不能放在init内,因为每次重新加载视图都会执行init函数,就会导致重新初始化展示页面
+        currentFragment = CODE_FRAGMENT_INDEX_HOME;
     }
 
 
@@ -101,21 +128,10 @@ public class IndexFragment extends Fragment {
       */
     @SuppressLint("ClickableViewAccessibility")
     private void init(){
-        // 初始化ViewModel，该ViewModel是从父级的Activity内获取的，即该ViewModel随Activity的生命周期
-        indexViewModel = new ViewModelProvider(requireActivity()).get(IndexViewModel.class);
         // 设置该fragment的dataBinding需要绑定的数据实例
         fragmentIndexBinding.setIndexData(indexViewModel);
         // 设置该fragment的dataBinding的生命周期
         fragmentIndexBinding.setLifecycleOwner(requireActivity());
-        // 如果Fragment列表为空，就初始化创建子Fragment
-        if(indexFragments == null){
-            indexFragments = new ArrayList<>();
-            // 添加子Fragment的顺序不能乱，必须按照该顺序，不然ViewPager2就不好确认哪个页面和对应的index
-            indexFragments.add(new IndexHomeFragment());
-            indexFragments.add(new IndexWorkFragment());
-            indexFragments.add(new IndexMessageFragment());
-            indexFragments.add(new IndexUserFragment());
-        }
         // 初始化适配器，隶属于本Fragment
         indexFragmentAdapter = new ViewPageFragmentAdapter(this,indexFragments);
         // 设置VIewPager预加载数量，如果不设置的话每次重新启动APP进入首页时切换页面都会卡一下
@@ -126,8 +142,27 @@ public class IndexFragment extends Fragment {
         fragmentIndexBinding.indexViewPager.setUserInputEnabled(false);
         // 设置刚加载首页时，默认展示的子页面，并将Tabbar的动画做相应的修改
         fragmentIndexBinding.indexViewPager.setCurrentItem(CODE_FRAGMENT_INDEX_HOME-CODE_FRAGMENT_INDEX-1);
-        currentFragment = CODE_FRAGMENT_INDEX_HOME;
-        fragmentIndexBinding.indexTabbarHome.indexTabbarHomeLottie.setFrame(48);
+        // 如果是第一次加载进页面,那就需要设定首页为最初的展示页面,其他情况应按照进入其他fragment时所在在页面退回相应的页面
+        if(isFirstLoad) {
+            fragmentIndexBinding.indexTabbarHome.indexTabbarHomeLottie.setFrame(48);
+        }else{
+            switch (currentFragment){
+                case CODE_FRAGMENT_INDEX_HOME:
+                    fragmentIndexBinding.indexTabbarHome.indexTabbarHomeLottie.setFrame(48);
+                    break;
+                case CODE_FRAGMENT_INDEX_MESSAGE:
+                    fragmentIndexBinding.indexTabbarMessage.indexTabbarMessageLottie.setFrame(48);
+                    break;
+                case CODE_FRAGMENT_INDEX_USER:
+                    fragmentIndexBinding.indexTabbarUser.indexTabbarUserLottie.setFrame(48);
+                    break;
+                case CODE_FRAGMENT_INDEX_WORK:
+                    fragmentIndexBinding.indexTabbarWork.indexTabbarWorkLottie.setFrame(48);
+                    break;
+                default:
+                    break;
+            }
+        }
         // 设置底部导航栏的触摸事件,先找到对应的include组件id，然后进入对应的dataBinding，利用dataBinding进入include内的组件控制
         fragmentIndexBinding.indexTabbarHome.tabbarHomeLayout.setOnTouchListener(new View.OnTouchListener() {
             @Override

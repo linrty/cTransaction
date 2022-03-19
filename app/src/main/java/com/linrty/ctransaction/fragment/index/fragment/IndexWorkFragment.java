@@ -7,6 +7,9 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.databinding.DataBindingUtil;
 import androidx.fragment.app.Fragment;
+import androidx.navigation.NavController;
+import androidx.navigation.Navigation;
+import androidx.navigation.fragment.NavHostFragment;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -36,7 +39,15 @@ import java.util.List;
 
 public class IndexWorkFragment extends Fragment {
 
+    /**
+     * index work页面的布局控件
+     */
     FragmentIndexWorkBinding fragmentIndexWorkBinding;
+
+    /**
+     * App的全局路由
+     */
+    NavController navController;
 
     public IndexWorkFragment() {
         // Required empty public constructor
@@ -70,6 +81,22 @@ public class IndexWorkFragment extends Fragment {
                 fragmentIndexWorkBinding.indexWorkRL.finishRefresh(2000);
             }
         });
+        init();
         return fragmentIndexWorkBinding.getRoot();
+    }
+
+    private void init(){
+        // 获取NavHost对应的NavController实例，用来控制这个activity内的NavHost页面的导航
+        navController = Navigation.findNavController(requireParentFragment().requireActivity(),R.id.mainNavHost);
+
+
+        // 设置work页面的传输图标点击事件
+        fragmentIndexWorkBinding.indexWorkToolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                // 进入传输列表页面
+                navController.navigate(R.id.action_indexFragment_to_swapFragment);
+            }
+        });
     }
 }
