@@ -8,8 +8,10 @@ import android.view.ViewGroup;
 import androidx.databinding.DataBindingUtil;
 import androidx.fragment.app.Fragment;
 
+import com.blankj.utilcode.util.BarUtils;
 import com.linrty.ctransaction.R;
 import com.linrty.ctransaction.databinding.FragmentIndexHomeBinding;
+import com.xuexiang.xui.utils.StatusBarUtils;
 
 /**
   * @ClassName:      IndexHomeFragment

@@ -1,5 +1,6 @@
 package com.linrty.ctransaction.fragment.index;
 
+import static com.blankj.utilcode.util.BarUtils.setStatusBarLightMode;
 import static com.linrty.ctransaction.util.CodeUtil.*;
 
 import android.annotation.SuppressLint;
@@ -9,6 +10,7 @@ import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.Window;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -19,6 +21,7 @@ import androidx.viewpager2.widget.ViewPager2;
 
 import com.airbnb.lottie.LottieAnimationView;
 import com.airbnb.lottie.LottieComposition;
+import com.blankj.utilcode.util.BarUtils;
 import com.linrty.ctransaction.R;
 import com.linrty.ctransaction.adapter.ViewPageFragmentAdapter;
 import com.linrty.ctransaction.databinding.FragmentIndexBinding;
@@ -26,6 +29,7 @@ import com.linrty.ctransaction.fragment.index.fragment.IndexHomeFragment;
 import com.linrty.ctransaction.fragment.index.fragment.IndexMessageFragment;
 import com.linrty.ctransaction.fragment.index.fragment.IndexUserFragment;
 import com.linrty.ctransaction.fragment.index.fragment.IndexWorkFragment;
+import com.xuexiang.xui.utils.StatusBarUtils;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -104,6 +108,11 @@ public class IndexFragment extends Fragment {
         return fragmentIndexBinding.getRoot();
     }
 
+      @Override
+      public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+          super.onViewCreated(view, savedInstanceState);
+      }
+
       /**
        * 初始化页面数据,有些类必须放在此处初始化防止二次加载,丢失数据
        */
@@ -118,6 +127,9 @@ public class IndexFragment extends Fragment {
         indexFragments.add(new IndexUserFragment());
         // 初始化指定的展示页面,不能放在init内,因为每次重新加载视图都会执行init函数,就会导致重新初始化展示页面
         currentFragment = CODE_FRAGMENT_INDEX_HOME;
+        // 因为初始化进入的是首页，首页没有Top bar 所以系统状态栏的背景是Light色系的所以系统字体需要设置为暗色系才能看得更清楚，true为暗色字体，false为白色字体
+        BarUtils.setStatusBarLightMode(getActivity(),true);
+
     }
 
 
@@ -167,7 +179,7 @@ public class IndexFragment extends Fragment {
         fragmentIndexBinding.indexTabbarHome.tabbarHomeLayout.setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View view, MotionEvent motionEvent) {
-
+                BarUtils.setStatusBarLightMode(getActivity(),true);
                 changeLottieState(fragmentIndexBinding.indexTabbarHome.indexTabbarHomeLottie,motionEvent,CODE_FRAGMENT_INDEX_HOME,view);
                 return true;
             }
@@ -176,6 +188,7 @@ public class IndexFragment extends Fragment {
         fragmentIndexBinding.indexTabbarMessage.tabbarMessageLayout.setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View view, MotionEvent motionEvent) {
+                BarUtils.setStatusBarLightMode(getActivity(),false);
                 changeLottieState(fragmentIndexBinding.indexTabbarMessage.indexTabbarMessageLottie,motionEvent,CODE_FRAGMENT_INDEX_MESSAGE,view);
                 return true;
             }
@@ -184,6 +197,7 @@ public class IndexFragment extends Fragment {
         fragmentIndexBinding.indexTabbarUser.tabbarUserLayout.setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View view, MotionEvent motionEvent) {
+                BarUtils.setStatusBarLightMode(getActivity(),false);
                 changeLottieState(fragmentIndexBinding.indexTabbarUser.indexTabbarUserLottie,motionEvent,CODE_FRAGMENT_INDEX_USER,view);
                 return true;
             }
@@ -192,6 +206,7 @@ public class IndexFragment extends Fragment {
         fragmentIndexBinding.indexTabbarWork.tabbarWorkLayout.setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View view, MotionEvent motionEvent) {
+                BarUtils.setStatusBarLightMode(getActivity(),false);
                 changeLottieState(fragmentIndexBinding.indexTabbarWork.indexTabbarWorkLottie,motionEvent,CODE_FRAGMENT_INDEX_WORK,view);
                 return true;
             }
@@ -214,9 +229,9 @@ public class IndexFragment extends Fragment {
                 break;
             case MotionEvent.ACTION_UP:
                 if (isClick){
-                    //lottieAnimationView.setFrame(9);
                     // 将底部导航栏原来的坐标进行还原回未选中的状态
                     switch (currentFragment){
+                        // 除了Home页面没有Top bar，也就是系统状态栏为白色，其他的页面系统状态栏都是暗色背景。所以需要设置系统状态栏的字体颜色是白色系的
                         case CODE_FRAGMENT_INDEX_HOME:
                             fragmentIndexBinding.indexTabbarHome.indexTabbarHomeLottie.setFrame(0);
                             break;

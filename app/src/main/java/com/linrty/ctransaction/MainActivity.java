@@ -1,6 +1,6 @@
 package com.linrty.ctransaction;
 
-import static com.blankj.utilcode.util.BarUtils.transparentStatusBar;
+import static com.blankj.utilcode.util.BarUtils.*;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.ViewModelProvider;
@@ -16,6 +16,7 @@ import com.hyphenate.EMCallBack;
 import com.hyphenate.chat.EMClient;
 import com.linrty.ctransaction.databinding.ActivityMainBinding;
 import com.linrty.ctransaction.fragment.index.IndexViewModel;
+import com.xuexiang.xui.utils.StatusBarUtils;
 
 /**
   * @ClassName:      MainActivity
@@ -42,6 +43,7 @@ public class MainActivity extends AppCompatActivity {
         init();
     }
 
+
      /**
       * @brief 初始化主Activity
       * @param
@@ -55,6 +57,7 @@ public class MainActivity extends AppCompatActivity {
         // 创建一个ViewModel，并且该ViewModel的生命周期是随着自身Activity的
         indexViewModel = new ViewModelProvider(this).get(IndexViewModel.class);
         transparentStatusBar(this);
+
         EMClient.getInstance().login("18045121","aaa",new EMCallBack() {
             //回调
             @Override

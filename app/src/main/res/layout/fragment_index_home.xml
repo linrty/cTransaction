@@ -78,13 +78,6 @@
 
 
         </LinearLayout>-->
-        <com.google.android.material.appbar.AppBarLayout
-            android:layout_width="match_parent"
-            android:layout_height="90dp"
-            android:fitsSystemWindows="true"
-            android:background="?attr/colorOnPrimary">
-
-        </com.google.android.material.appbar.AppBarLayout>
         <com.mancj.materialsearchbar.MaterialSearchBar
             android:id="@+id/searchBar"
             style="@style/MaterialSearchBarDark"

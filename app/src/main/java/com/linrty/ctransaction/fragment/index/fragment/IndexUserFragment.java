@@ -1,6 +1,7 @@
 package com.linrty.ctransaction.fragment.index.fragment;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,6 +14,7 @@ import com.linrty.ctransaction.databinding.FragmentIndexUserBinding;
 import com.qmuiteam.qmui.util.QMUIDisplayHelper;
 import com.qmuiteam.qmui.widget.grouplist.QMUICommonListItemView;
 import com.qmuiteam.qmui.widget.grouplist.QMUIGroupListView;
+import com.xuexiang.xui.utils.StatusBarUtils;
 
 /**
   * @ClassName:      IndexUserFragment
@@ -67,6 +69,13 @@ public class IndexUserFragment extends Fragment {
                         .show();
             }
         });*/
+        fragmentIndexUserBinding.indexUserLogoutButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Log.i("Linrty", "onClick: 666");
+                StatusBarUtils.setStatusBarDarkMode(getActivity());
+            }
+        });
         return fragmentIndexUserBinding.getRoot();
     }
 

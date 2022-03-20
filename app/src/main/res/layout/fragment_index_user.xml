@@ -139,22 +139,24 @@
                     app:qmui_topDividerColor="@color/line_40" />
             </com.qmuiteam.qmui.widget.grouplist.QMUIGroupListView>
 
-            <com.google.android.material.button.MaterialButton
-                android:layout_width="0dp"
+            <com.xuexiang.xui.widget.button.roundbutton.RoundButton
+                style="@style/RoundButton.Blue"
+                android:id="@+id/indexUserLogoutButton"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="20dp"
                 android:layout_marginTop="128dp"
                 android:layout_marginEnd="20dp"
-                android:backgroundTint="?attr/error"
                 android:paddingTop="10dp"
                 android:paddingBottom="10dp"
                 android:text="退出登录"
                 android:textSize="16sp"
                 android:textStyle="bold"
-                app:cornerRadius="7dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/indexUserGroupList" />
+                app:layout_constraintTop_toBottomOf="@+id/indexUserGroupList"
+                app:rb_backgroundColor="?attr/error"
+                app:rb_radius="7dp" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
