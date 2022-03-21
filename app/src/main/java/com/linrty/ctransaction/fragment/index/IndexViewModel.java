@@ -5,6 +5,8 @@ import android.app.Application;
 import androidx.annotation.NonNull;
 import androidx.lifecycle.AndroidViewModel;
 
+import java.util.List;
+
 /**
   * @ClassName:      IndexViewModel
   * @Description:    java类作用描述
@@ -17,6 +19,7 @@ import androidx.lifecycle.AndroidViewModel;
   */
 
 public class IndexViewModel extends AndroidViewModel {
+
 
     public IndexViewModel(@NonNull Application application) {
         super(application);

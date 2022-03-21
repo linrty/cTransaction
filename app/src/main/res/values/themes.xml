@@ -2,7 +2,6 @@
     <!-- Base application theme. -->
     <style name="Theme.CTransaction" parent="XUITheme.Phone">
         <!-- Primary brand color. -->
-        <item name="colorPrimary">@color/blue_90</item>
         <item name="colorPrimaryVariant">@color/melon</item>
         <item name="colorOnPrimary">@color/blue_10</item>
         <item name="backgroundColor">@color/blue_10</item>

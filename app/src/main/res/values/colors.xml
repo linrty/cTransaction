@@ -64,6 +64,8 @@
     <color name="line_20">#ceccca</color>
     <color name="line_10">#e7e6e4</color>
 
+    <color name="index_tabbar_item_title">#546E7A</color>
+
 
 
 </resources>

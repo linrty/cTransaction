@@ -15,6 +15,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.drake.brv.annotaion.AnimationType;
 import com.linrty.ctransaction.BR;
 import com.linrty.ctransaction.R;
 import com.linrty.ctransaction.databinding.FragmentIndexWorkBinding;

@@ -16,7 +16,7 @@
             android:id="@+id/linearLayout2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="?attr/colorPrimary"
+            android:background="?attr/colorOnPrimary"
             android:fitsSystemWindows="true"
             android:orientation="vertical"
             app:layout_constraintEnd_toEndOf="parent"
@@ -27,7 +27,14 @@
                 android:layout_width="match_parent"
                 android:layout_height="?attr/actionBarSize"
                 app:title="消息"
-                app:titleTextColor="?attr/colorOnPrimary" />
+                app:titleTextColor="@color/black_400" />
+
+            <View
+                android:id="@+id/divider2"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/line_30" />
+
         </LinearLayout>
 
         <androidx.fragment.app.FragmentContainerView

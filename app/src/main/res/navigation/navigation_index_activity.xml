@@ -15,9 +15,20 @@
             app:exitAnim="@anim/slide_to_hide"
             app:popEnterAnim="@anim/slide_to_show"
             app:popExitAnim="@anim/slide_to_right_top" />
+        <action
+            android:id="@+id/action_indexFragment_to_searchResultFragment"
+            app:destination="@id/searchResultFragment"
+            app:enterAnim="@anim/slide_from_right"
+            app:exitAnim="@anim/slide_to_left"
+            app:popEnterAnim="@anim/slide_from_left"
+            app:popExitAnim="@anim/slide_to_right" />
     </fragment>
     <fragment
         android:id="@+id/swapFragment"
         android:name="com.linrty.ctransaction.fragment.swap.SwapFragment"
         android:label="SwapFragment" />
+    <fragment
+        android:id="@+id/searchResultFragment"
+        android:name="com.linrty.ctransaction.fragment.search.SearchResultFragment"
+        android:label="SearchResultFragment" />
 </navigation>

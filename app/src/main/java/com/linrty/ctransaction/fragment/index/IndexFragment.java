@@ -188,7 +188,7 @@ public class IndexFragment extends Fragment {
         fragmentIndexBinding.indexTabbarMessage.tabbarMessageLayout.setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View view, MotionEvent motionEvent) {
-                BarUtils.setStatusBarLightMode(getActivity(),false);
+                BarUtils.setStatusBarLightMode(getActivity(),true);
                 changeLottieState(fragmentIndexBinding.indexTabbarMessage.indexTabbarMessageLottie,motionEvent,CODE_FRAGMENT_INDEX_MESSAGE,view);
                 return true;
             }
@@ -206,7 +206,7 @@ public class IndexFragment extends Fragment {
         fragmentIndexBinding.indexTabbarWork.tabbarWorkLayout.setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View view, MotionEvent motionEvent) {
-                BarUtils.setStatusBarLightMode(getActivity(),false);
+                BarUtils.setStatusBarLightMode(getActivity(),true);
                 changeLottieState(fragmentIndexBinding.indexTabbarWork.indexTabbarWorkLottie,motionEvent,CODE_FRAGMENT_INDEX_WORK,view);
                 return true;
             }

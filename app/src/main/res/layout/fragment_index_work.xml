@@ -16,7 +16,7 @@
             android:id="@+id/linearLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="?attr/colorPrimary"
+            android:background="?attr/colorOnPrimary"
             android:fitsSystemWindows="true"
             android:orientation="vertical"
             app:layout_constraintEnd_toEndOf="parent"
@@ -27,8 +27,17 @@
                 android:id="@+id/indexWorkToolbar"
                 android:layout_width="match_parent"
                 android:layout_height="?attr/actionBarSize"
+                app:title="作品"
+                app:titleTextColor="@color/black_400"
+                app:titleCentered="true"
                 app:menu="@menu/toolbar_menu"
                 app:navigationIcon="@drawable/ic_qiehuan" />
+
+            <View
+                android:id="@+id/divider3"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/line_30" />
             <!--<androidx.appcompat.widget.Toolbar
                 android:layout_width="match_parent"
                 android:layout_height="?attr/actionBarSize"
