@@ -4,12 +4,10 @@ import android.util.Log
 import androidx.recyclerview.widget.RecyclerView
 import com.drake.brv.PageRefreshLayout
 import com.drake.brv.annotaion.AnimationType
-import com.drake.brv.utils.BRV
-import com.drake.brv.utils.bindingAdapter
-import com.drake.brv.utils.linear
-import com.drake.brv.utils.setup
+import com.drake.brv.utils.*
 import com.linrty.ctransaction.HeaderModel
 import com.linrty.ctransaction.R
+import com.linrty.ctransaction.fragment.index.fragment.model.IndexHomeItemModel
 import com.linrty.ctransaction.fragment.index.fragment.model.IndexWorkListItemModel
 import com.linrty.ctransaction.fragment.search.model.SearchResultItemModel
 import com.linrty.ctransaction.fragment.swap.model.SwapUploadItemModel
@@ -39,6 +37,20 @@ object RecyclerViewUtil {
         rv.linear().setup {
             addType<SwapUploadItemModel>(R.layout.item_swap_upload_list)
         }.models = data
+    }
+
+    public fun bindingIndexHomeList(rv: RecyclerView,data: MutableList<Any>){
+        rv.grid(1).setup {
+            addType<IndexHomeItemModel>(R.layout.item_index_home_list_small)
+            setAnimation(AnimationType.SLIDE_BOTTOM)
+            onBind {
+                val layoutParams = itemView.layoutParams
+                layoutParams.width = layoutParams.width
+                itemView.layoutParams = layoutParams
+            }
+
+        }.models = data
+        rv.grid()
     }
 
     private fun getData(): MutableList<Any> {
