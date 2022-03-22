@@ -5,7 +5,7 @@
     >
     <data>
         <variable
-            name="searchResultData"
+            name="data"
             type="com.linrty.ctransaction.fragment.search.model.SearchResultModel" />
     </data>
     <androidx.coordinatorlayout.widget.CoordinatorLayout

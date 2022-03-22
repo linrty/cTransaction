@@ -60,6 +60,16 @@ public class SearchResultFragment extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_search_result,container,false);
+        // 模拟请求到的数据
+        List<Object> list = new ArrayList<>();
+        for (int i=0;i<10;i++){
+            list.add(new SearchResultItemModel().setItemTitle(String.valueOf(i)));
+        }
+
+        //Log.i("Linrty", "init: "+((SearchResultItemModel)(model.getSearchResultList().get(0))).toString());
+
+        // 设置RecyclerView列表并且对Item进行dataBinding
+        RecyclerViewUtil.INSTANCE.bindingSearchResultList(binding.searchResultRV,list);
         init();
         return binding.getRoot();
     }
@@ -69,25 +79,13 @@ public class SearchResultFragment extends Fragment {
         // 初始化ViewModel，该ViewModel是从父级的Activity内获取的，即该ViewModel随Activity的生命周期
         indexViewModel = new ViewModelProvider(requireActivity()).get(IndexViewModel.class);
 
-
-
     }
 
     private void init(){
         // 初始化本Fragment下的ViewModel
-        model = new ViewModelProvider(this).get(SearchResultModel.class);
-        // 模拟请求到的数据
-        List<Object> list = new ArrayList<>();
-        for (int i=0;i<10;i++){
-            SearchResultItemModel itemModel;
-            itemModel = new SearchResultItemModel();
-            itemModel.setItemTitle("ssdfasdfs"+i);
-            list.add(itemModel);
-        }
-        model.setSearchResultList(list);
-        binding.setSearchResultData(model);
-        binding.setLifecycleOwner(this);
-        // 设置RecyclerView列表并且对Item进行dataBinding
-        RecyclerViewUtil.INSTANCE.bindingSearchResultList(binding.searchResultRV, BR.searchResultItemData,model.getSearchResultList());
+        /*model = new ViewModelProvider(this).get(SearchResultModel.class);
+        binding.setSearchResultData(model);*/
+
+
     }
 }

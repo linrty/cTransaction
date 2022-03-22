@@ -5,7 +5,7 @@
     >
     <data>
         <variable
-            name="indexData"
+            name="data"
             type="com.linrty.ctransaction.fragment.index.IndexViewModel" />
     </data>
 

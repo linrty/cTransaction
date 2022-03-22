@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools">
     <data>
         <variable
-            name="swapData"
+            name="data"
             type="com.linrty.ctransaction.fragment.index.IndexViewModel" />
     </data>
     <androidx.constraintlayout.widget.ConstraintLayout

@@ -6,6 +6,7 @@ import android.app.Activity;
 import android.app.Application;
 import android.content.Context;
 
+import com.drake.brv.utils.BRV;
 import com.hyphenate.chat.EMClient;
 import com.hyphenate.easeui.EaseIM;
 import com.scwang.smart.refresh.footer.ClassicsFooter;
@@ -63,5 +64,8 @@ public class CTransactionApp extends Application {
             EMClient.getInstance().setDebugMode(true);
             //EaseIM初始化成功之后再去调用注册消息监听的代码 ...
         }
+
+        // 设置BRV的数据绑定modelID
+        BRV.INSTANCE.setModelId(BR.data);
     }
 }

@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools">
     <data>
         <variable
-            name="searchResultItemData"
+            name="data"
             type="com.linrty.ctransaction.fragment.search.model.SearchResultItemModel" />
     </data>
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -41,9 +41,10 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
-            android:text="@={searchResultItemData.itemTitle}"
+            android:text="@{data.itemTitle}"
             android:textColor="@color/black_400"
             android:textSize="14sp"
+            tools:text="测试搜索结果标题"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/searchResultImg"
             app:layout_constraintTop_toTopOf="@+id/searchResultImg" />
@@ -118,7 +119,5 @@
             app:layout_constraintBottom_toBottomOf="@+id/searchResultItemLikeImg"
             app:layout_constraintStart_toEndOf="@+id/searchResultItemLikeImg"
             app:layout_constraintTop_toTopOf="@+id/searchResultItemLikeImg" />
-
-
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

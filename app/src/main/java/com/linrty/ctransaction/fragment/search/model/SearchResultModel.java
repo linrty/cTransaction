@@ -2,6 +2,7 @@ package com.linrty.ctransaction.fragment.search.model;
 
 import androidx.lifecycle.ViewModel;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -16,7 +17,7 @@ import java.util.List;
   */
 
 public class SearchResultModel extends ViewModel {
-    private List<Object> searchResultList;
+    private List<Object> searchResultList = new ArrayList<>();
 
     private CharSequence searchWords;
 
@@ -37,4 +38,5 @@ public class SearchResultModel extends ViewModel {
         this.searchWords = searchWords;
         return this;
     }
+
 }

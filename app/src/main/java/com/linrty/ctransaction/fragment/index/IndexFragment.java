@@ -141,7 +141,7 @@ public class IndexFragment extends Fragment {
     @SuppressLint("ClickableViewAccessibility")
     private void init(){
         // 设置该fragment的dataBinding需要绑定的数据实例
-        fragmentIndexBinding.setIndexData(indexViewModel);
+        fragmentIndexBinding.setData(indexViewModel);
         // 设置该fragment的dataBinding的生命周期
         fragmentIndexBinding.setLifecycleOwner(requireActivity());
         // 初始化适配器，隶属于本Fragment

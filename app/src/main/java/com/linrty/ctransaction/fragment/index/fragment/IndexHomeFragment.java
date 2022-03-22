@@ -73,7 +73,7 @@ public class IndexHomeFragment extends Fragment {
 
     private void init(){
         // 设置该页面的Model
-        fragmentIndexHomeBinding.setIndexData(indexViewModel);
+        fragmentIndexHomeBinding.setData(indexViewModel);
         fragmentIndexHomeBinding.setLifecycleOwner(requireParentFragment().requireActivity());
         // 获取NavHost对应的NavController实例，用来控制这个activity内的NavHost页面的导航
         navController = Navigation.findNavController(requireParentFragment().requireActivity(),R.id.mainNavHost);

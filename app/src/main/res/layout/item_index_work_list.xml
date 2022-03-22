@@ -5,8 +5,8 @@
 
     <data>
         <variable
-            name="indexWorkItemData"
-            type="com.linrty.ctransaction.fragment.index.fragment.model.IndexWorkListItemModel" />
+            name="data"
+            type="com.linrty.ctransaction.fragment.swap.model.SwapUploadItemModel" />
     </data>
 
     <androidx.cardview.widget.CardView
@@ -29,7 +29,7 @@
                 android:id="@+id/indexWorkItemTitle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="测试作品文字标题"
+                android:text="@{data.name}"
                 android:textColor="?attr/colorOnPrimary"
                 android:textSize="18sp"
                 app:layout_constraintStart_toStartOf="@+id/indexWorkItemLeft"

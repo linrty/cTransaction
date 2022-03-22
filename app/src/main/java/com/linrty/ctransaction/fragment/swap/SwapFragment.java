@@ -80,7 +80,7 @@ public class SwapFragment extends Fragment {
         // 初始化ViewModel，该ViewModel是从父级的Activity内获取的，即该ViewModel随Activity的生命周期
         indexViewModel = new ViewModelProvider(requireActivity()).get(IndexViewModel.class);
         // 设置页面的数据
-        fragmentSwapBinding.setSwapData(indexViewModel);
+        fragmentSwapBinding.setData(indexViewModel);
         // 设置Fragment生命周期交给谁管
         fragmentSwapBinding.setLifecycleOwner(requireActivity());
         swapFragments = new ArrayList<>();

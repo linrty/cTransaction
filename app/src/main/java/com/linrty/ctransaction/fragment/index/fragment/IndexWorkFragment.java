@@ -20,6 +20,7 @@ import com.linrty.ctransaction.BR;
 import com.linrty.ctransaction.R;
 import com.linrty.ctransaction.databinding.FragmentIndexWorkBinding;
 import com.linrty.ctransaction.fragment.index.fragment.model.IndexWorkListItemModel;
+import com.linrty.ctransaction.fragment.swap.model.SwapUploadItemModel;
 import com.linrty.ctransaction.plugin.RecyclerViewUtil;
 import com.scwang.smart.refresh.layout.api.RefreshLayout;
 import com.scwang.smart.refresh.layout.listener.OnRefreshListener;
@@ -67,14 +68,14 @@ public class IndexWorkFragment extends Fragment {
         // 模拟列表数据
         List<Object> list = new ArrayList<>();
         for (int i=0;i<10;i++){
-            list.add(new IndexWorkListItemModel().setName(String.valueOf(i)));
+            list.add(new SwapUploadItemModel().setName(String.valueOf(i)));
         }
         List<Object> list2 = new ArrayList<>();
         for (int i=0;i<10;i++){
-            list.add(new IndexWorkListItemModel().setName(String.valueOf(i)));
+            list.add(new SwapUploadItemModel().setName(String.valueOf(i)));
         }
         // 设置RecyclerView列表并且对Item进行dataBinding
-        RecyclerViewUtil.INSTANCE.bindingIndexWorkList(fragmentIndexWorkBinding.indexWorkRV, BR.indexWorkItemData,list, fragmentIndexWorkBinding.indexWorkRL);
+        RecyclerViewUtil.INSTANCE.bindingIndexWorkList(fragmentIndexWorkBinding.indexWorkRV, list, fragmentIndexWorkBinding.indexWorkRL);
         // 设置下拉刷新监听
         fragmentIndexWorkBinding.indexWorkRL.setOnRefreshListener(new OnRefreshListener() {
             @Override

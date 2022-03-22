@@ -1,5 +1,8 @@
 package com.linrty.ctransaction.fragment.swap.model;
- /**
+
+import androidx.lifecycle.ViewModel;
+
+/**
   * @ClassName:      SwapUploadItemModel
   * @Description:    java类作用描述
   * @Author:         Linrty
@@ -10,5 +13,15 @@ package com.linrty.ctransaction.fragment.swap.model;
   * @Version:        1.0
   */
 
-public class SwapUploadItemModel {
+public class SwapUploadItemModel extends ViewModel {
+    private String name;
+
+    public String getName() {
+        return name;
+    }
+
+    public SwapUploadItemModel setName(String name) {
+        this.name = name;
+        return this;
+    }
 }

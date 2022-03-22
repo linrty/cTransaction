@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools">
     <data>
         <variable
-            name="indexData"
+            name="data"
             type="com.linrty.ctransaction.fragment.index.IndexViewModel" />
     </data>
 

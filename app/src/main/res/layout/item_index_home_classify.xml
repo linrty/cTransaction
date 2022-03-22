@@ -5,7 +5,7 @@
 
     <data>
         <variable
-            name="headerData"
+            name="data"
             type="com.linrty.ctransaction.HeaderModel" />
     </data>
 

@@ -1,80 +1,77 @@
 package com.linrty.ctransaction.fragment.search.model;
 
-
-/**
-  * @ClassName:      SearchResultIteModel
+import androidx.lifecycle.ViewModel;
+ /**
+  * @ClassName:      SearchResultItemModel
   * @Description:    java类作用描述
   * @Author:         Linrty
-  * @CreateDate:     2022/3/21
+  * @CreateDate:     2022/3/22
   * @UpdateUser:     updater
-  * @UpdateDate:     2022/3/21
+  * @UpdateDate:     2022/3/22
   * @UpdateRemark:   更新内容
   * @Version:        1.0
   */
 
-public class SearchResultItemModel {
-    private String itemTitle;
-    private String itemUserName;
-    private Integer itemLookNum;
-    private Integer itemLikeNum;
-    private String itemImgUrl;
+public class SearchResultItemModel extends ViewModel {
+    public String itemTitle;
+    public String itemImgUrl;
+    public Integer itemLookNum;
+    public Integer itemLikeNum;
+    public String userName;
 
+     @Override
+     public String toString() {
+         return "SearchResultItemModel{" +
+                 "itemTitle='" + itemTitle + '\'' +
+                 ", itemImgUrl='" + itemImgUrl + '\'' +
+                 ", itemLookNum=" + itemLookNum +
+                 ", itemLikeNum=" + itemLikeNum +
+                 ", userName='" + userName + '\'' +
+                 '}';
+     }
 
-    public String getItemTitle() {
-        return itemTitle;
-    }
+     public String getItemTitle() {
+         return itemTitle;
+     }
 
-    public SearchResultItemModel setItemTitle(String itemTitle) {
-        this.itemTitle = itemTitle;
-        return this;
-    }
+     public SearchResultItemModel setItemTitle(String itemTitle) {
+         this.itemTitle = itemTitle;
+         return this;
+     }
 
-    public String getItemUserName() {
-        return itemUserName;
-    }
+     public String getItemImgUrl() {
+         return itemImgUrl;
+     }
 
-    public SearchResultItemModel setItemUserName(String itemUserName) {
-        this.itemUserName = itemUserName;
-        return this;
-    }
+     public SearchResultItemModel setItemImgUrl(String itemImgUrl) {
+         this.itemImgUrl = itemImgUrl;
+         return this;
+     }
 
-    public Integer getItemLookNum() {
-        return itemLookNum;
-    }
+     public Integer getItemLookNum() {
+         return itemLookNum;
+     }
 
-    public SearchResultItemModel setItemLookNum(Integer itemLookNum) {
-        this.itemLookNum = itemLookNum;
-        return this;
-    }
+     public SearchResultItemModel setItemLookNum(Integer itemLookNum) {
+         this.itemLookNum = itemLookNum;
+         return this;
+     }
 
-    public Integer getItemLikeNum() {
-        return itemLikeNum;
-    }
+     public Integer getItemLikeNum() {
+         return itemLikeNum;
+     }
 
-    public SearchResultItemModel setItemLikeNum(Integer itemLikeNum) {
-        this.itemLikeNum = itemLikeNum;
-        return this;
-    }
+     public SearchResultItemModel setItemLikeNum(Integer itemLikeNum) {
+         this.itemLikeNum = itemLikeNum;
+         return this;
+     }
 
-    public String getItemImgUrl() {
-        return itemImgUrl;
-    }
+     public String getUserName() {
+         return userName;
+     }
 
-    public SearchResultItemModel setItemImgUrl(String itemImgUrl) {
-        this.itemImgUrl = itemImgUrl;
-        return this;
-    }
-
-    @Override
-    public String toString() {
-        return "SearchResultIteModel{" +
-                "itemTitle='" + itemTitle + '\'' +
-                ", itemUserName='" + itemUserName + '\'' +
-                ", itemLookNum=" + itemLookNum +
-                ", itemLikeNum=" + itemLikeNum +
-                ", itemImgUrl='" + itemImgUrl + '\'' +
-                '}';
-    }
-
-
-}
+     public SearchResultItemModel setUserName(String userName) {
+         this.userName = userName;
+         return this;
+     }
+ }
