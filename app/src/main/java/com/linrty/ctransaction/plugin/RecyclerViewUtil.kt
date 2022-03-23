@@ -1,6 +1,7 @@
 package com.linrty.ctransaction.plugin
 
 import android.util.Log
+import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.drake.brv.PageRefreshLayout
 import com.drake.brv.annotaion.AnimationType
@@ -11,6 +12,8 @@ import com.linrty.ctransaction.fragment.index.fragment.model.IndexHomeItemModel
 import com.linrty.ctransaction.fragment.index.fragment.model.IndexWorkListItemModel
 import com.linrty.ctransaction.fragment.search.model.SearchResultItemModel
 import com.linrty.ctransaction.fragment.swap.model.SwapUploadItemModel
+import com.linrty.ctransaction.util.CodeUtil
+import kotlin.math.log
 
 object RecyclerViewUtil {
 
@@ -40,17 +43,31 @@ object RecyclerViewUtil {
     }
 
     public fun bindingIndexHomeList(rv: RecyclerView,data: MutableList<Any>){
-        rv.grid(1).setup {
-            addType<IndexHomeItemModel>(R.layout.item_index_home_list_small)
-            setAnimation(AnimationType.SLIDE_BOTTOM)
-            onBind {
-                val layoutParams = itemView.layoutParams
-                layoutParams.width = layoutParams.width
-                itemView.layoutParams = layoutParams
+        val layoutManager = GridLayoutManager(rv.context,2);
+        val spanSizeLookup = object : GridLayoutManager.SpanSizeLookup() {
+            override fun getSpanSize(position: Int): Int {
+                // 根据实际情况处理需要返回的值.对于小的item占用1个span size也就是分两列展示，对于大的就使用1列展示
+                val model: IndexHomeItemModel = data[position] as IndexHomeItemModel
+                return if (model.itemType == CodeUtil.CODE_INDEX_HOME_ITEM_SMALL) 1
+                else 2
             }
-
+        }
+        layoutManager.spanSizeLookup = spanSizeLookup
+        rv.layoutManager = layoutManager
+        rv.setup {
+            addType<IndexHomeItemModel>{
+                // 根据model中的item type来选择不同的布局样式
+                when (itemType) {
+                    CodeUtil.CODE_INDEX_HOME_ITEM_SMALL -> {
+                        R.layout.item_index_home_list_small
+                    }
+                    else -> {
+                        R.layout.item_index_home_list_big
+                    }
+                }
+            }
+            setAnimation(AnimationType.SLIDE_BOTTOM)
         }.models = data
-        rv.grid()
     }
 
     private fun getData(): MutableList<Any> {

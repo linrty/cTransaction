@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <dimen name="index_tabbar_item_title_size">8sp</dimen>
+    <dimen name="index_tabbar_item_title_size">10sp</dimen>
     <dimen name="index_tabbar_item_icon_size">30dp</dimen>
     <dimen name="item_icon_size">16dp</dimen>
     <dimen name="item_icon_num_size">10sp</dimen>
+    <dimen name="item_corner_radius">4dp</dimen>
+    <dimen name="index_home_item_title_size">13sp</dimen>
 </resources>

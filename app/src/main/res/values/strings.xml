@@ -21,4 +21,5 @@
     <string name="user_image_description">该图片用于表示用户</string>
     <string name="look_image_description">该图片用于表示浏览数量</string>
     <string name="like_image_description">该图片用于表示收藏数量</string>
+    <string name="more_image_description">该图片同于表示更多操作选项</string>
 </resources>

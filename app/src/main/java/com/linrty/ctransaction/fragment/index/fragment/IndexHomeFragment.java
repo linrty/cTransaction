@@ -11,6 +11,7 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
+import androidx.recyclerview.widget.GridLayoutManager;
 
 import com.blankj.utilcode.util.BarUtils;
 import com.linrty.ctransaction.R;
@@ -18,6 +19,7 @@ import com.linrty.ctransaction.databinding.FragmentIndexHomeBinding;
 import com.linrty.ctransaction.fragment.index.IndexViewModel;
 import com.linrty.ctransaction.fragment.index.fragment.model.IndexHomeItemModel;
 import com.linrty.ctransaction.plugin.RecyclerViewUtil;
+import com.linrty.ctransaction.util.CodeUtil;
 import com.mancj.materialsearchbar.MaterialSearchBar;
 import com.xuexiang.xui.utils.StatusBarUtils;
 
@@ -83,8 +85,22 @@ public class IndexHomeFragment extends Fragment {
         // 模拟列表数据
         List<Object> list = new ArrayList<>();
         for (int i=0;i<20;i++){
-            list.add(new IndexHomeItemModel().setItemTitle(String.valueOf(i)));
+            list.add(new IndexHomeItemModel().setItemTitle(String.valueOf(i)).setItemType(CodeUtil.CODE_INDEX_HOME_ITEM_SMALL));
+            if (i%8 == 7){
+                list.add(new IndexHomeItemModel().setItemTitle(String.valueOf(i)).setItemType(CodeUtil.CODE_INDEX_HOME_ITEM_BIG));
+            }
         }
+        GridLayoutManager layoutManager = new GridLayoutManager(requireParentFragment().getContext(),2);
+        layoutManager.setSpanSizeLookup(new GridLayoutManager.SpanSizeLookup() {
+            @Override
+            public int getSpanSize(int position) {
+                if (((IndexHomeItemModel)(list.get(position))).getItemType() == CodeUtil.CODE_INDEX_HOME_ITEM_SMALL){
+                    return 1;
+                }else{
+                    return 2;
+                }
+            }
+        });
         RecyclerViewUtil.INSTANCE.bindingIndexHomeList(fragmentIndexHomeBinding.indexHomeRV,list);
         // 获取NavHost对应的NavController实例，用来控制这个activity内的NavHost页面的导航
         navController = Navigation.findNavController(requireParentFragment().requireActivity(),R.id.mainNavHost);

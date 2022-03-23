@@ -49,35 +49,10 @@ public class IndexMessageFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         fragmentIndexMessageBinding = DataBindingUtil.inflate(inflater,R.layout.fragment_index_message,container,false);
-        EaseConversationListFragment easeConversationListFragment = new EaseConversationListFragment();
-        getChildFragmentManager().beginTransaction().add(fragmentIndexMessageBinding.container.getId(),easeConversationListFragment).commit();
-        EMClient.getInstance().chatManager().addMessageListener(new EMMessageListener() {
-            @Override
-            public void onMessageReceived(List<EMMessage> messages) {
-                // 接收到消息的监听，立马更新会话列表
-                easeConversationListFragment.conversationListLayout.refreshList();
-            }
+        // EaseConversationListFragment easeConversationListFragment = new EaseConversationListFragment();
+        IndexMessageListFragment messageListFragment = new IndexMessageListFragment();
+        getChildFragmentManager().beginTransaction().add(fragmentIndexMessageBinding.container.getId(),messageListFragment).commit();
 
-            @Override
-            public void onCmdMessageReceived(List<EMMessage> messages) {
-
-            }
-
-            @Override
-            public void onMessageRead(List<EMMessage> messages) {
-
-            }
-
-            @Override
-            public void onMessageDelivered(List<EMMessage> messages) {
-
-            }
-
-            @Override
-            public void onMessageRecalled(List<EMMessage> messages) {
-
-            }
-        });
         return fragmentIndexMessageBinding.getRoot();
     }
 }

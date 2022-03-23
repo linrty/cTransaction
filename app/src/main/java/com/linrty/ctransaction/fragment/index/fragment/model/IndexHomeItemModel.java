@@ -17,6 +17,9 @@ public class IndexHomeItemModel extends ViewModel {
     private String itemImgUrl;
     private String itemTitle;
     private String itemUserName;
+    private Integer itemLikeNum;
+    private int itemType;
+
 
     public String getItemImgUrl() {
         return itemImgUrl;
@@ -45,12 +48,32 @@ public class IndexHomeItemModel extends ViewModel {
         return this;
     }
 
+    public Integer getItemLikeNum() {
+        return itemLikeNum;
+    }
+
+    public IndexHomeItemModel setItemLikeNum(Integer itemLikeNum) {
+        this.itemLikeNum = itemLikeNum;
+        return this;
+    }
+
+    public int getItemType() {
+        return itemType;
+    }
+
+    public IndexHomeItemModel setItemType(int itemType) {
+        this.itemType = itemType;
+        return this;
+    }
+
     @Override
     public String toString() {
         return "IndexHomeItemModel{" +
                 "itemImgUrl='" + itemImgUrl + '\'' +
                 ", itemTitle='" + itemTitle + '\'' +
                 ", itemUserName='" + itemUserName + '\'' +
+                ", itemLikeNum=" + itemLikeNum +
+                ", itemType=" + itemType +
                 '}';
     }
 }

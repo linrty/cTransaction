@@ -12,14 +12,12 @@
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="100dp"
-        android:layout_marginTop="5dp"
-        android:layout_marginBottom="5dp"
         android:layout_marginLeft="8dp"
+        android:layout_marginTop="5dp"
         android:layout_marginRight="8dp"
-        android:translationZ="3dp"
+        android:layout_marginBottom="5dp"
         app:cardBackgroundColor="?attr/colorPrimary"
-        app:cardCornerRadius="7dp"
-        app:cardElevation="10dp">
+        app:cardCornerRadius="@dimen/item_corner_radius">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -109,8 +107,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="2dp"
                 android:text="999+"
-                android:textSize="@dimen/item_icon_num_size"
                 android:textColor="@color/blue_30"
+                android:textSize="@dimen/item_icon_num_size"
                 app:layout_constraintBottom_toBottomOf="@+id/indexWorkItemLookIcon"
                 app:layout_constraintStart_toEndOf="@+id/indexWorkItemLookIcon"
                 app:layout_constraintTop_toTopOf="@+id/indexWorkItemLookIcon" />

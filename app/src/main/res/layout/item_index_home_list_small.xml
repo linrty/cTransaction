@@ -7,49 +7,51 @@
             name="data"
             type="com.linrty.ctransaction.fragment.index.fragment.model.IndexHomeItemModel" />
     </data>
+
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
-        android:layout_height="200dp"
-        android:layout_marginTop="5dp"
-        android:layout_marginBottom="5dp"
-        android:layout_marginLeft="5dp"
-        android:layout_marginRight="5dp"
-        android:translationZ="3dp"
-        app:cardCornerRadius="7dp"
-        app:cardElevation="10dp">
+        android:layout_height="180dp"
+        android:layout_marginLeft="4dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginRight="4dp"
+        android:layout_marginBottom="4dp"
+        app:cardCornerRadius="@dimen/item_corner_radius">
+
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
             <com.makeramen.roundedimageview.RoundedImageView
-                android:id="@+id/indexHomeItemImg"
+                android:id="@+id/indexHomeSmallItemImg"
                 android:layout_width="match_parent"
-                android:layout_height="130dp"
+                android:layout_height="105dp"
                 android:scaleType="centerCrop"
                 android:src="@drawable/ic_launcher_background"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:riv_border_width="0dip"
-                app:riv_corner_radius_top_left="5dip"
-                app:riv_corner_radius_top_right="5dip"
+                app:riv_corner_radius_top_left="@dimen/item_corner_radius"
+                app:riv_corner_radius_top_right="@dimen/item_corner_radius"
                 app:riv_mutate_background="true"
                 tools:ignore="ImageContrastCheck" />
 
             <TextView
-                android:id="@+id/textView4"
+                android:id="@+id/indexHomeSmallItemTitleTV"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
                 android:layout_marginEnd="8dp"
                 android:text="啊螺丝扣搭街坊卢卡斯大家疯狂发"
                 android:textColor="@color/black_400"
+                android:textSize="@dimen/index_home_item_title_size"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/indexHomeItemImg" />
+                app:layout_constraintTop_toBottomOf="@+id/indexHomeSmallItemImg" />
 
             <ImageView
-                android:id="@+id/searchResultItemUserImg"
+                android:id="@+id/IndexHomeSmallItemUserImg"
                 android:layout_width="@dimen/item_icon_size"
                 android:layout_height="@dimen/item_icon_size"
                 android:layout_marginStart="8dp"
@@ -61,27 +63,28 @@
                 tools:ignore="ImageContrastCheck" />
 
             <TextView
-                android:id="@+id/textView5"
+                android:id="@+id/indexHomeSmallItemUserTV"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="2dp"
                 android:text="张三"
                 android:textColor="@color/black_200"
                 android:textSize="10sp"
-                app:layout_constraintBottom_toBottomOf="@+id/searchResultItemUserImg"
-                app:layout_constraintStart_toEndOf="@+id/searchResultItemUserImg"
-                app:layout_constraintTop_toTopOf="@+id/searchResultItemUserImg" />
+                app:layout_constraintBottom_toBottomOf="@+id/IndexHomeSmallItemUserImg"
+                app:layout_constraintStart_toEndOf="@+id/IndexHomeSmallItemUserImg"
+                app:layout_constraintTop_toTopOf="@+id/IndexHomeSmallItemUserImg" />
 
             <ImageView
-                android:id="@+id/imageView4"
+                android:id="@+id/indexHomeSamllItemMoreImg"
                 android:layout_width="@dimen/item_icon_size"
                 android:layout_height="@dimen/item_icon_size"
                 android:layout_marginEnd="8dp"
                 android:layout_marginBottom="8dp"
-                app:tint="@color/black_200"
+                android:contentDescription="@string/more_image_description"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:srcCompat="@drawable/ic_more" />
+                app:srcCompat="@drawable/ic_more"
+                app:tint="@color/black_200" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>
