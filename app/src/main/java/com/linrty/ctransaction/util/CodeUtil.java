@@ -11,6 +11,23 @@ package com.linrty.ctransaction.util;
   */
 
 public interface CodeUtil {
+
+     /**
+      * 全局Log的TAG
+      */
+    String TAG_LOG = "Linrty";
+
+     /**
+      * 全局网络相关参数
+      */
+     String BASE_URL = "http://linrty.com/";
+     /**
+      * 超时相关设置，单位为分钟
+      */
+     long CONNECT_TIME_OUT = 2;
+     long READ_TIME_OUT = 2;
+     long WRITE_TIME_OUT = 2;
+
     /**
      * 指向对应的Fragment页面的code编码
      */

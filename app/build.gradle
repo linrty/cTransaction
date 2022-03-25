@@ -19,9 +19,17 @@ android {
     }
 
     buildTypes {
+        debug {
+            minifyEnabled false // 混淆
+            zipAlignEnabled true // Zipalign优化
+            shrinkResources true // 移除无用的resource文件
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'  // 加载默认混淆配置文件
+        }
         release {
-            minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            minifyEnabled true // 混淆
+            zipAlignEnabled true // Zipalign优化
+            shrinkResources true  // 移除无用的resource文件
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'  // 加载默认混淆配置文件
         }
     }
 
@@ -171,4 +179,6 @@ dependencies {
     /*Gson*/
     implementation 'com.google.code.gson:gson:2.9.0'
 
+    /*阿里云OSS服务*/
+    implementation 'com.aliyun.dpa:oss-android-sdk:2.9.11'
 }
