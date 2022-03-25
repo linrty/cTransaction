@@ -22,4 +22,13 @@
     <string name="look_image_description">该图片用于表示浏览数量</string>
     <string name="like_image_description">该图片用于表示收藏数量</string>
     <string name="more_image_description">该图片同于表示更多操作选项</string>
+
+    <!--Index User 首页子页面相关的String-->
+    <string name="title_index_user_my_identification">我的认证</string>
+    <string name="title_index_user_my_buy">我买到的</string>
+    <string name="title_index_user_my_sale">我卖出的</string>
+    <string name="title_index_user_appeal_handing">申诉处理</string>
+
+    <string name="title_index_user_logout">退出登录</string>
+
 </resources>

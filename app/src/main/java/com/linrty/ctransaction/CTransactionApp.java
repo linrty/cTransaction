@@ -6,9 +6,13 @@ import android.app.Activity;
 import android.app.Application;
 import android.content.Context;
 
+import com.blankj.utilcode.util.LogUtils;
 import com.drake.brv.utils.BRV;
+import com.drake.net.NetConfig;
 import com.hyphenate.chat.EMClient;
 import com.hyphenate.easeui.EaseIM;
+import com.linrty.ctransaction.plugin.NetUtil;
+import com.linrty.ctransaction.util.CodeUtil;
 import com.scwang.smart.refresh.footer.ClassicsFooter;
 import com.scwang.smart.refresh.header.ClassicsHeader;
 import com.scwang.smart.refresh.layout.SmartRefreshLayout;
@@ -52,20 +56,51 @@ public class CTransactionApp extends Application {
 
     public static Context context;
 
+    private LogUtils.Config logConfig;
+
+
 
 
     @Override
     public void onCreate() {
         super.onCreate();
         context = this;
+
+        initIM();
+
+        initBRV();
+
+        initLog();
+
+        initNet();
+    }
+
+    private void initIM(){
         //EaseIM初始化
         if(EaseIM.getInstance().init(context, null)){
             //在做打包混淆时，关闭debug模式，避免消耗不必要的资源
             EMClient.getInstance().setDebugMode(true);
             //EaseIM初始化成功之后再去调用注册消息监听的代码 ...
         }
+    }
 
+    private void initBRV(){
         // 设置BRV的数据绑定modelID
         BRV.INSTANCE.setModelId(BR.data);
+    }
+
+    private void initLog(){
+        logConfig = LogUtils.getConfig();
+        // 配置全局的TAG,以及一些选项
+        logConfig.setGlobalTag(CodeUtil.TAG_LOG)
+                .setBorderSwitch(true)
+                .setLogSwitch(true)
+                .setLogHeadSwitch(true)
+                .setSingleTagSwitch(true);
+    }
+
+    private void initNet(){
+        // 初始化网络相关参数，具体参数在NetUtil中
+        NetUtil.INSTANCE.netConfig();
     }
 }

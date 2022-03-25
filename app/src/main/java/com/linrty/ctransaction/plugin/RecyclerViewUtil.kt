@@ -6,8 +6,12 @@ import androidx.recyclerview.widget.RecyclerView
 import com.drake.brv.PageRefreshLayout
 import com.drake.brv.annotaion.AnimationType
 import com.drake.brv.utils.*
+import com.drake.net.Get
+import com.drake.net.utils.scopeNet
 import com.linrty.ctransaction.HeaderModel
 import com.linrty.ctransaction.R
+import com.linrty.ctransaction.bean.Credit
+import com.linrty.ctransaction.common.net.CommonResult
 import com.linrty.ctransaction.fragment.index.fragment.model.IndexHomeItemModel
 import com.linrty.ctransaction.fragment.index.fragment.model.IndexWorkListItemModel
 import com.linrty.ctransaction.fragment.search.model.SearchResultItemModel
