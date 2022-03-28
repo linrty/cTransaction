@@ -9,6 +9,7 @@
     </data>
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
+        android:id="@+id/searchResultItem"
         android:paddingRight="16dp"
         android:paddingLeft="16dp"
         android:layout_height="wrap_content">
@@ -84,7 +85,7 @@
             app:layout_constraintBottom_toBottomOf="@+id/searchResultImg"
             app:layout_constraintStart_toEndOf="@+id/searchResultImg"
             app:srcCompat="@drawable/ic_eye"
-            app:tint="@color/black_200" />
+            app:tint="@color/orange_300" />
 
         <TextView
             android:id="@+id/searchResultItemLookNum"
@@ -107,7 +108,7 @@
             app:layout_constraintBottom_toBottomOf="@+id/searchResultImg"
             app:layout_constraintStart_toEndOf="@+id/searchResultImg"
             app:srcCompat="@drawable/ic_heart_fill"
-            app:tint="@color/black_200" />
+            app:tint="?attr/error" />
 
         <TextView
             android:id="@+id/searchResultItemLikeNum"

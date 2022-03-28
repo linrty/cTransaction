@@ -3,12 +3,24 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/AndroidStudioProjects/cTransaction/app/src/main/res/drawable/bg_comment.xml" value="0.354" />
         <entry key="..\:/AndroidStudioProjects/cTransaction/app/src/main/res/drawable/bg_profile.xml" value="0.22" />
         <entry key="..\:/AndroidStudioProjects/cTransaction/app/src/main/res/drawable/error_button_selector.xml" value="0.3505" />
         <entry key="..\:/AndroidStudioProjects/cTransaction/app/src/main/res/drawable/ic_appeal_handling.xml" value="0.35" />
         <entry key="..\:/AndroidStudioProjects/cTransaction/app/src/main/res/drawable/ic_back_animated.xml" value="0.171" />
         <entry key="..\:/AndroidStudioProjects/cTransaction/app/src/main/res/drawable/ic_check.xml" value="0.3545" />
         <entry key="..\:/AndroidStudioProjects/cTransaction/app/src/main/res/drawable/ic_close.xml" value="0.3545" />
+        <entry key="..\:/AndroidStudioProjects/cTransaction/app/src/main/res/drawable/ic_comment_arrow_right.xml" value="0.354" />
+        <entry key="..\:/AndroidStudioProjects/cTransaction/app/src/main/res/drawable/ic_comment_down.xml" value="0.354" />
+        <entry key="..\:/AndroidStudioProjects/cTransaction/app/src/main/res/drawable/ic_comment_down_active.xml" value="0.354" />
+        <entry key="..\:/AndroidStudioProjects/cTransaction/app/src/main/res/drawable/ic_comment_filter.xml" value="0.354" />
+        <entry key="..\:/AndroidStudioProjects/cTransaction/app/src/main/res/drawable/ic_comment_input.xml" value="0.354" />
+        <entry key="..\:/AndroidStudioProjects/cTransaction/app/src/main/res/drawable/ic_comment_more.xml" value="0.354" />
+        <entry key="..\:/AndroidStudioProjects/cTransaction/app/src/main/res/drawable/ic_comment_share.xml" value="0.354" />
+        <entry key="..\:/AndroidStudioProjects/cTransaction/app/src/main/res/drawable/ic_comment_up.xml" value="0.354" />
+        <entry key="..\:/AndroidStudioProjects/cTransaction/app/src/main/res/drawable/ic_comment_up_active.xml" value="0.354" />
+        <entry key="..\:/AndroidStudioProjects/cTransaction/app/src/main/res/drawable/ic_data_empty.xml" value="0.354" />
+        <entry key="..\:/AndroidStudioProjects/cTransaction/app/src/main/res/drawable/ic_default_avatar.xml" value="0.354" />
         <entry key="..\:/AndroidStudioProjects/cTransaction/app/src/main/res/drawable/ic_dengji.xml" value="0.3545" />
         <entry key="..\:/AndroidStudioProjects/cTransaction/app/src/main/res/drawable/ic_eye.xml" value="0.3545" />
         <entry key="..\:/AndroidStudioProjects/cTransaction/app/src/main/res/drawable/ic_heart_fill.xml" value="0.3545" />
@@ -27,6 +39,9 @@
         <entry key="..\:/AndroidStudioProjects/cTransaction/app/src/main/res/drawable/ic_swap.xml" value="0.3545" />
         <entry key="..\:/AndroidStudioProjects/cTransaction/app/src/main/res/drawable/ic_upload.xml" value="0.3545" />
         <entry key="..\:/AndroidStudioProjects/cTransaction/app/src/main/res/drawable/ic_user.xml" value="0.3545" />
+        <entry key="..\:/AndroidStudioProjects/cTransaction/app/src/main/res/drawable/selector_comment_down.xml" value="0.354" />
+        <entry key="..\:/AndroidStudioProjects/cTransaction/app/src/main/res/drawable/selector_comment_up.xml" value="0.354" />
+        <entry key="..\:/AndroidStudioProjects/cTransaction/app/src/main/res/drawable/selector_comment_up_text.xml" value="0.354" />
         <entry key="..\:/AndroidStudioProjects/cTransaction/app/src/main/res/drawable/shape_error_tag.xml" value="0.3545" />
         <entry key="..\:/AndroidStudioProjects/cTransaction/app/src/main/res/drawable/shape_success_tag.xml" value="0.3545" />
         <entry key="..\:/AndroidStudioProjects/cTransaction/app/src/main/res/drawable/shape_tag_on_index_work.xml" value="0.3545" />
@@ -50,16 +65,19 @@
         <entry key="..\:/AndroidStudioProjects/cTransaction/app/src/main/res/layout/icon_tabbar_message.xml" value="0.3619791666666667" />
         <entry key="..\:/AndroidStudioProjects/cTransaction/app/src/main/res/layout/icon_tabbar_user.xml" value="0.3619791666666667" />
         <entry key="..\:/AndroidStudioProjects/cTransaction/app/src/main/res/layout/icon_tabbar_work.xml" value="0.3619791666666667" />
+        <entry key="..\:/AndroidStudioProjects/cTransaction/app/src/main/res/layout/item_comment.xml" value="0.3619791666666667" />
         <entry key="..\:/AndroidStudioProjects/cTransaction/app/src/main/res/layout/item_index_home_classify.xml" value="0.18697916666666667" />
         <entry key="..\:/AndroidStudioProjects/cTransaction/app/src/main/res/layout/item_index_home_list.xml" value="0.3619791666666667" />
         <entry key="..\:/AndroidStudioProjects/cTransaction/app/src/main/res/layout/item_index_home_list_big.xml" value="0.5" />
-        <entry key="..\:/AndroidStudioProjects/cTransaction/app/src/main/res/layout/item_index_home_list_small.xml" value="0.33" />
+        <entry key="..\:/AndroidStudioProjects/cTransaction/app/src/main/res/layout/item_index_home_list_small.xml" value="0.5" />
         <entry key="..\:/AndroidStudioProjects/cTransaction/app/src/main/res/layout/item_index_work_list.xml" value="0.5607734806629834" />
         <entry key="..\:/AndroidStudioProjects/cTransaction/app/src/main/res/layout/item_last_request.xml" value="0.18489583333333334" />
+        <entry key="..\:/AndroidStudioProjects/cTransaction/app/src/main/res/layout/item_nested_comment.xml" value="0.3619791666666667" />
         <entry key="..\:/AndroidStudioProjects/cTransaction/app/src/main/res/layout/item_search_result_list.xml" value="0.5" />
         <entry key="..\:/AndroidStudioProjects/cTransaction/app/src/main/res/layout/item_swap_download_list.xml" value="0.33" />
         <entry key="..\:/AndroidStudioProjects/cTransaction/app/src/main/res/layout/item_swap_upload_list.xml" value="0.3619791666666667" />
         <entry key="..\:/AndroidStudioProjects/cTransaction/app/src/main/res/layout/searchbar.xml" value="0.18489583333333334" />
+        <entry key="..\:/AndroidStudioProjects/cTransaction/app/src/main/res/layout/test.xml" value="0.3619791666666667" />
         <entry key="..\:/AndroidStudioProjects/cTransaction/app/src/main/res/menu/toolbar_menu.xml" value="0.3619791666666667" />
         <entry key="..\:/AndroidStudioProjects/cTransaction/library/src/main/res/drawable-mdpi/ic_menu_animated.xml" value="0.171" />
         <entry key="..\:/AndroidStudioProjects/cTransaction/library/src/main/res/drawable-mdpi/ic_menu_vector.xml" value="0.193" />

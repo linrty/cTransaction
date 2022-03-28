@@ -9,6 +9,7 @@
     </data>
 
     <androidx.cardview.widget.CardView
+        android:id="@+id/indexHomeBigItem"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="4dp"
@@ -78,7 +79,7 @@
                 app:layout_constraintEnd_toStartOf="@+id/indexHomeBigItemLikeNum"
                 app:layout_constraintTop_toBottomOf="@+id/indexHomeBigItemImg"
                 app:srcCompat="@drawable/ic_heart_fill"
-                app:tint="@color/black_200" />
+                app:tint="?attr/error" />
 
             <TextView
                 android:id="@+id/indexHomeBigItemLikeNum"
