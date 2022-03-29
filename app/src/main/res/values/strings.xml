@@ -31,4 +31,8 @@
 
     <string name="title_index_user_logout">退出登录</string>
 
+    <string name="retracting_message">正在撤回消息</string>
+    <string name="copy">复制</string>
+    <string name="recall">撤回</string>
+
 </resources>

@@ -22,6 +22,7 @@ import androidx.viewpager2.widget.ViewPager2;
 import com.airbnb.lottie.LottieAnimationView;
 import com.airbnb.lottie.LottieComposition;
 import com.blankj.utilcode.util.BarUtils;
+import com.blankj.utilcode.util.LogUtils;
 import com.linrty.ctransaction.R;
 import com.linrty.ctransaction.adapter.ViewPageFragmentAdapter;
 import com.linrty.ctransaction.databinding.FragmentIndexBinding;
@@ -64,7 +65,7 @@ public class IndexFragment extends Fragment {
       /**
        * 与视图UI控件进行绑定
        */
-    FragmentIndexBinding fragmentIndexBinding;
+    FragmentIndexBinding binding;
 
       /**
        * 获取index页面的ViewModel，也就是主页面存储数据的地方
@@ -101,11 +102,11 @@ public class IndexFragment extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         // 与指定的视图进行绑定
-        fragmentIndexBinding = DataBindingUtil.inflate(inflater, R.layout.fragment_index,container,false);
-        init();
+        binding = DataBindingUtil.inflate(inflater, R.layout.fragment_index,container,false);
+        initView();
         // 除了第一次加载视图会改true为false,其他每次加载都是false
         isFirstLoad = false;
-        return fragmentIndexBinding.getRoot();
+        return binding.getRoot();
     }
 
       @Override
@@ -129,7 +130,6 @@ public class IndexFragment extends Fragment {
         currentFragment = CODE_FRAGMENT_INDEX_HOME;
         // 因为初始化进入的是首页，首页没有Top bar 所以系统状态栏的背景是Light色系的所以系统字体需要设置为暗色系才能看得更清楚，true为暗色字体，false为白色字体
         BarUtils.setStatusBarLightMode(getActivity(),true);
-
     }
 
 
@@ -139,75 +139,80 @@ public class IndexFragment extends Fragment {
       * @return
       */
     @SuppressLint("ClickableViewAccessibility")
-    private void init(){
+    private void initView(){
+        LogUtils.i("渲染Index页面");
         // 设置该fragment的dataBinding需要绑定的数据实例
-        fragmentIndexBinding.setData(indexViewModel);
+        binding.setData(indexViewModel);
         // 设置该fragment的dataBinding的生命周期
-        fragmentIndexBinding.setLifecycleOwner(requireActivity());
+        binding.setLifecycleOwner(requireActivity());
         // 初始化适配器，隶属于本Fragment
         indexFragmentAdapter = new ViewPageFragmentAdapter(this,indexFragments);
         // 设置VIewPager预加载数量，如果不设置的话每次重新启动APP进入首页时切换页面都会卡一下
-        fragmentIndexBinding.indexViewPager.setOffscreenPageLimit(4);
+        binding.indexViewPager.setOffscreenPageLimit(4);
         // 设置ViewPage对应的适配器
-        fragmentIndexBinding.indexViewPager.setAdapter(indexFragmentAdapter);
+        binding.indexViewPager.setAdapter(indexFragmentAdapter);
         // 关闭左右滑动手势来切换页面
-        fragmentIndexBinding.indexViewPager.setUserInputEnabled(false);
+        binding.indexViewPager.setUserInputEnabled(false);
         // 设置刚加载首页时，默认展示的子页面，并将Tabbar的动画做相应的修改
-        fragmentIndexBinding.indexViewPager.setCurrentItem(CODE_FRAGMENT_INDEX_HOME-CODE_FRAGMENT_INDEX-1);
+        binding.indexViewPager.setCurrentItem(CODE_FRAGMENT_INDEX_HOME-CODE_FRAGMENT_INDEX-1);
         // 如果是第一次加载进页面,那就需要设定首页为最初的展示页面,其他情况应按照进入其他fragment时所在在页面退回相应的页面
         if(isFirstLoad) {
-            fragmentIndexBinding.indexTabbarHome.indexTabbarHomeLottie.setFrame(48);
+            binding.indexTabbarHome.indexTabbarHomeLottie.setFrame(48);
         }else{
             switch (currentFragment){
                 case CODE_FRAGMENT_INDEX_HOME:
-                    fragmentIndexBinding.indexTabbarHome.indexTabbarHomeLottie.setFrame(48);
+                    binding.indexTabbarHome.indexTabbarHomeLottie.setFrame(48);
                     break;
                 case CODE_FRAGMENT_INDEX_MESSAGE:
-                    fragmentIndexBinding.indexTabbarMessage.indexTabbarMessageLottie.setFrame(48);
+                    binding.indexTabbarMessage.indexTabbarMessageLottie.setFrame(48);
                     break;
                 case CODE_FRAGMENT_INDEX_USER:
-                    fragmentIndexBinding.indexTabbarUser.indexTabbarUserLottie.setFrame(48);
+                    binding.indexTabbarUser.indexTabbarUserLottie.setFrame(48);
                     break;
                 case CODE_FRAGMENT_INDEX_WORK:
-                    fragmentIndexBinding.indexTabbarWork.indexTabbarWorkLottie.setFrame(48);
+                    binding.indexTabbarWork.indexTabbarWorkLottie.setFrame(48);
                     break;
                 default:
                     break;
             }
         }
         // 设置底部导航栏的触摸事件,先找到对应的include组件id，然后进入对应的dataBinding，利用dataBinding进入include内的组件控制
-        fragmentIndexBinding.indexTabbarHome.tabbarHomeLayout.setOnTouchListener(new View.OnTouchListener() {
+        binding.indexTabbarHome.tabbarHomeLayout.setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View view, MotionEvent motionEvent) {
+                LogUtils.i("触发首页onTouch");
                 BarUtils.setStatusBarLightMode(getActivity(),true);
-                changeLottieState(fragmentIndexBinding.indexTabbarHome.indexTabbarHomeLottie,motionEvent,CODE_FRAGMENT_INDEX_HOME,view);
+                changeLottieState(binding.indexTabbarHome.indexTabbarHomeLottie,motionEvent,CODE_FRAGMENT_INDEX_HOME,view);
                 return true;
             }
         });
 
-        fragmentIndexBinding.indexTabbarMessage.tabbarMessageLayout.setOnTouchListener(new View.OnTouchListener() {
+        binding.indexTabbarMessage.tabbarMessageLayout.setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View view, MotionEvent motionEvent) {
+                LogUtils.i("触发消息onTouch");
                 BarUtils.setStatusBarLightMode(getActivity(),true);
-                changeLottieState(fragmentIndexBinding.indexTabbarMessage.indexTabbarMessageLottie,motionEvent,CODE_FRAGMENT_INDEX_MESSAGE,view);
+                changeLottieState(binding.indexTabbarMessage.indexTabbarMessageLottie,motionEvent,CODE_FRAGMENT_INDEX_MESSAGE,view);
                 return true;
             }
         });
 
-        fragmentIndexBinding.indexTabbarUser.tabbarUserLayout.setOnTouchListener(new View.OnTouchListener() {
+        binding.indexTabbarUser.tabbarUserLayout.setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View view, MotionEvent motionEvent) {
+                LogUtils.i("触发用户onTouch");
                 BarUtils.setStatusBarLightMode(getActivity(),false);
-                changeLottieState(fragmentIndexBinding.indexTabbarUser.indexTabbarUserLottie,motionEvent,CODE_FRAGMENT_INDEX_USER,view);
+                changeLottieState(binding.indexTabbarUser.indexTabbarUserLottie,motionEvent,CODE_FRAGMENT_INDEX_USER,view);
                 return true;
             }
         });
 
-        fragmentIndexBinding.indexTabbarWork.tabbarWorkLayout.setOnTouchListener(new View.OnTouchListener() {
+        binding.indexTabbarWork.tabbarWorkLayout.setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View view, MotionEvent motionEvent) {
+                LogUtils.i("触发作品onTouch");
                 BarUtils.setStatusBarLightMode(getActivity(),true);
-                changeLottieState(fragmentIndexBinding.indexTabbarWork.indexTabbarWorkLottie,motionEvent,CODE_FRAGMENT_INDEX_WORK,view);
+                changeLottieState(binding.indexTabbarWork.indexTabbarWorkLottie,motionEvent,CODE_FRAGMENT_INDEX_WORK,view);
                 return true;
             }
         });
@@ -220,7 +225,7 @@ public class IndexFragment extends Fragment {
       */
 
     public void changeLottieState(LottieAnimationView lottieAnimationView ,MotionEvent motionEvent,Integer selectFragmentCode,View v){
-        ViewPager2 viewPager2 = fragmentIndexBinding.indexViewPager;
+        ViewPager2 viewPager2 = binding.indexViewPager;
         switch (motionEvent.getAction()){
             case MotionEvent.ACTION_DOWN:
                 // 当刚刚按下这个Tabbar时先将该Lottie设置到尾部帧处
@@ -233,16 +238,16 @@ public class IndexFragment extends Fragment {
                     switch (currentFragment){
                         // 除了Home页面没有Top bar，也就是系统状态栏为白色，其他的页面系统状态栏都是暗色背景。所以需要设置系统状态栏的字体颜色是白色系的
                         case CODE_FRAGMENT_INDEX_HOME:
-                            fragmentIndexBinding.indexTabbarHome.indexTabbarHomeLottie.setFrame(0);
+                            binding.indexTabbarHome.indexTabbarHomeLottie.setFrame(0);
                             break;
                         case CODE_FRAGMENT_INDEX_MESSAGE:
-                            fragmentIndexBinding.indexTabbarMessage.indexTabbarMessageLottie.setFrame(0);
+                            binding.indexTabbarMessage.indexTabbarMessageLottie.setFrame(0);
                             break;
                         case CODE_FRAGMENT_INDEX_USER:
-                            fragmentIndexBinding.indexTabbarUser.indexTabbarUserLottie.setFrame(0);
+                            binding.indexTabbarUser.indexTabbarUserLottie.setFrame(0);
                             break;
                         case CODE_FRAGMENT_INDEX_WORK:
-                            fragmentIndexBinding.indexTabbarWork.indexTabbarWorkLottie.setFrame(0);
+                            binding.indexTabbarWork.indexTabbarWorkLottie.setFrame(0);
                             break;
                         default:
                             break;
@@ -250,10 +255,10 @@ public class IndexFragment extends Fragment {
                     // 将ViewPage2内的Fragment切换至对应的Fragment，Fragment的item码通过FRAGMENTCODE减去INDEXCODE，因为将Fragment放入List时是按这个顺序排放的
                     viewPager2.setCurrentItem(selectFragmentCode-CODE_FRAGMENT_INDEX-1);
                     // 播放点击动画,先取消所有的动画
-                    fragmentIndexBinding.indexTabbarHome.indexTabbarHomeLottie.cancelAnimation();
-                    fragmentIndexBinding.indexTabbarWork.indexTabbarWorkLottie.cancelAnimation();
-                    fragmentIndexBinding.indexTabbarUser.indexTabbarUserLottie.cancelAnimation();
-                    fragmentIndexBinding.indexTabbarMessage.indexTabbarMessageLottie.cancelAnimation();
+                    binding.indexTabbarHome.indexTabbarHomeLottie.cancelAnimation();
+                    binding.indexTabbarWork.indexTabbarWorkLottie.cancelAnimation();
+                    binding.indexTabbarUser.indexTabbarUserLottie.cancelAnimation();
+                    binding.indexTabbarMessage.indexTabbarMessageLottie.cancelAnimation();
                     lottieAnimationView.setMinFrame(9);
                     lottieAnimationView.playAnimation();
                     currentFragment = selectFragmentCode;

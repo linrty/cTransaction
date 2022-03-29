@@ -11,7 +11,9 @@ import androidx.navigation.fragment.NavHostFragment;
 
 import android.os.Bundle;
 import android.util.Log;
+import android.view.KeyEvent;
 
+import com.blankj.utilcode.util.LogUtils;
 import com.hyphenate.EMCallBack;
 import com.hyphenate.chat.EMClient;
 import com.linrty.ctransaction.databinding.ActivityMainBinding;
@@ -64,7 +66,7 @@ public class MainActivity extends AppCompatActivity {
             public void onSuccess() {
                 EMClient.getInstance().groupManager().loadAllGroups();
                 EMClient.getInstance().chatManager().loadAllConversations();
-                Log.d("main", "登录聊天服务器成功！");
+                LogUtils.d("main", "登录聊天服务器成功！");
             }
 
             @Override
@@ -77,5 +79,12 @@ public class MainActivity extends AppCompatActivity {
                 Log.d("main", "登录聊天服务器失败！"+message);
             }
         });
+    }
+
+    @Override
+    public boolean dispatchKeyEvent(KeyEvent event) {
+        LogUtils.i("on Back");
+        return super.dispatchKeyEvent(event);
+
     }
 }

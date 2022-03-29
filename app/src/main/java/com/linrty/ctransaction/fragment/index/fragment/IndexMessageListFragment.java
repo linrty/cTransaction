@@ -1,12 +1,17 @@
 package com.linrty.ctransaction.fragment.index.fragment;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 
 import androidx.annotation.NonNull;
+import androidx.fragment.app.FragmentActivity;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.navigation.NavController;
+import androidx.navigation.Navigation;
 
 import com.blankj.utilcode.util.AppUtils;
+import com.blankj.utilcode.util.LogUtils;
 import com.bumptech.glide.load.engine.Resource;
 import com.hyphenate.EMMessageListener;
 import com.hyphenate.chat.EMClient;
@@ -16,9 +21,11 @@ import com.hyphenate.easeui.manager.EaseSystemMsgManager;
 import com.hyphenate.easeui.model.EaseEvent;
 import com.hyphenate.easeui.modules.conversation.EaseConversationListFragment;
 import com.hyphenate.easeui.utils.EaseCommonUtils;
+import com.linrty.ctransaction.R;
 import com.linrty.ctransaction.common.constent.CTransactionConstant;
 import com.linrty.ctransaction.common.livedatas.LiveDataBus;
 import com.linrty.ctransaction.common.viewmodel.MessageViewModel;
+import com.linrty.ctransaction.fragment.index.IndexViewModel;
 
 import java.util.List;
 
@@ -35,6 +42,22 @@ import java.util.List;
 
 public class IndexMessageListFragment extends EaseConversationListFragment {
 
+
+    /**
+     * 获取index页面的ViewModel，也就是主页面存储数据的地方
+     */
+    IndexViewModel indexViewModel;
+
+    /**
+     * MainActivity的全局路由
+     */
+    NavController navController;
+
+
+    /**
+     * 获取全局Activity，该应用只存在一个Activity，即单页面富应用
+     */
+    FragmentActivity topActivity;
 
 
 
@@ -90,6 +113,8 @@ public class IndexMessageListFragment extends EaseConversationListFragment {
 
     @Override
     public void initData() {
+        // 初始化全局Activity
+        topActivity = requireParentFragment().requireParentFragment().requireActivity();
         //需要两个条件，判断是否触发从服务器拉取会话列表的时机，一是第一次安装，二则本地数据库没有会话列表数据
         if(AppUtils.isFirstTimeInstalled() && EMClient.getInstance().chatManager().getAllConversations().isEmpty()) {
             // mViewModel.fetchConversationsFromServer();
@@ -97,6 +122,10 @@ public class IndexMessageListFragment extends EaseConversationListFragment {
         }else {
             super.initData();
         }
+        // 初始化ViewModel，该ViewModel是从父级的Activity内获取的，即该ViewModel随Activity的生命周期
+        indexViewModel = new ViewModelProvider(topActivity).get(IndexViewModel.class);
+        // 获取NavHost对应的NavController实例，用来控制这个activity内的NavHost页面的导航
+        navController = Navigation.findNavController(topActivity, R.id.mainNavHost);
     }
 
     private void refreshList(Boolean event) {
@@ -126,11 +155,16 @@ public class IndexMessageListFragment extends EaseConversationListFragment {
         super.onItemClick(view, position);
         Object item = conversationListLayout.getItem(position).getInfo();
         if(item instanceof EMConversation) {
-            /*if(EaseSystemMsgManager.getInstance().isSystemConversation((EMConversation) item)) {
-                SystemMsgsActivity.actionStart(mContext);
+            if(EaseSystemMsgManager.getInstance().isSystemConversation((EMConversation) item)) {
+                // 系统消息，如添加好友之类的
+                //SystemMsgsActivity.actionStart(mContext);
             }else {
-                ChatActivity.actionStart(mContext, ((EMConversation)item).conversationId(), EaseCommonUtils.getChatType((EMConversation) item));
-            }*/
+                // 会话消息，如单聊、群聊
+                LogUtils.i("会话列表点击事件");
+                indexViewModel.setConversationId("17679374162").setChatType(1);
+                navController.navigate(R.id.action_indexFragment_to_chatFragment);
+                //ChatActivity.actionStart(mContext, ((EMConversation)item).conversationId(), EaseCommonUtils.getChatType((EMConversation) item));
+            }
         }
     }
 

@@ -3,12 +3,12 @@
     <translate
         android:fromYDelta="0%"
         android:toYDelta="100%"
-        android:duration = "100"
+        android:duration = "@integer/navigationAnimTime"
         />
     <alpha
         android:fromAlpha= "1.0"
         android:toAlpha="0.0"
-        android:duration = "100"
+        android:duration = "@integer/navigationAnimTime"
         />
     <scale
         android:fromXScale="100%"
@@ -17,6 +17,6 @@
         android:pivotY="100%"
         android:toXScale="0%"
         android:toYScale="0%"
-        android:duration = "100"
+        android:duration = "@integer/navigationAnimTime"
         />
 </set>
