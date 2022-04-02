@@ -35,4 +35,14 @@
     <string name="copy">复制</string>
     <string name="recall">撤回</string>
 
+
+
+
+    <!--work info 页面相关的String-->
+    <string name="title_work_info_comment">留言</string>
+    <string name="title_work_info_collect">收藏</string>
+    <string name="work_info_comment_description">该图片表示进行留言操作</string>
+    <string name="work_info_collect_description">该图片表示对作品进行收藏或者取消收藏</string>
+    <string name="title_work_info_buy_button">购买版权</string>
+
 </resources>

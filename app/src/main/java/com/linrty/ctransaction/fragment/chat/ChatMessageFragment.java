@@ -5,6 +5,8 @@ import android.app.Dialog;
 import android.content.ClipboardManager;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.net.Uri;
 import android.text.TextUtils;
 import android.view.View;
@@ -22,6 +24,8 @@ import com.hyphenate.easeui.domain.EaseUser;
 import com.hyphenate.easeui.manager.EasePreferenceManager;
 import com.hyphenate.easeui.model.EaseEvent;
 import com.hyphenate.easeui.modules.chat.EaseChatFragment;
+import com.hyphenate.easeui.modules.chat.EaseChatInputMenu;
+import com.hyphenate.easeui.modules.chat.EaseChatMessageListLayout;
 import com.hyphenate.easeui.modules.chat.interfaces.IChatExtendMenu;
 import com.hyphenate.easeui.modules.chat.interfaces.OnRecallMessageResultListener;
 import com.hyphenate.easeui.modules.menu.EasePopupWindowHelper;
@@ -62,9 +66,9 @@ public class ChatMessageFragment extends EaseChatFragment  implements OnRecallMe
          viewModel = new ViewModelProvider(this).get(MessageViewModel.class);
 
          //获取到聊天列表控件
-         //EaseChatMessageListLayout messageListLayout = chatLayout.getChatMessageListLayout();
+         EaseChatMessageListLayout messageListLayout = chatLayout.getChatMessageListLayout();
          //设置聊天列表背景
-         //messageListLayout.setBackground(new ColorDrawable(Color.parseColor("#DA5A4D")));
+         messageListLayout.setBackground(new ColorDrawable(Color.parseColor("#e9f2fc")));
          //设置默认头像
          //messageListLayout.setAvatarDefaultSrc(ContextCompat.getDrawable(mContext, R.drawable.ease_default_avatar));
          //设置头像形状
@@ -83,7 +87,9 @@ public class ChatMessageFragment extends EaseChatFragment  implements OnRecallMe
          //messageListLayout.setItemShowType(EaseChatMessageListLayout.ShowType.LEFT);
 
          //获取到菜单输入父控件
-         //EaseChatInputMenu chatInputMenu = chatLayout.getChatInputMenu();
+         EaseChatInputMenu chatInputMenu = chatLayout.getChatInputMenu();
+         chatInputMenu.setBackground(new ColorDrawable(Color.parseColor("#e9f2fc")));
+         chatInputMenu.setCustomPrimaryMenu(new EaseChatPrimaryMenu(getContext()));
          //获取到菜单输入控件
          //IChatPrimaryMenu primaryMenu = chatInputMenu.getPrimaryMenu();
          //if(primaryMenu != null) {

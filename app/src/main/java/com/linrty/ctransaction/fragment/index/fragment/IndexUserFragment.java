@@ -107,8 +107,6 @@ public class IndexUserFragment extends Fragment {
         XUICommonListItemView itemView = null;
         int size = DensityUtils.dp2px(getContext(), 20);
         Section section = XUIGroupListView.newSection(getContext())
-                .setTitle("Section 1: 默认提供的样式")
-                .setDescription("Section 1 的描述")
                 .setLeftIconSize(size, size);
         // 初始化各个子项目样式及事件
         // 个人中心

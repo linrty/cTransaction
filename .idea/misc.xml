@@ -52,6 +52,7 @@
         <entry key="..\:/AndroidStudioProjects/cTransaction/app/src/main/res/layout/activity_main.xml" value="0.18489583333333334" />
         <entry key="..\:/AndroidStudioProjects/cTransaction/app/src/main/res/layout/blank_fragment.xml" value="0.3619791666666667" />
         <entry key="..\:/AndroidStudioProjects/cTransaction/app/src/main/res/layout/demo_activity_image_grid.xml" value="0.3619791666666667" />
+        <entry key="..\:/AndroidStudioProjects/cTransaction/app/src/main/res/layout/ease_widget_chat_primary_menu.xml" value="0.18489583333333334" />
         <entry key="..\:/AndroidStudioProjects/cTransaction/app/src/main/res/layout/fragment_buy_histroy.xml" value="0.3619791666666667" />
         <entry key="..\:/AndroidStudioProjects/cTransaction/app/src/main/res/layout/fragment_chat.xml" value="0.3619791666666667" />
         <entry key="..\:/AndroidStudioProjects/cTransaction/app/src/main/res/layout/fragment_identification_schedule.xml" value="0.3619791666666667" />
@@ -66,7 +67,7 @@
         <entry key="..\:/AndroidStudioProjects/cTransaction/app/src/main/res/layout/fragment_swap.xml" value="0.33" />
         <entry key="..\:/AndroidStudioProjects/cTransaction/app/src/main/res/layout/fragment_swap_download.xml" value="0.3619791666666667" />
         <entry key="..\:/AndroidStudioProjects/cTransaction/app/src/main/res/layout/fragment_swap_upload.xml" value="0.3619791666666667" />
-        <entry key="..\:/AndroidStudioProjects/cTransaction/app/src/main/res/layout/fragment_wrok_info.xml" value="0.3619791666666667" />
+        <entry key="..\:/AndroidStudioProjects/cTransaction/app/src/main/res/layout/fragment_wrok_info.xml" value="0.5329581993569131" />
         <entry key="..\:/AndroidStudioProjects/cTransaction/app/src/main/res/layout/icon_tabbar_home.xml" value="0.33" />
         <entry key="..\:/AndroidStudioProjects/cTransaction/app/src/main/res/layout/icon_tabbar_message.xml" value="0.3619791666666667" />
         <entry key="..\:/AndroidStudioProjects/cTransaction/app/src/main/res/layout/icon_tabbar_user.xml" value="0.3619791666666667" />

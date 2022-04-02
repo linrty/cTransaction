@@ -1,6 +1,7 @@
 package com.linrty.ctransaction.plugin
 
 import android.util.Log
+import androidx.navigation.NavController
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.drake.brv.PageRefreshLayout
@@ -21,11 +22,14 @@ import kotlin.math.log
 
 object RecyclerViewUtil {
 
-    public fun bindingIndexWorkList(rv: RecyclerView, data: MutableList<Any>,page: PageRefreshLayout){
+    public fun bindingIndexWorkList(rv: RecyclerView, data: MutableList<Any>,page: PageRefreshLayout,navController: NavController){
         rv.linear().setup {
             addType<SwapUploadItemModel>(R.layout.item_index_work_list)
             addType<HeaderModel>(R.layout.item_index_home_classify)
             setAnimation(AnimationType.SLIDE_RIGHT)
+            onClick(R.id.indexWorkItem){
+                navController.navigate(R.id.action_indexFragment_to_workInfoFragment)
+            }
         }.models = data
         rv.bindingAdapter.addHeader(HeaderModel())
     }
@@ -37,6 +41,7 @@ object RecyclerViewUtil {
             /*onBind {
                 findView<TextView>(R.id.searchResultItemTitle).text = getModel<SearchResultItemModel>().itemTitle
             }*/
+
         }.models = data
     }
 

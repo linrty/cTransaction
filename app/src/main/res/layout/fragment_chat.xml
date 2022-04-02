@@ -7,7 +7,6 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:fitsSystemWindows="true"
         android:layout_height="match_parent" >
 
         <!--<LinearLayout
@@ -34,27 +33,27 @@
         </LinearLayout>-->
 
         <com.xuexiang.xui.widget.actionbar.TitleBar
-            android:id="@+id/titleBar"
+            android:id="@+id/chatTitleBar"
             android:layout_width="match_parent"
-            android:layout_height="44dp"
+            android:layout_height="wrap_content"
+            app:tb_immersive="true"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:tb_actionPadding="20dp"
             android:background="@color/blue_10"
-            android:drawableRight="@drawable/ic_right"
-            app:tb_leftImageResource="@drawable/ic_left"
             app:tb_useThemeColor="false"/>
 
 
         <androidx.fragment.app.FragmentContainerView
             android:id="@+id/chatContainer"
+            style="@style/ease_chat_input_button_size"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:focusableInTouchMode="true"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/titleBar" />
+            app:layout_constraintTop_toBottomOf="@+id/chatTitleBar" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

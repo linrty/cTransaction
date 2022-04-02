@@ -12,7 +12,22 @@
         >
 
 
-        <LinearLayout
+        <com.xuexiang.xui.widget.actionbar.TitleBar
+            android:id="@+id/indexMessageTitleBar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="?attr/backgroundColor"
+            android:fitsSystemWindows="true"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:tb_actionPadding="20dp"
+            app:tb_barHeight="?attr/actionBarSize"
+            app:tb_immersive="true"
+            app:tb_titleText="消息"
+            app:tb_titleTextColor="@color/black_400"
+            app:tb_useThemeColor="false" />
+        <!--<LinearLayout
             android:id="@+id/linearLayout2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -26,16 +41,22 @@
             <androidx.appcompat.widget.Toolbar
                 android:layout_width="match_parent"
                 android:layout_height="?attr/actionBarSize"
+                android:backgroundTint="?attr/backgroundColor"
                 app:title="消息"
                 app:titleTextColor="@color/black_400" />
 
-            <View
-                android:id="@+id/divider2"
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:background="@color/line_30" />
 
-        </LinearLayout>
+
+        </LinearLayout>-->
+
+        <View
+            android:id="@+id/divider2"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/line_10"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/indexMessageTitleBar" />
 
         <androidx.fragment.app.FragmentContainerView
             android:id="@+id/fragmentContainerView"
@@ -45,7 +66,7 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/linearLayout2" />
+            app:layout_constraintTop_toBottomOf="@+id/divider2" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

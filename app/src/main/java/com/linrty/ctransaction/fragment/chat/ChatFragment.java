@@ -11,6 +11,8 @@ import androidx.annotation.Nullable;
 import androidx.databinding.DataBindingUtil;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.navigation.NavController;
+import androidx.navigation.Navigation;
 
 import com.blankj.utilcode.util.LogUtils;
 import com.hyphenate.easeui.constants.EaseConstant;
@@ -37,6 +39,8 @@ public class ChatFragment extends Fragment {
     private ChatMessageFragment chatFragment;
 
     private IndexViewModel indexViewModel;
+
+    private NavController navController;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -73,7 +77,14 @@ public class ChatFragment extends Fragment {
     }
 
     private void initView(){
+        navController = Navigation.findNavController(requireActivity(),R.id.mainNavHost);
         getChildFragmentManager().beginTransaction().add(binding.chatContainer.getId(),chatFragment).commit();
+        binding.chatTitleBar.setLeftClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                navController.popBackStack();
+            }
+        });
     }
 
     @Override

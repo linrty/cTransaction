@@ -90,6 +90,7 @@ public class IndexMessageFragment extends Fragment {
     }
 
     private void initView(){
+        binding.indexMessageTitleBar.disableLeftView();
         //getChildFragmentManager().beginTransaction().replace(binding.container.getId(),messageListFragment).commit();
     }
 

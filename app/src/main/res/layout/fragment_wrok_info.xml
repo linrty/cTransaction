@@ -5,15 +5,18 @@
     <data>
     </data>
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:background="?attr/backgroundColor"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
         <com.xuexiang.xui.widget.actionbar.TitleBar
-            android:id="@+id/titleBar"
+            android:id="@+id/workInfoTitleBar"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
+            app:tb_immersive="true"
             android:fitsSystemWindows="true"
-            android:background="@color/xui_config_color_titlebar"
+            android:background="?attr/backgroundColor"
+            app:tb_useThemeColor="false"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
@@ -23,19 +26,20 @@
             />
 
         <androidx.core.widget.NestedScrollView
+            android:id="@+id/workInfoScrollView"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            app:layout_constraintBottom_toTopOf="@+id/constraintLayout"
+            app:layout_constraintBottom_toTopOf="@+id/workInfoBottomLayout"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/titleBar">
+            app:layout_constraintTop_toBottomOf="@+id/workInfoTitleBar">
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
                 <com.xuexiang.xui.widget.imageview.RadiusImageView
-                    android:id="@+id/radiusImageView"
+                    android:id="@+id/workInfoUserAvatar"
                     android:layout_width="40dp"
                     android:layout_height="40dp"
                     android:layout_marginStart="16dp"
@@ -49,24 +53,80 @@
                     android:id="@+id/divider5"
                     android:layout_width="match_parent"
                     android:layout_height="1dp"
+                    android:layout_marginLeft="16dp"
                     android:layout_marginTop="8dp"
+                    android:layout_marginRight="16dp"
                     android:background="?android:attr/listDivider"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.0"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/radiusImageView" />
+                    app:layout_constraintTop_toBottomOf="@+id/workInfoUserAvatar" />
+
+                <TextView
+                    android:id="@+id/workInfoDetails"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="16dp"
+                    android:text="啊撒旦\n立刻解放技术\n的开发老师的课离开管理\n局来颠覆国家两地分居来对付僵\n尸更了解对方老公觉得浪费时间联发科两\n个地方多发几个多发几个两地分居过\n来的肌肤了过来的肌肤看过交流发电机过来\n的房间过来的肌肤了国家的法律解决各\n级领导附件 根据地十分了解过来的房间了国家\n的法律就\n更了解对方件联发科看见撒\n旦了开发建设领导看见法\n律上的就法律上的就雷锋\n精神的"
+                    android:textColor="@color/black_400"
+                    android:textSize="18sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/divider5" />
+
+                <ImageView
+
+                    android:id="@+id/workInfoImage"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:scaleType="fitStart"
+                    app:layout_constraintEnd_toEndOf="@+id/workInfoDetails"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="@+id/workInfoDetails"
+                    app:layout_constraintTop_toBottomOf="@+id/workInfoDetails"
+                    app:srcCompat="@drawable/ic_launcher_background" />
+
+
+                <TextView
+                    android:id="@+id/textView12"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="16dp"
+                    android:text="99人收藏 · 浏览999+"
+                    android:textSize="@dimen/index_home_item_title_size"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/workInfoImage" />
+
+                <View
+                    android:id="@+id/divider7"
+                    android:layout_width="match_parent"
+                    android:layout_height="10dp"
+                    android:layout_marginTop="8dp"
+                    android:background="@color/blue_20"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/textView12" />
 
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/workInfoCommentRV"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginRight="16dp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.531"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/divider5" />
+                    app:layout_constraintTop_toBottomOf="@+id/divider7"
+                    app:layout_constraintVertical_bias="0.0" />
 
                 <TextView
-                    android:id="@+id/textView8"
+                    android:id="@+id/workInfoUserName"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="8dp"
@@ -74,20 +134,82 @@
                     android:textColor="@color/black_400"
                     android:textSize="16sp"
                     android:textStyle="normal|bold"
-                    app:layout_constraintBottom_toBottomOf="@+id/radiusImageView"
-                    app:layout_constraintStart_toEndOf="@+id/radiusImageView"
-                    app:layout_constraintTop_toTopOf="@+id/radiusImageView" />
+                    app:layout_constraintBottom_toBottomOf="@+id/workInfoUserAvatar"
+                    app:layout_constraintStart_toEndOf="@+id/workInfoUserAvatar"
+                    app:layout_constraintTop_toTopOf="@+id/workInfoUserAvatar" />
+
             </androidx.constraintlayout.widget.ConstraintLayout>
         </androidx.core.widget.NestedScrollView>
 
         <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/constraintLayout"
+            android:id="@+id/workInfoBottomLayout"
             android:layout_width="match_parent"
+            android:background="?attr/backgroundColor"
             android:layout_height="50dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent">
 
+            <ImageView
+                android:id="@+id/workInfoCommentIcon"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_marginStart="24dp"
+                android:layout_marginBottom="16dp"
+                android:contentDescription="@string/work_info_comment_description"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/ic_comment"
+                tools:ignore="ImageContrastCheck" />
+
+            <TextView
+                android:id="@+id/workInfoCommentTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/title_work_info_comment"
+                android:textSize="12sp"
+                app:layout_constraintEnd_toEndOf="@+id/workInfoCommentIcon"
+                app:layout_constraintStart_toStartOf="@+id/workInfoCommentIcon"
+                app:layout_constraintTop_toBottomOf="@+id/workInfoCommentIcon"
+                tools:ignore="TextContrastCheck" />
+
+            <ImageView
+                android:id="@+id/workInfoCollectIcon"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_marginStart="32dp"
+                android:contentDescription="@string/work_info_collect_description"
+                app:layout_constraintBottom_toBottomOf="@+id/workInfoCommentIcon"
+                app:layout_constraintStart_toEndOf="@+id/workInfoCommentIcon"
+                app:layout_constraintTop_toTopOf="@+id/workInfoCommentIcon"
+                app:srcCompat="@drawable/ic_not_collect"
+                tools:ignore="ImageContrastCheck" />
+
+            <TextView
+                android:id="@+id/workInfoCollectTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/title_work_info_collect"
+                android:textSize="12sp"
+                app:layout_constraintEnd_toEndOf="@+id/workInfoCollectIcon"
+                app:layout_constraintStart_toStartOf="@+id/workInfoCollectIcon"
+                app:layout_constraintTop_toBottomOf="@+id/workInfoCollectIcon"
+                tools:ignore="TextContrastCheck" />
+
+            <com.xuexiang.xui.widget.button.roundbutton.RoundButton
+                android:id="@+id/workInfoBuyButton"
+                style="@style/RoundButton.Blue"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="16dp"
+                android:text="@string/title_work_info_buy_button"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:rb_backgroundColor="?attr/error"
+                app:rb_isRadiusAdjustBounds="true"
+                tools:ignore="TouchTargetSizeCheck,TextContrastCheck" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>

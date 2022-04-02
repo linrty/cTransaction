@@ -18,6 +18,7 @@ import com.hyphenate.EMCallBack;
 import com.hyphenate.chat.EMClient;
 import com.linrty.ctransaction.databinding.ActivityMainBinding;
 import com.linrty.ctransaction.fragment.index.IndexViewModel;
+import com.linrty.ctransaction.plugin.AndroidBug5497Workaround;
 import com.xuexiang.xui.utils.StatusBarUtils;
 
 /**
@@ -53,6 +54,7 @@ public class MainActivity extends AppCompatActivity {
       */
 
     private void init(){
+        AndroidBug5497Workaround.assistActivity(findViewById(android.R.id.content));
         // 获取NavHost对应的NavController实例，用来控制这个activity内的NavHost页面的导航
         NavHostFragment navHostFragment = (NavHostFragment) getSupportFragmentManager().findFragmentById(R.id.mainNavHost);
         navController = navHostFragment.getNavController();
@@ -60,13 +62,13 @@ public class MainActivity extends AppCompatActivity {
         indexViewModel = new ViewModelProvider(this).get(IndexViewModel.class);
         transparentStatusBar(this);
 
-        EMClient.getInstance().login("18045121","aaa",new EMCallBack() {
+        EMClient.getInstance().login("17679374162","aaa",new EMCallBack() {
             //回调
             @Override
             public void onSuccess() {
                 EMClient.getInstance().groupManager().loadAllGroups();
                 EMClient.getInstance().chatManager().loadAllConversations();
-                LogUtils.d("main", "登录聊天服务器成功！");
+                LogUtils.d( "登录聊天服务器成功！");
             }
 
             @Override
@@ -76,7 +78,7 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onError(int code, String message) {
-                Log.d("main", "登录聊天服务器失败！"+message);
+                LogUtils.d( "登录聊天服务器失败！"+message);
             }
         });
     }

@@ -11,8 +11,24 @@
         android:background="?attr/backgroundColor"
         >
 
+        <com.xuexiang.xui.widget.actionbar.TitleBar
+            android:id="@+id/indexWorkTitleBar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="?attr/backgroundColor"
+            android:fitsSystemWindows="true"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:tb_actionPadding="20dp"
+            app:tb_barHeight="?attr/actionBarSize"
+            app:tb_immersive="true"
+            app:tb_titleText="作品"
+            app:tb_titleTextColor="@color/black_400"
+            app:tb_useThemeColor="false" />
 
-        <LinearLayout
+
+        <!--<LinearLayout
             android:id="@+id/linearLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -33,36 +49,43 @@
                 app:menu="@menu/toolbar_menu"
                 app:navigationIcon="@drawable/ic_qiehuan" />
 
-            <View
-                android:id="@+id/divider3"
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:background="@color/line_30" />
-            <!--<androidx.appcompat.widget.Toolbar
+
+            &lt;!&ndash;<androidx.appcompat.widget.Toolbar
                 android:layout_width="match_parent"
                 android:layout_height="?attr/actionBarSize"
                 app:title="作品"
                 android:drawableRight="@drawable/ic_upload"
-                app:titleTextColor="?attr/colorOnPrimary" />-->
-        </LinearLayout>
-        <com.drake.brv.PageRefreshLayout
+                app:titleTextColor="?attr/colorOnPrimary" />&ndash;&gt;
+        </LinearLayout>-->
+        <View
+            android:id="@+id/divider3"
             android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/line_10"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/indexWorkTitleBar" />
+
+        <com.drake.brv.PageRefreshLayout
             android:id="@+id/indexWorkRL"
-            app:stateEnabled="true"
+            android:layout_width="match_parent"
             android:layout_height="0dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/linearLayout">
+            app:layout_constraintTop_toBottomOf="@+id/divider3"
+            app:stateEnabled="true">
+
             <LinearLayout
                 android:layout_width="match_parent"
-                android:orientation="vertical"
-                android:layout_height="match_parent">
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/indexWorkRV"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    />
+                    android:layout_height="match_parent" />
             </LinearLayout>
         </com.drake.brv.PageRefreshLayout>
 

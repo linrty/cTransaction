@@ -88,6 +88,8 @@ public class CTransactionApp extends Application {
     private void initBRV(){
         // 设置BRV的数据绑定modelID
         BRV.INSTANCE.setModelId(BR.data);
+        // 点击防抖,单位毫秒
+        BRV.INSTANCE.setClickThrottle(1000);
     }
 
     private void initLog(){

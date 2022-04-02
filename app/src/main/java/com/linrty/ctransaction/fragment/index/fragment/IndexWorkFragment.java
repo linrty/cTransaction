@@ -80,24 +80,6 @@ public class IndexWorkFragment extends Fragment {
         if (isFirst) {
             // Inflate the layout for this fragment
             binding = DataBindingUtil.inflate(inflater,R.layout.fragment_index_work,container,false);
-            // 模拟列表数据
-            List<Object> list = new ArrayList<>();
-            for (int i=0;i<10;i++){
-                list.add(new SwapUploadItemModel().setName(String.valueOf(i)));
-            }
-            List<Object> list2 = new ArrayList<>();
-            for (int i=0;i<10;i++){
-                list.add(new SwapUploadItemModel().setName(String.valueOf(i)));
-            }
-            // 设置RecyclerView列表并且对Item进行dataBinding
-            RecyclerViewUtil.INSTANCE.bindingIndexWorkList(binding.indexWorkRV, list, binding.indexWorkRL);
-            // 设置下拉刷新监听
-            binding.indexWorkRL.setOnRefreshListener(new OnRefreshListener() {
-                @Override
-                public void onRefresh(@NonNull RefreshLayout refreshLayout) {
-                    binding.indexWorkRL.finishRefresh(2000);
-                }
-            });
             init();
             saveView = binding.getRoot();
         }
@@ -116,13 +98,36 @@ public class IndexWorkFragment extends Fragment {
         // 获取NavHost对应的NavController实例，用来控制这个activity内的NavHost页面的导航
         navController = Navigation.findNavController(requireParentFragment().requireActivity(),R.id.mainNavHost);
 
-
         // 设置work页面的传输图标点击事件
-        binding.indexWorkToolbar.setNavigationOnClickListener(new View.OnClickListener() {
+        binding.indexWorkTitleBar.setLeftClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 // 进入传输列表页面
                 navController.navigate(R.id.action_indexFragment_to_swapFragment);
+            }
+        });
+        binding.indexWorkTitleBar.disableLeftView();
+
+
+
+
+
+        // 模拟列表数据
+        List<Object> list = new ArrayList<>();
+        for (int i=0;i<10;i++){
+            list.add(new SwapUploadItemModel().setName(String.valueOf(i)));
+        }
+        List<Object> list2 = new ArrayList<>();
+        for (int i=0;i<10;i++){
+            list.add(new SwapUploadItemModel().setName(String.valueOf(i)));
+        }
+        // 设置RecyclerView列表并且对Item进行dataBinding
+        RecyclerViewUtil.INSTANCE.bindingIndexWorkList(binding.indexWorkRV, list, binding.indexWorkRL,navController);
+        // 设置下拉刷新监听
+        binding.indexWorkRL.setOnRefreshListener(new OnRefreshListener() {
+            @Override
+            public void onRefresh(@NonNull RefreshLayout refreshLayout) {
+                binding.indexWorkRL.finishRefresh(2000);
             }
         });
     }
