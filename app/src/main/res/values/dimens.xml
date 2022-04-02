@@ -6,4 +6,6 @@
     <dimen name="item_icon_num_size">10sp</dimen>
     <dimen name="item_corner_radius">4dp</dimen>
     <dimen name="index_home_item_title_size">13sp</dimen>
+    <dimen name="index_user_icon_title_size">13sp</dimen>
+    <dimen name="index_user_icon_size">30dp</dimen>
 </resources>

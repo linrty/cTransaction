@@ -5,6 +5,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.widget.Toolbar;
 import androidx.databinding.DataBindingUtil;
 import androidx.fragment.app.Fragment;
@@ -39,7 +41,7 @@ import java.util.List;
 
 public class IndexHomeFragment extends Fragment {
 
-    FragmentIndexHomeBinding fragmentIndexHomeBinding;
+    FragmentIndexHomeBinding binding;
 
     /**
      * 获取index页面的ViewModel，也就是主页面存储数据的地方
@@ -50,6 +52,17 @@ public class IndexHomeFragment extends Fragment {
      * App的全局路由
      */
     NavController navController;
+
+    /**
+     * 是否是第一次加载视图
+     */
+    private boolean isFirst = true;
+
+
+    /**
+     *  保存渲染好的视图，避免重新加载
+     */
+    private View saveView = null;
 
     public IndexHomeFragment() {
         // Required empty public constructor
@@ -67,10 +80,20 @@ public class IndexHomeFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
+        if (isFirst){
+            binding = DataBindingUtil.inflate(inflater,R.layout.fragment_index_home,container,false);
+            init();
+            saveView = binding.getRoot();
+        }
+        return saveView;
+    }
 
-        fragmentIndexHomeBinding = DataBindingUtil.inflate(inflater,R.layout.fragment_index_home,container,false);
-        init();
-        return fragmentIndexHomeBinding.getRoot();
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        if (isFirst){
+            super.onViewCreated(view, savedInstanceState);
+            isFirst = false;
+        }
     }
 
     private void initData(){
@@ -80,8 +103,8 @@ public class IndexHomeFragment extends Fragment {
 
     private void init(){
         // 设置该页面的Model
-        fragmentIndexHomeBinding.setData(indexViewModel);
-        fragmentIndexHomeBinding.setLifecycleOwner(requireParentFragment().requireActivity());
+        binding.setData(indexViewModel);
+        binding.setLifecycleOwner(requireParentFragment().requireActivity());
         // 模拟列表数据
         List<Object> list = new ArrayList<>();
         for (int i=0;i<20;i++){
@@ -101,11 +124,11 @@ public class IndexHomeFragment extends Fragment {
                 }
             }
         });
-        RecyclerViewUtil.INSTANCE.bindingIndexHomeList(fragmentIndexHomeBinding.indexHomeRV,list);
+        RecyclerViewUtil.INSTANCE.bindingIndexHomeList(binding.indexHomeRV,list);
         // 获取NavHost对应的NavController实例，用来控制这个activity内的NavHost页面的导航
         navController = Navigation.findNavController(requireParentFragment().requireActivity(),R.id.mainNavHost);
         // 设置SearchBar的各类监听事件
-        fragmentIndexHomeBinding.indexWorkSearchBar.setOnSearchActionListener(new MaterialSearchBar.OnSearchActionListener() {
+        binding.indexWorkSearchBar.setOnSearchActionListener(new MaterialSearchBar.OnSearchActionListener() {
             @Override
             public void onSearchStateChanged(boolean enabled) {
 

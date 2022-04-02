@@ -2,9 +2,12 @@ package com.linrty.ctransaction.fragment.index.fragment;
 
 import android.os.Bundle;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.FragmentActivity;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.NavController;
@@ -25,6 +28,7 @@ import com.linrty.ctransaction.R;
 import com.linrty.ctransaction.common.constent.CTransactionConstant;
 import com.linrty.ctransaction.common.livedatas.LiveDataBus;
 import com.linrty.ctransaction.common.viewmodel.MessageViewModel;
+import com.linrty.ctransaction.fragment.chat.ChatFragment;
 import com.linrty.ctransaction.fragment.index.IndexViewModel;
 
 import java.util.List;
@@ -113,19 +117,19 @@ public class IndexMessageListFragment extends EaseConversationListFragment {
 
     @Override
     public void initData() {
-        // 初始化全局Activity
-        topActivity = requireParentFragment().requireParentFragment().requireActivity();
-        //需要两个条件，判断是否触发从服务器拉取会话列表的时机，一是第一次安装，二则本地数据库没有会话列表数据
-        if(AppUtils.isFirstTimeInstalled() && EMClient.getInstance().chatManager().getAllConversations().isEmpty()) {
-            // mViewModel.fetchConversationsFromServer();
+            // 初始化全局Activity
+            topActivity = requireParentFragment().requireParentFragment().requireActivity();
+            //需要两个条件，判断是否触发从服务器拉取会话列表的时机，一是第一次安装，二则本地数据库没有会话列表数据
+            if(AppUtils.isFirstTimeInstalled() && EMClient.getInstance().chatManager().getAllConversations().isEmpty()) {
+                // mViewModel.fetchConversationsFromServer();
 
-        }else {
-            super.initData();
-        }
-        // 初始化ViewModel，该ViewModel是从父级的Activity内获取的，即该ViewModel随Activity的生命周期
-        indexViewModel = new ViewModelProvider(topActivity).get(IndexViewModel.class);
-        // 获取NavHost对应的NavController实例，用来控制这个activity内的NavHost页面的导航
-        navController = Navigation.findNavController(topActivity, R.id.mainNavHost);
+            }else {
+                super.initData();
+            }
+            // 初始化ViewModel，该ViewModel是从父级的Activity内获取的，即该ViewModel随Activity的生命周期
+            indexViewModel = new ViewModelProvider(topActivity).get(IndexViewModel.class);
+            // 获取NavHost对应的NavController实例，用来控制这个activity内的NavHost页面的导航
+            navController = Navigation.findNavController(topActivity, R.id.mainNavHost);
     }
 
     private void refreshList(Boolean event) {
@@ -177,4 +181,26 @@ public class IndexMessageListFragment extends EaseConversationListFragment {
     public void notifyAllChange() {
         super.notifyAllChange();
     }
+
+    private boolean isFirst = true;
+
+    private View saveView;
+
+    /*@Nullable
+    @Override
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        if (isFirst){
+            saveView = super.onCreateView(inflater, container, savedInstanceState);
+        }
+        return saveView;
+    }
+
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        if (isFirst){
+            super.onViewCreated(view, savedInstanceState);
+            isFirst = false;
+        }
+
+    }*/
 }

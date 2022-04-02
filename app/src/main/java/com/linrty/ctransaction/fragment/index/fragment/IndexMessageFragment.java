@@ -1,7 +1,10 @@
 package com.linrty.ctransaction.fragment.index.fragment;
 
+import android.content.Context;
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.databinding.DataBindingUtil;
 import androidx.fragment.app.Fragment;
 
@@ -10,6 +13,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.blankj.utilcode.util.LogUtils;
 import com.hyphenate.EMMessageListener;
 import com.hyphenate.chat.EMClient;
 import com.hyphenate.chat.EMMessage;
@@ -42,6 +46,10 @@ public class IndexMessageFragment extends Fragment {
 
     IndexMessageListFragment messageListFragment;
 
+    private boolean isFirst = true;
+
+    private View saveView = null;
+
     public IndexMessageFragment() {
         // Required empty public constructor
     }
@@ -50,17 +58,31 @@ public class IndexMessageFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        LogUtils.i("onCreate");
         initData();
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        binding = DataBindingUtil.inflate(inflater,R.layout.fragment_index_message,container,false);
-        // EaseConversationListFragment easeConversationListFragment = new EaseConversationListFragment();
-        initView();
-        return binding.getRoot();
+        if (isFirst){
+            // Inflate the layout for this fragment
+            binding = DataBindingUtil.inflate(inflater,R.layout.fragment_index_message,container,false);
+            // EaseConversationListFragment easeConversationListFragment = new EaseConversationListFragment();
+            initView();
+            LogUtils.i("onCreateView");
+            saveView = binding.getRoot();
+        }
+
+        return saveView;
+    }
+
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        if (isFirst){
+            super.onViewCreated(view, savedInstanceState);
+            isFirst = false;
+        }
     }
 
     private void initData(){
@@ -68,7 +90,7 @@ public class IndexMessageFragment extends Fragment {
     }
 
     private void initView(){
-        getChildFragmentManager().beginTransaction().replace(binding.container.getId(),messageListFragment).commit();
+        //getChildFragmentManager().beginTransaction().replace(binding.container.getId(),messageListFragment).commit();
     }
 
 }

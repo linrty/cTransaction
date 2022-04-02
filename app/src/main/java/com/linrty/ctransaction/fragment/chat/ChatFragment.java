@@ -1,5 +1,6 @@
 package com.linrty.ctransaction.fragment.chat;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,6 +12,7 @@ import androidx.databinding.DataBindingUtil;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
+import com.blankj.utilcode.util.LogUtils;
 import com.hyphenate.easeui.constants.EaseConstant;
 import com.hyphenate.easeui.modules.chat.EaseChatFragment;
 import com.linrty.ctransaction.R;
@@ -39,6 +41,7 @@ public class ChatFragment extends Fragment {
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        LogUtils.i("ChatFragment : onCreate");
         initData();
     }
 
@@ -47,6 +50,7 @@ public class ChatFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_chat,container,false);
         initView();
+        LogUtils.i("ChatFragment : onCreateView");
         return binding.getRoot();
     }
 
@@ -70,6 +74,12 @@ public class ChatFragment extends Fragment {
 
     private void initView(){
         getChildFragmentManager().beginTransaction().add(binding.chatContainer.getId(),chatFragment).commit();
+    }
+
+    @Override
+    public void onAttach(@NonNull Context context) {
+        super.onAttach(context);
+        LogUtils.i("ChatFragment : onAttach");
     }
 
 

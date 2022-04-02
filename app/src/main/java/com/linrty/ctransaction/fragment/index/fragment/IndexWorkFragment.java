@@ -5,6 +5,7 @@ import static androidx.core.view.ViewKt.postDelayed;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.databinding.DataBindingUtil;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.NavController;
@@ -44,12 +45,25 @@ public class IndexWorkFragment extends Fragment {
     /**
      * index work页面的布局控件
      */
-    FragmentIndexWorkBinding fragmentIndexWorkBinding;
+    FragmentIndexWorkBinding binding;
 
     /**
      * App的全局路由
      */
     NavController navController;
+
+    /**
+     * 是否第一次渲染
+     */
+    private boolean isFirst = true;
+
+
+    /**
+     * 保存渲染好的视图
+     */
+    private View saveView;
+
+
 
     public IndexWorkFragment() {
         // Required empty public constructor
@@ -63,28 +77,39 @@ public class IndexWorkFragment extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        fragmentIndexWorkBinding = DataBindingUtil.inflate(inflater,R.layout.fragment_index_work,container,false);
-        // 模拟列表数据
-        List<Object> list = new ArrayList<>();
-        for (int i=0;i<10;i++){
-            list.add(new SwapUploadItemModel().setName(String.valueOf(i)));
-        }
-        List<Object> list2 = new ArrayList<>();
-        for (int i=0;i<10;i++){
-            list.add(new SwapUploadItemModel().setName(String.valueOf(i)));
-        }
-        // 设置RecyclerView列表并且对Item进行dataBinding
-        RecyclerViewUtil.INSTANCE.bindingIndexWorkList(fragmentIndexWorkBinding.indexWorkRV, list, fragmentIndexWorkBinding.indexWorkRL);
-        // 设置下拉刷新监听
-        fragmentIndexWorkBinding.indexWorkRL.setOnRefreshListener(new OnRefreshListener() {
-            @Override
-            public void onRefresh(@NonNull RefreshLayout refreshLayout) {
-                fragmentIndexWorkBinding.indexWorkRL.finishRefresh(2000);
+        if (isFirst) {
+            // Inflate the layout for this fragment
+            binding = DataBindingUtil.inflate(inflater,R.layout.fragment_index_work,container,false);
+            // 模拟列表数据
+            List<Object> list = new ArrayList<>();
+            for (int i=0;i<10;i++){
+                list.add(new SwapUploadItemModel().setName(String.valueOf(i)));
             }
-        });
-        init();
-        return fragmentIndexWorkBinding.getRoot();
+            List<Object> list2 = new ArrayList<>();
+            for (int i=0;i<10;i++){
+                list.add(new SwapUploadItemModel().setName(String.valueOf(i)));
+            }
+            // 设置RecyclerView列表并且对Item进行dataBinding
+            RecyclerViewUtil.INSTANCE.bindingIndexWorkList(binding.indexWorkRV, list, binding.indexWorkRL);
+            // 设置下拉刷新监听
+            binding.indexWorkRL.setOnRefreshListener(new OnRefreshListener() {
+                @Override
+                public void onRefresh(@NonNull RefreshLayout refreshLayout) {
+                    binding.indexWorkRL.finishRefresh(2000);
+                }
+            });
+            init();
+            saveView = binding.getRoot();
+        }
+        return saveView;
+    }
+
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        if (isFirst) {
+            super.onViewCreated(view, savedInstanceState);
+            isFirst = false;
+        }
     }
 
     private void init(){
@@ -93,7 +118,7 @@ public class IndexWorkFragment extends Fragment {
 
 
         // 设置work页面的传输图标点击事件
-        fragmentIndexWorkBinding.indexWorkToolbar.setNavigationOnClickListener(new View.OnClickListener() {
+        binding.indexWorkToolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 // 进入传输列表页面

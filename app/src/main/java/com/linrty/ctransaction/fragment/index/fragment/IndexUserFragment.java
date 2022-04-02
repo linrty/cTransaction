@@ -1,20 +1,26 @@
 package com.linrty.ctransaction.fragment.index.fragment;
 
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.core.content.ContextCompat;
 import androidx.databinding.DataBindingUtil;
 import androidx.fragment.app.Fragment;
 
+import com.blankj.utilcode.util.ToastUtils;
 import com.linrty.ctransaction.R;
 import com.linrty.ctransaction.databinding.FragmentIndexUserBinding;
-import com.qmuiteam.qmui.util.QMUIDisplayHelper;
-import com.qmuiteam.qmui.widget.grouplist.QMUICommonListItemView;
-import com.qmuiteam.qmui.widget.grouplist.QMUIGroupListView;
-import com.xuexiang.xui.utils.StatusBarUtils;
+import com.xuexiang.xui.utils.DensityUtils;
+import com.xuexiang.xui.widget.grouplist.XUICommonListItemView;
+import com.xuexiang.xui.widget.grouplist.XUIGroupListView;
+import com.xuexiang.xui.widget.grouplist.XUIGroupListView.*;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
   * @ClassName:      IndexUserFragment
@@ -29,7 +35,19 @@ import com.xuexiang.xui.utils.StatusBarUtils;
 
 public class IndexUserFragment extends Fragment {
 
-    FragmentIndexUserBinding fragmentIndexUserBinding;
+    FragmentIndexUserBinding binding;
+
+
+    /**
+     * 是否第一次渲染视图
+     */
+    private boolean isFirst = true;
+
+    /**
+     * 保存渲染好的视图，避免重新加载而卡顿,仅仅针对Index及其子页面这些围绕整个Activity都不需要重新加载的页面
+     */
+    private View saveView = null;
+
 
     public IndexUserFragment() {
         // Required empty public constructor
@@ -39,21 +57,14 @@ public class IndexUserFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        initData();
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        fragmentIndexUserBinding = DataBindingUtil.inflate(inflater,R.layout.fragment_index_user,container,false);
-        fragmentIndexUserBinding.indexUserItem1.setText("Item 3");
-        fragmentIndexUserBinding.indexUserItem1.setAccessoryType(QMUICommonListItemView.ACCESSORY_TYPE_CHEVRON);
-        fragmentIndexUserBinding.indexUserItem2.setText("Item 4");
-        fragmentIndexUserBinding.indexUserItem2.setAccessoryType(QMUICommonListItemView.ACCESSORY_TYPE_CHEVRON);
-        fragmentIndexUserBinding.indexUserItem3.setText("Item 5");
-        fragmentIndexUserBinding.indexUserItem3.setAccessoryType(QMUICommonListItemView.ACCESSORY_TYPE_CHEVRON);
-        fragmentIndexUserBinding.indexUserItem4.setText("Item 6");
-        fragmentIndexUserBinding.indexUserItem4.setAccessoryType(QMUICommonListItemView.ACCESSORY_TYPE_CHEVRON);
+
         /*fragmentIndexUserBinding.button45.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -69,14 +80,81 @@ public class IndexUserFragment extends Fragment {
                         .show();
             }
         });*/
-        fragmentIndexUserBinding.indexUserLogoutButton.setOnClickListener(new View.OnClickListener() {
+
+        if (isFirst){
+            binding = DataBindingUtil.inflate(inflater,R.layout.fragment_index_user,container,false);
+            initView();
+            saveView = binding.getRoot();
+        }
+
+        return saveView;
+    }
+
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        if (isFirst){
+            super.onViewCreated(view, savedInstanceState);
+            isFirst = false;
+        }
+    }
+
+    private void initData(){
+
+    }
+
+    private void initView(){
+        // index user 页面中的列表子项集合
+        XUICommonListItemView itemView = null;
+        int size = DensityUtils.dp2px(getContext(), 20);
+        Section section = XUIGroupListView.newSection(getContext())
+                .setTitle("Section 1: 默认提供的样式")
+                .setDescription("Section 1 的描述")
+                .setLeftIconSize(size, size);
+        // 初始化各个子项目样式及事件
+        // 个人中心
+        section.addItemView(createItemView("个人中心", R.drawable.ic_profile_setting), new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Log.i("Linrty", "onClick: 666");
-                StatusBarUtils.setStatusBarDarkMode(getActivity());
+                ToastUtils.showShort("个人中心");
             }
         });
-        return fragmentIndexUserBinding.getRoot();
+        // 我的收藏
+        section.addItemView(createItemView("我的收藏", R.drawable.ic_collect), new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                ToastUtils.showShort("我的收藏");
+            }
+        });
+        // 余额
+        section.addItemView(createItemView("余额", R.drawable.ic_money), new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                ToastUtils.showShort("余额");
+            }
+        });
+        // 设置
+        section.addItemView(createItemView("设置", R.drawable.ic_setting), new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                ToastUtils.showShort("设置");
+            }
+        });
+        section.addTo(binding.indexUserGroupList);
     }
+
+
+    /**
+     * 对创建ItemView进行简单封装
+     * @param titleText  标题
+     * @param imageId  标题前的icon
+     * @return  item view
+     */
+    private XUICommonListItemView createItemView(String titleText, int imageId){
+        XUICommonListItemView itemView = binding.indexUserGroupList.createItemView(titleText);
+        itemView.setImageDrawable(ContextCompat.getDrawable(getContext(),imageId));
+        itemView.setAccessoryType(XUICommonListItemView.ACCESSORY_TYPE_CHEVRON);
+        return  itemView;
+    }
+
 
 }

@@ -13,6 +13,7 @@ import android.view.ViewGroup;
 import androidx.annotation.Nullable;
 import androidx.lifecycle.ViewModelProvider;
 
+import com.blankj.utilcode.util.LogUtils;
 import com.hyphenate.chat.EMClient;
 import com.hyphenate.chat.EMGroup;
 import com.hyphenate.chat.EMMessage;
@@ -231,4 +232,9 @@ public class ChatMessageFragment extends EaseChatFragment  implements OnRecallMe
          void onOtherTyping(String action);
      }
 
+    @Override
+    public void onBackPress() {
+        LogUtils.i("chatFragment: onBackPress");
+        super.onBackPress();
+    }
 }

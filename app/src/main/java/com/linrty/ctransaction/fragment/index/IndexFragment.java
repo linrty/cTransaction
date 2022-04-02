@@ -82,6 +82,9 @@ public class IndexFragment extends Fragment {
        */
     Boolean isFirstLoad;
 
+
+    private View saveView;
+
     public IndexFragment(){
         // Required empty public constructor
     }
@@ -101,17 +104,23 @@ public class IndexFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        // 与指定的视图进行绑定
-        binding = DataBindingUtil.inflate(inflater, R.layout.fragment_index,container,false);
-        initView();
         // 除了第一次加载视图会改true为false,其他每次加载都是false
-        isFirstLoad = false;
-        return binding.getRoot();
+        if (isFirstLoad){
+            // 与指定的视图进行绑定
+            binding = DataBindingUtil.inflate(inflater, R.layout.fragment_index,container,false);
+            initView();
+            saveView = binding.getRoot();
+        }
+        return saveView;
     }
+
 
       @Override
       public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
-          super.onViewCreated(view, savedInstanceState);
+        if (isFirstLoad){
+            super.onViewCreated(view, savedInstanceState);
+            isFirstLoad = false;
+        }
       }
 
       /**
@@ -151,6 +160,7 @@ public class IndexFragment extends Fragment {
         binding.indexViewPager.setOffscreenPageLimit(4);
         // 设置ViewPage对应的适配器
         binding.indexViewPager.setAdapter(indexFragmentAdapter);
+        binding.indexViewPager.setSaveEnabled(false);
         // 关闭左右滑动手势来切换页面
         binding.indexViewPager.setUserInputEnabled(false);
         // 设置刚加载首页时，默认展示的子页面，并将Tabbar的动画做相应的修改
@@ -180,7 +190,6 @@ public class IndexFragment extends Fragment {
         binding.indexTabbarHome.tabbarHomeLayout.setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View view, MotionEvent motionEvent) {
-                LogUtils.i("触发首页onTouch");
                 BarUtils.setStatusBarLightMode(getActivity(),true);
                 changeLottieState(binding.indexTabbarHome.indexTabbarHomeLottie,motionEvent,CODE_FRAGMENT_INDEX_HOME,view);
                 return true;
@@ -190,7 +199,6 @@ public class IndexFragment extends Fragment {
         binding.indexTabbarMessage.tabbarMessageLayout.setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View view, MotionEvent motionEvent) {
-                LogUtils.i("触发消息onTouch");
                 BarUtils.setStatusBarLightMode(getActivity(),true);
                 changeLottieState(binding.indexTabbarMessage.indexTabbarMessageLottie,motionEvent,CODE_FRAGMENT_INDEX_MESSAGE,view);
                 return true;
@@ -200,7 +208,6 @@ public class IndexFragment extends Fragment {
         binding.indexTabbarUser.tabbarUserLayout.setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View view, MotionEvent motionEvent) {
-                LogUtils.i("触发用户onTouch");
                 BarUtils.setStatusBarLightMode(getActivity(),false);
                 changeLottieState(binding.indexTabbarUser.indexTabbarUserLottie,motionEvent,CODE_FRAGMENT_INDEX_USER,view);
                 return true;
@@ -210,7 +217,6 @@ public class IndexFragment extends Fragment {
         binding.indexTabbarWork.tabbarWorkLayout.setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View view, MotionEvent motionEvent) {
-                LogUtils.i("触发作品onTouch");
                 BarUtils.setStatusBarLightMode(getActivity(),true);
                 changeLottieState(binding.indexTabbarWork.indexTabbarWorkLottie,motionEvent,CODE_FRAGMENT_INDEX_WORK,view);
                 return true;
@@ -218,7 +224,12 @@ public class IndexFragment extends Fragment {
         });
     }
 
-     /**
+      @Override
+      public void onDestroy() {
+          super.onDestroy();
+      }
+
+      /**
       * @brief 每个tabbar的触摸事件处理
       * @param
       * @return
