@@ -35,7 +35,6 @@
             app:riv_corner_radius="@dimen/item_corner_radius"
             app:riv_is_circle="false"
             app:srcCompat="@drawable/ic_launcher_background"
-
             tools:ignore="ImageContrastCheck" />
 
         <TextView

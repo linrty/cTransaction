@@ -68,7 +68,7 @@ public class ChatMessageFragment extends EaseChatFragment  implements OnRecallMe
          //获取到聊天列表控件
          EaseChatMessageListLayout messageListLayout = chatLayout.getChatMessageListLayout();
          //设置聊天列表背景
-         messageListLayout.setBackground(new ColorDrawable(Color.parseColor("#e9f2fc")));
+         messageListLayout.setBackground(new ColorDrawable(Color.parseColor("#f5f5f5")));
          //设置默认头像
          //messageListLayout.setAvatarDefaultSrc(ContextCompat.getDrawable(mContext, R.drawable.ease_default_avatar));
          //设置头像形状
@@ -88,7 +88,7 @@ public class ChatMessageFragment extends EaseChatFragment  implements OnRecallMe
 
          //获取到菜单输入父控件
          EaseChatInputMenu chatInputMenu = chatLayout.getChatInputMenu();
-         chatInputMenu.setBackground(new ColorDrawable(Color.parseColor("#e9f2fc")));
+         chatInputMenu.setBackground(new ColorDrawable(Color.parseColor("#B0DFE5")));
          chatInputMenu.setCustomPrimaryMenu(new EaseChatPrimaryMenu(getContext()));
          //获取到菜单输入控件
          //IChatPrimaryMenu primaryMenu = chatInputMenu.getPrimaryMenu();

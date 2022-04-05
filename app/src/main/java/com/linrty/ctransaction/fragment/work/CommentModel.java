@@ -20,6 +20,14 @@ import java.util.List;
 
 public class CommentModel{
     /**
+     * 评论者ID
+     */
+    private Long userId;
+    /**
+     * 评论ID
+     */
+    private Long commentId;
+    /**
      * 评论发布者用户名
      */
     private String userName;
@@ -51,22 +59,5 @@ public class CommentModel{
      * 作者是否
      */
     private Boolean good;
-    /**
-     * 有作者参与的子评论
-     */
-    private Boolean commentUp;
-    /**
-     * 子评论数量
-     */
-    private Long commentCount;
-    /**
-     * 子评论
-     */
-    private List<Comment> comments;
 
-    public List<CharSequence> nestedComment(boolean isAuthor){
-        List<CharSequence> data = new ArrayList<>();
-
-        return null;
-    }
 }

@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data></data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+
+        <com.xuexiang.xui.widget.actionbar.TitleBar
+            android:id="@+id/moneyTitleBar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#B0DFE5"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:tb_actionPadding="20dp"
+            app:tb_immersive="true"
+            app:tb_useThemeColor="false" />
+
+        <TextView
+            android:id="@+id/moneyTItle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:text="可用余额"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/moneyTitleBar" />
+
+        <TextView
+            android:id="@+id/moneyTV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="68556.98"
+            android:textColor="@color/black_400"
+            android:textSize="32sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/moneyTItle" />
+
+        <com.xuexiang.xui.widget.button.roundbutton.RoundButton
+            android:id="@+id/addMoney"
+            android:layout_marginLeft="32dp"
+            android:layout_marginRight="32dp"
+            android:minHeight="40dp"
+            android:text="充值"
+            android:textStyle="bold"
+            android:textSize="16sp"
+            android:layout_marginTop="32dp"
+            app:rb_backgroundColor="?attr/error"
+            app:rb_borderColor="?attr/error"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/moneyTV" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

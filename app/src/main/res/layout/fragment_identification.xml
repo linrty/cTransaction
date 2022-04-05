@@ -9,15 +9,80 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent" >
 
+        <com.xuexiang.xui.widget.actionbar.TitleBar
+            android:id="@+id/identificationTitleBar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#B0DFE5"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:tb_actionPadding="20dp"
+            app:tb_immersive="true"
+            app:tb_useThemeColor="false" />
+
+
+        <EditText
+            android:id="@+id/identificationWorkTitleET"
+            style="@style/EditText.Normal"
+            android:layout_width="300dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="24dp"
+            android:hint="标题"
+            android:singleLine="true"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/identificationTitleBar"
+            tools:ignore="TouchTargetSizeCheck" />
+
+        <com.makeramen.roundedimageview.RoundedImageView
+            android:id="@+id/uploadResourceIcon"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_marginTop="24dp"
+            android:background="@color/grey_100"
+            android:padding="20dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/ic_camera_select"
+            app:layout_constraintStart_toStartOf="@+id/identificationWorkTitleET"
+            app:layout_constraintTop_toBottomOf="@+id/identificationWorkTitleET"
+            app:riv_border_color="#333333"
+            app:riv_border_width="0dip"
+            app:riv_corner_radius="7dp"
+            app:riv_mutate_background="true" />
+
+
+        <com.xuexiang.xui.widget.edittext.MultiLineEditText
+            android:id="@+id/identificationMultiET"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:mlet_hintText="请清晰简要的描述一下你的数字作品...."
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="16dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/uploadResourceIcon"
+            app:layout_constraintTop_toBottomOf="@+id/uploadResourceIcon" />
+
+        <TextView
+            android:id="@+id/uploadResourceFilePath"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/identificationMultiET"
+            app:layout_constraintTop_toBottomOf="@+id/identificationMultiET"
+            tools:text="请选择你的数字作品文件...." />
+
+
         <Button
             android:id="@+id/uploadButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
             android:text="上传"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/uploadResourceFilePath"
+            app:layout_constraintTop_toBottomOf="@+id/uploadResourceFilePath"
             tools:ignore="TouchTargetSizeCheck" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

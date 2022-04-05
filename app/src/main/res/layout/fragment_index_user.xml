@@ -64,7 +64,7 @@
             android:layout_marginTop="-80dp"
             android:layout_marginRight="20dp"
             android:translationZ="3dp"
-            app:cardBackgroundColor="?attr/colorOnPrimary"
+            app:cardBackgroundColor="?attr/backgroundColor"
             app:cardCornerRadius="7dp"
             app:cardElevation="10dp"
             app:layout_constraintEnd_toEndOf="parent"
@@ -76,7 +76,7 @@
                 android:layout_height="match_parent">
 
                 <ImageView
-                    android:id="@+id/imageView5"
+                    android:id="@+id/myIdentificationIV"
                     android:layout_width="@dimen/index_user_icon_size"
                     android:layout_height="@dimen/index_user_icon_size"
                     android:layout_marginStart="32dp"
@@ -87,80 +87,80 @@
                     app:srcCompat="@drawable/ic_my_identification" />
 
                 <ImageView
-                    android:id="@+id/imageView6"
+                    android:id="@+id/myBuyIV"
                     android:layout_width="@dimen/index_user_icon_size"
                     android:layout_height="@dimen/index_user_icon_size"
-                    app:layout_constraintEnd_toStartOf="@+id/imageView7"
+                    app:layout_constraintEnd_toStartOf="@+id/mySellIV"
                     app:layout_constraintHorizontal_bias="0.5"
-                    app:layout_constraintStart_toEndOf="@+id/imageView5"
-                    app:layout_constraintTop_toTopOf="@+id/imageView5"
+                    app:layout_constraintStart_toEndOf="@+id/myIdentificationIV"
+                    app:layout_constraintTop_toTopOf="@+id/myIdentificationIV"
                     app:srcCompat="@drawable/ic_my_buy" />
 
                 <ImageView
-                    android:id="@+id/imageView7"
+                    android:id="@+id/mySellIV"
                     android:layout_width="@dimen/index_user_icon_size"
                     android:layout_height="@dimen/index_user_icon_size"
-                    app:layout_constraintEnd_toStartOf="@+id/imageView8"
+                    app:layout_constraintEnd_toStartOf="@+id/appealHandlingIV"
                     app:layout_constraintHorizontal_bias="0.5"
-                    app:layout_constraintStart_toEndOf="@+id/imageView6"
-                    app:layout_constraintTop_toTopOf="@+id/imageView6"
+                    app:layout_constraintStart_toEndOf="@+id/myBuyIV"
+                    app:layout_constraintTop_toTopOf="@+id/myBuyIV"
                     app:srcCompat="@drawable/ic_my_sale" />
 
                 <ImageView
-                    android:id="@+id/imageView8"
+                    android:id="@+id/appealHandlingIV"
                     android:layout_width="@dimen/index_user_icon_size"
                     android:layout_height="@dimen/index_user_icon_size"
                     android:layout_marginEnd="32dp"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toTopOf="@+id/imageView7"
+                    app:layout_constraintTop_toTopOf="@+id/mySellIV"
                     app:srcCompat="@drawable/ic_appeal_handling" />
 
                 <TextView
-                    android:id="@+id/textView4"
+                    android:id="@+id/myIdentificationTV"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="4dp"
                     android:text="@string/title_index_user_my_identification"
                     android:textColor="@color/black_300"
                     android:textSize="@dimen/index_user_icon_title_size"
-                    app:layout_constraintEnd_toEndOf="@+id/imageView5"
-                    app:layout_constraintStart_toStartOf="@+id/imageView5"
-                    app:layout_constraintTop_toBottomOf="@+id/imageView5" />
+                    app:layout_constraintEnd_toEndOf="@+id/myIdentificationIV"
+                    app:layout_constraintStart_toStartOf="@+id/myIdentificationIV"
+                    app:layout_constraintTop_toBottomOf="@+id/myIdentificationIV" />
 
                 <TextView
-                    android:id="@+id/textView5"
+                    android:id="@+id/myBuyTV"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="4dp"
                     android:text="@string/title_index_user_my_buy"
                     android:textColor="@color/black_300"
                     android:textSize="@dimen/index_user_icon_title_size"
-                    app:layout_constraintEnd_toEndOf="@+id/imageView6"
-                    app:layout_constraintStart_toStartOf="@+id/imageView6"
-                    app:layout_constraintTop_toBottomOf="@+id/imageView6" />
+                    app:layout_constraintEnd_toEndOf="@+id/myBuyIV"
+                    app:layout_constraintStart_toStartOf="@+id/myBuyIV"
+                    app:layout_constraintTop_toBottomOf="@+id/myBuyIV" />
 
                 <TextView
-                    android:id="@+id/textView6"
+                    android:id="@+id/mySellTV"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="4dp"
                     android:text="@string/title_index_user_my_sale"
                     android:textColor="@color/black_300"
-                    app:layout_constraintEnd_toEndOf="@+id/imageView7"
-                    app:layout_constraintStart_toStartOf="@+id/imageView7"
-                    app:layout_constraintTop_toBottomOf="@+id/imageView7" />
+                    app:layout_constraintEnd_toEndOf="@+id/mySellIV"
+                    app:layout_constraintStart_toStartOf="@+id/mySellIV"
+                    app:layout_constraintTop_toBottomOf="@+id/mySellIV" />
 
                 <TextView
-                    android:id="@+id/textView7"
+                    android:id="@+id/appealHandlingTV"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="4dp"
                     android:text="@string/title_index_user_appeal_handing"
                     android:textColor="@color/black_300"
                     android:textSize="@dimen/index_user_icon_title_size"
-                    app:layout_constraintEnd_toEndOf="@+id/imageView8"
-                    app:layout_constraintStart_toStartOf="@+id/imageView8"
-                    app:layout_constraintTop_toBottomOf="@+id/imageView8" />
+                    app:layout_constraintEnd_toEndOf="@+id/appealHandlingIV"
+                    app:layout_constraintStart_toStartOf="@+id/appealHandlingIV"
+                    app:layout_constraintTop_toBottomOf="@+id/appealHandlingIV" />
             </androidx.constraintlayout.widget.ConstraintLayout>
         </androidx.cardview.widget.CardView>
 

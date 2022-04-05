@@ -9,6 +9,7 @@
         <entry key="..\:/AndroidStudioProjects/cTransaction/app/src/main/res/drawable/error_button_selector.xml" value="0.3505" />
         <entry key="..\:/AndroidStudioProjects/cTransaction/app/src/main/res/drawable/ic_appeal_handling.xml" value="0.35" />
         <entry key="..\:/AndroidStudioProjects/cTransaction/app/src/main/res/drawable/ic_back_animated.xml" value="0.171" />
+        <entry key="..\:/AndroidStudioProjects/cTransaction/app/src/main/res/drawable/ic_camera_select.xml" value="0.3505" />
         <entry key="..\:/AndroidStudioProjects/cTransaction/app/src/main/res/drawable/ic_check.xml" value="0.3545" />
         <entry key="..\:/AndroidStudioProjects/cTransaction/app/src/main/res/drawable/ic_close.xml" value="0.3545" />
         <entry key="..\:/AndroidStudioProjects/cTransaction/app/src/main/res/drawable/ic_comment_arrow_right.xml" value="0.354" />
@@ -41,6 +42,7 @@
         <entry key="..\:/AndroidStudioProjects/cTransaction/app/src/main/res/drawable/ic_swap.xml" value="0.3545" />
         <entry key="..\:/AndroidStudioProjects/cTransaction/app/src/main/res/drawable/ic_upload.xml" value="0.3545" />
         <entry key="..\:/AndroidStudioProjects/cTransaction/app/src/main/res/drawable/ic_user.xml" value="0.3545" />
+        <entry key="..\:/AndroidStudioProjects/cTransaction/app/src/main/res/drawable/item_divider.xml" value="0.3505" />
         <entry key="..\:/AndroidStudioProjects/cTransaction/app/src/main/res/drawable/loading_recall_progress_bar.xml" value="0.354" />
         <entry key="..\:/AndroidStudioProjects/cTransaction/app/src/main/res/drawable/selector_comment_down.xml" value="0.354" />
         <entry key="..\:/AndroidStudioProjects/cTransaction/app/src/main/res/drawable/selector_comment_up.xml" value="0.354" />
@@ -53,8 +55,10 @@
         <entry key="..\:/AndroidStudioProjects/cTransaction/app/src/main/res/layout/blank_fragment.xml" value="0.3619791666666667" />
         <entry key="..\:/AndroidStudioProjects/cTransaction/app/src/main/res/layout/demo_activity_image_grid.xml" value="0.3619791666666667" />
         <entry key="..\:/AndroidStudioProjects/cTransaction/app/src/main/res/layout/ease_widget_chat_primary_menu.xml" value="0.18489583333333334" />
+        <entry key="..\:/AndroidStudioProjects/cTransaction/app/src/main/res/layout/fragment_buy.xml" value="0.3572916666666667" />
         <entry key="..\:/AndroidStudioProjects/cTransaction/app/src/main/res/layout/fragment_buy_histroy.xml" value="0.3619791666666667" />
         <entry key="..\:/AndroidStudioProjects/cTransaction/app/src/main/res/layout/fragment_chat.xml" value="0.3619791666666667" />
+        <entry key="..\:/AndroidStudioProjects/cTransaction/app/src/main/res/layout/fragment_identification.xml" value="0.3572916666666667" />
         <entry key="..\:/AndroidStudioProjects/cTransaction/app/src/main/res/layout/fragment_identification_schedule.xml" value="0.3619791666666667" />
         <entry key="..\:/AndroidStudioProjects/cTransaction/app/src/main/res/layout/fragment_identification_upload.xml" value="0.35625" />
         <entry key="..\:/AndroidStudioProjects/cTransaction/app/src/main/res/layout/fragment_index.xml" value="0.33" />
@@ -62,16 +66,21 @@
         <entry key="..\:/AndroidStudioProjects/cTransaction/app/src/main/res/layout/fragment_index_message.xml" value="0.33" />
         <entry key="..\:/AndroidStudioProjects/cTransaction/app/src/main/res/layout/fragment_index_user.xml" value="0.33" />
         <entry key="..\:/AndroidStudioProjects/cTransaction/app/src/main/res/layout/fragment_index_work.xml" value="0.37777777777777777" />
+        <entry key="..\:/AndroidStudioProjects/cTransaction/app/src/main/res/layout/fragment_money.xml" value="0.3572916666666667" />
+        <entry key="..\:/AndroidStudioProjects/cTransaction/app/src/main/res/layout/fragment_my_buy.xml" value="0.3619791666666667" />
         <entry key="..\:/AndroidStudioProjects/cTransaction/app/src/main/res/layout/fragment_sale_histroy.xml" value="0.3619791666666667" />
         <entry key="..\:/AndroidStudioProjects/cTransaction/app/src/main/res/layout/fragment_search_result.xml" value="0.3619791666666667" />
+        <entry key="..\:/AndroidStudioProjects/cTransaction/app/src/main/res/layout/fragment_sell_history.xml" value="0.35625" />
         <entry key="..\:/AndroidStudioProjects/cTransaction/app/src/main/res/layout/fragment_swap.xml" value="0.33" />
         <entry key="..\:/AndroidStudioProjects/cTransaction/app/src/main/res/layout/fragment_swap_download.xml" value="0.3619791666666667" />
         <entry key="..\:/AndroidStudioProjects/cTransaction/app/src/main/res/layout/fragment_swap_upload.xml" value="0.3619791666666667" />
-        <entry key="..\:/AndroidStudioProjects/cTransaction/app/src/main/res/layout/fragment_wrok_info.xml" value="0.5329581993569131" />
+        <entry key="..\:/AndroidStudioProjects/cTransaction/app/src/main/res/layout/fragment_work_list.xml" value="0.35625" />
+        <entry key="..\:/AndroidStudioProjects/cTransaction/app/src/main/res/layout/fragment_wrok_info.xml" value="0.25" />
         <entry key="..\:/AndroidStudioProjects/cTransaction/app/src/main/res/layout/icon_tabbar_home.xml" value="0.33" />
         <entry key="..\:/AndroidStudioProjects/cTransaction/app/src/main/res/layout/icon_tabbar_message.xml" value="0.3619791666666667" />
         <entry key="..\:/AndroidStudioProjects/cTransaction/app/src/main/res/layout/icon_tabbar_user.xml" value="0.3619791666666667" />
         <entry key="..\:/AndroidStudioProjects/cTransaction/app/src/main/res/layout/icon_tabbar_work.xml" value="0.3619791666666667" />
+        <entry key="..\:/AndroidStudioProjects/cTransaction/app/src/main/res/layout/item_buy_history.xml" value="0.3572916666666667" />
         <entry key="..\:/AndroidStudioProjects/cTransaction/app/src/main/res/layout/item_comment.xml" value="0.3619791666666667" />
         <entry key="..\:/AndroidStudioProjects/cTransaction/app/src/main/res/layout/item_index_home_classify.xml" value="0.18697916666666667" />
         <entry key="..\:/AndroidStudioProjects/cTransaction/app/src/main/res/layout/item_index_home_list.xml" value="0.3619791666666667" />

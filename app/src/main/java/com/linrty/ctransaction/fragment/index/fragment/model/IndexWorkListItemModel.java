@@ -17,12 +17,23 @@ import androidx.lifecycle.ViewModel;
 public class IndexWorkListItemModel extends ViewModel {
     public String name;
 
+    private Long workId;
+
     public String getName() {
         return name;
     }
 
     public IndexWorkListItemModel setName(String name) {
         this.name = name;
+        return this;
+    }
+
+    public Long getWorkId() {
+        return workId;
+    }
+
+    public IndexWorkListItemModel setWorkId(Long workId) {
+        this.workId = workId;
         return this;
     }
 }

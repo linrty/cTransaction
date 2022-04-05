@@ -24,7 +24,7 @@
     <string name="more_image_description">该图片同于表示更多操作选项</string>
 
     <!--Index User 首页子页面相关的String-->
-    <string name="title_index_user_my_identification">我的认证</string>
+    <string name="title_index_user_my_identification">认证进度</string>
     <string name="title_index_user_my_buy">我买到的</string>
     <string name="title_index_user_my_sale">我卖出的</string>
     <string name="title_index_user_appeal_handing">申诉处理</string>

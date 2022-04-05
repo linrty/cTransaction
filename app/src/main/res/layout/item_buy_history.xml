@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="data"
+            type="com.linrty.ctransaction.bean.Order" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:background="@color/white"
+        android:layout_height="wrap_content">
+
+        <com.xuexiang.xui.widget.imageview.RadiusImageView
+            android:id="@+id/buyHistoryImg"
+            android:layout_width="150dp"
+            android:layout_height="100dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:riv_corner_radius="@dimen/item_corner_radius"
+            app:riv_is_circle="false"
+            app:srcCompat="@drawable/ic_launcher_background"
+            tools:ignore="ImageContrastCheck" />
+
+        <TextView
+            android:id="@+id/buyHistoryItemTitle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="16dp"
+            android:text="撒旦立刻解放发链接测试搜索结果标题"
+            android:textColor="@color/black_400"
+            android:textSize="14sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/buyHistoryImg"
+            app:layout_constraintTop_toTopOf="@+id/buyHistoryImg" />
+
+        <TextView
+            android:id="@+id/buyHistoryPriceTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:text="价格："
+            android:textColor="?attr/error"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@+id/buyHistoryImg"
+            app:layout_constraintStart_toEndOf="@+id/buyHistoryImg" />
+
+        <TextView
+            android:id="@+id/buyHistoryPrice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="168.56"
+            android:textColor="?attr/error"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@+id/buyHistoryPriceTitle"
+            app:layout_constraintStart_toEndOf="@+id/buyHistoryPriceTitle" />
+
+        <TextView
+            android:id="@+id/orderCreateTimeTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="订单创建时间："
+            app:layout_constraintStart_toStartOf="@+id/buyHistoryWorkCTTitle"
+            app:layout_constraintTop_toBottomOf="@+id/buyHistoryWorkCTTitle" />
+
+        <TextView
+            android:id="@+id/buyHistoryWorkCTTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="作品创建时间："
+            app:layout_constraintStart_toStartOf="@+id/buyHistoryImg"
+            app:layout_constraintTop_toBottomOf="@+id/buyHistoryImg" />
+
+        <TextView
+            android:id="@+id/orderSuccessTimeTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="订单完成时间："
+            app:layout_constraintStart_toStartOf="@+id/orderCreateTimeTitle"
+            app:layout_constraintTop_toBottomOf="@+id/orderCreateTimeTitle" />
+
+        <TextView
+            android:id="@+id/buyHistoryWorkCT"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:text="2021-06-12 15:56:23"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/buyHistoryWorkCTTitle" />
+
+        <TextView
+            android:id="@+id/orderCreateTime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:text="2021-06-12 15:56:23"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/orderCreateTimeTitle" />
+
+        <TextView
+            android:id="@+id/orderSuccessTime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:text="2021-06-12 15:56:23"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/orderSuccessTimeTitle" />
+
+        <com.xuexiang.xui.widget.button.roundbutton.RoundButton
+            android:id="@+id/buyHistoryGotoWork"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="8dp"
+            android:text="去看看作品"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/orderSuccessTime"
+            app:rb_backgroundColor="?attr/warning"
+            app:rb_borderColor="?attr/warning"
+            tools:ignore="TouchTargetSizeCheck" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

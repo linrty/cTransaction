@@ -1,5 +1,6 @@
 package com.linrty.ctransaction.plugin
 
+import android.os.Bundle
 import android.util.Log
 import androidx.navigation.NavController
 import androidx.recyclerview.widget.GridLayoutManager
@@ -12,15 +13,71 @@ import com.drake.net.utils.scopeNet
 import com.linrty.ctransaction.HeaderModel
 import com.linrty.ctransaction.R
 import com.linrty.ctransaction.bean.Credit
+import com.linrty.ctransaction.bean.Order
+import com.linrty.ctransaction.bean.Work
 import com.linrty.ctransaction.common.net.CommonResult
 import com.linrty.ctransaction.fragment.index.fragment.model.IndexHomeItemModel
 import com.linrty.ctransaction.fragment.index.fragment.model.IndexWorkListItemModel
 import com.linrty.ctransaction.fragment.search.model.SearchResultItemModel
 import com.linrty.ctransaction.fragment.swap.model.SwapUploadItemModel
+import com.linrty.ctransaction.fragment.work.CommentModel
 import com.linrty.ctransaction.util.CodeUtil
 import kotlin.math.log
 
 object RecyclerViewUtil {
+
+    public fun bindingCollectList(rv: RecyclerView, data: MutableList<Any>, navController: NavController){
+        rv.linear().setup {
+            addType<IndexWorkListItemModel>(R.layout.item_index_work_list)
+            onClick(R.id.indexWorkItem){
+                val bundle:Bundle = Bundle()
+                bundle.putLong("work_id", (data[modelPosition] as IndexWorkListItemModel).workId)
+                navController.navigate(R.id.action_myCollectFragment_to_workInfoFragment,bundle)
+            }
+        }.models =data
+    }
+
+    public fun bindingSellHistoryList(rv: RecyclerView, data: MutableList<Any>, navController: NavController){
+        rv.linear().divider(R.drawable.item_divider).setup {
+            addType<Order>(R.layout.item_buy_history)
+            R.id.buyHistoryGotoWork.onClick {
+                // 点击去看看作品，跳转到作品页面
+                val bundle:Bundle = Bundle()
+                bundle.putLong("work_id", (data[modelPosition] as Order).workId)
+                navController.navigate(R.id.action_sellHistoryFragment_to_workInfoFragment,bundle)
+            }
+        }.models = data
+    }
+
+    public fun bindingBuyHistoryList(rv: RecyclerView, data: MutableList<Any>, navController: NavController){
+        rv.linear().divider(R.drawable.item_divider).setup {
+            addType<Order>(R.layout.item_buy_history)
+            R.id.buyHistoryGotoWork.onClick {
+                // 点击去看看作品，跳转到作品页面
+                val bundle:Bundle = Bundle()
+                bundle.putLong("work_id", (data[modelPosition] as Order).workId)
+                navController.navigate(R.id.action_buyHistoryFragment_to_workInfoFragment,bundle)
+            }
+        }.models = data
+    }
+
+    public fun bindingCommentList(rv: RecyclerView, data: MutableList<Any>, navController: NavController){
+        rv.linear().setup {
+            addType<CommentModel>(R.layout.item_comment)
+            R.id.ivAvatar.onClick {
+                // 点击头像，进入用户信息页面
+            }
+            R.id.tvUserName.onClick {
+                // 点击用户名字，也进入用户信息页面
+            }
+            R.id.tvUp.onClick {
+                // 点赞，需要判断之前是否点赞，如果之前点了赞，那么再次点击就要将点赞取消，还需要更新点赞人数，可以直接在前端+1，因为这种类型的数据用户不在乎实时的数据
+            }
+            R.id.ivDown.onClick {
+                // 踩，和赞一样的逻辑，只是不需要进行数字的计算
+            }
+        }.models = data
+    }
 
     public fun bindingIndexWorkList(rv: RecyclerView, data: MutableList<Any>,page: PageRefreshLayout,navController: NavController){
         rv.linear().setup {

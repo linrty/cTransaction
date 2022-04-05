@@ -4,7 +4,7 @@
         <!-- Primary brand color. -->
         <item name="colorPrimaryVariant">@color/melon</item>
         <item name="colorOnPrimary">@color/blue_10</item>
-        <item name="backgroundColor">@color/blue_10</item>
+        <item name="backgroundColor">#F5F5F5</item>
 
         <item name="error">@color/red_300</item>
         <item name="errorDark">@color/red_400</item>

@@ -3,26 +3,25 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
     <data>
+        <variable
+            name="data"
+            type="com.linrty.ctransaction.fragment.work.WorkInfoViewModel" />
     </data>
     <androidx.constraintlayout.widget.ConstraintLayout
         android:background="?attr/backgroundColor"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-
         <com.xuexiang.xui.widget.actionbar.TitleBar
             android:id="@+id/workInfoTitleBar"
             android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
+            android:layout_height="wrap_content"
             app:tb_immersive="true"
-            android:fitsSystemWindows="true"
-            android:background="?attr/backgroundColor"
+            app:tb_titleText="稳定性冠心病基层用药指南"
+            android:background="#B0DFE5"
             app:tb_useThemeColor="false"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:tb_actionPadding="20dp"
-            app:tb_barHeight="?attr/actionBarSize"
-            app:tb_leftImageResource="@drawable/ic_left"
             />
 
         <androidx.core.widget.NestedScrollView
@@ -70,26 +69,26 @@
                     android:layout_marginStart="16dp"
                     android:layout_marginTop="8dp"
                     android:layout_marginEnd="16dp"
-                    android:text="啊撒旦\n立刻解放技术\n的开发老师的课离开管理\n局来颠覆国家两地分居来对付僵\n尸更了解对方老公觉得浪费时间联发科两\n个地方多发几个多发几个两地分居过\n来的肌肤了过来的肌肤看过交流发电机过来\n的房间过来的肌肤了国家的法律解决各\n级领导附件 根据地十分了解过来的房间了国家\n的法律就\n更了解对方件联发科看见撒\n旦了开发建设领导看见法\n律上的就法律上的就雷锋\n精神的"
+                    android:text="稳定性冠心病包括3种情况∶慢性稳定性劳力型心绞痛、缺血性心肌病和急性冠状动脉综合征（ACS）之后稳定的病程阶段。慢性稳定性劳力型心绞痛是在冠状动脉固定性严重狭窄基础上，由于心肌负荷的增加引起的心肌急剧的、短暂的缺血缺氧临床综合征。缺血性心肌病指由于长期心肌缺血导致心肌局限性或弥漫性纤维化，从而产生心脏收缩和/或舒张功能受损，引起心脏扩大或僵硬、慢性心力衰竭、心律失常等一系列临床表现的临床综合征。ACS之后稳定的病程阶段通常无症状，表现为长期、静止、无典型缺血症状的状态。 "
                     android:textColor="@color/black_400"
                     android:textSize="18sp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/divider5" />
 
+
                 <ImageView
 
                     android:id="@+id/workInfoImage"
-                    android:layout_width="wrap_content"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
+                    android:layout_marginTop="4dp"
                     android:scaleType="fitStart"
                     app:layout_constraintEnd_toEndOf="@+id/workInfoDetails"
                     app:layout_constraintHorizontal_bias="0.0"
                     app:layout_constraintStart_toStartOf="@+id/workInfoDetails"
                     app:layout_constraintTop_toBottomOf="@+id/workInfoDetails"
-                    app:srcCompat="@drawable/ic_launcher_background" />
-
+                    app:srcCompat="@drawable/text" />
 
                 <TextView
                     android:id="@+id/textView12"
@@ -137,6 +136,8 @@
                     app:layout_constraintBottom_toBottomOf="@+id/workInfoUserAvatar"
                     app:layout_constraintStart_toEndOf="@+id/workInfoUserAvatar"
                     app:layout_constraintTop_toTopOf="@+id/workInfoUserAvatar" />
+
+
 
             </androidx.constraintlayout.widget.ConstraintLayout>
         </androidx.core.widget.NestedScrollView>
@@ -196,6 +197,20 @@
                 app:layout_constraintStart_toStartOf="@+id/workInfoCollectIcon"
                 app:layout_constraintTop_toBottomOf="@+id/workInfoCollectIcon"
                 tools:ignore="TextContrastCheck" />
+
+            <com.xuexiang.xui.widget.button.roundbutton.RoundButton
+                android:id="@+id/workInfoTalkButton"
+                style="@style/RoundButton.Blue"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="16dp"
+                android:text="交谈"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/workInfoBuyButton"
+                app:layout_constraintTop_toTopOf="parent"
+                app:rb_backgroundColor="?attr/success"
+                app:rb_isRadiusAdjustBounds="true"
+                tools:ignore="TouchTargetSizeCheck,TextContrastCheck" />
 
             <com.xuexiang.xui.widget.button.roundbutton.RoundButton
                 android:id="@+id/workInfoBuyButton"

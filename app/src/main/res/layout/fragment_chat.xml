@@ -37,11 +37,12 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:tb_immersive="true"
+            app:tb_titleText="17679374162"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:tb_actionPadding="20dp"
-            android:background="@color/blue_10"
+            android:background="#B0DFE5"
             app:tb_useThemeColor="false"/>
 
 
@@ -50,6 +51,7 @@
             style="@style/ease_chat_input_button_size"
             android:layout_width="0dp"
             android:layout_height="0dp"
+            android:padding="0dp"
             android:focusableInTouchMode="true"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"

@@ -13,7 +13,7 @@ package com.linrty.ctransaction.util;
 public interface CodeUtil {
 
 
-    /**
+     /**
      * 全局Log的TAG
      */
     public static final String TAG_LOG = "Linrty";

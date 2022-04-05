@@ -4,6 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
+        <variable
+            name="data"
+            type="com.linrty.ctransaction.fragment.work.CommentModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -62,8 +65,9 @@
             android:id="@+id/llOpt"
             android:layout_width="0dp"
             android:layout_height="24dp"
-            android:layout_marginTop="16dp"
+            android:layout_marginTop="12dp"
             android:orientation="horizontal"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintLeft_toLeftOf="@id/tvUserName"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvContent">
@@ -88,38 +92,6 @@
                 android:src="@drawable/selector_comment_down"
                 android:textColor="@color/black_200" />
 
-            <ImageView
-                android:id="@+id/ivShare"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_marginLeft="20dp"
-                android:src="@drawable/ic_comment_share"
-                android:textColor="@color/black_200" />
-
-            <ImageView
-                android:id="@+id/ivInput"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_marginLeft="20dp"
-                android:src="@drawable/ic_comment_input"
-                android:textColor="@color/black_200" />
-
-            <FrameLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="16dp">
-
-                <ImageView
-                    android:id="@+id/ivMore"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_gravity="right"
-                    android:layout_marginLeft="16dp"
-                    android:src="@drawable/ic_comment_more"
-                    android:textColor="@color/black_200" />
-
-            </FrameLayout>
-
         </androidx.appcompat.widget.LinearLayoutCompat>
 
         <TextView
@@ -135,20 +107,6 @@
             app:layout_constraintLeft_toLeftOf="@id/tvUserName"
             app:layout_constraintTop_toBottomOf="@id/llOpt" />
 
-
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/rvNested"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
-            android:background="@drawable/bg_comment"
-            android:paddingTop="8dp"
-            android:paddingBottom="4dp"
-            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-            app:layout_constraintLeft_toLeftOf="@id/tvUserName"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvSpec"
-            tools:layout_height="60dp" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

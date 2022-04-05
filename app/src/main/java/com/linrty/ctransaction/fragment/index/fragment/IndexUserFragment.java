@@ -10,6 +10,9 @@ import androidx.annotation.Nullable;
 import androidx.core.content.ContextCompat;
 import androidx.databinding.DataBindingUtil;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentActivity;
+import androidx.navigation.NavController;
+import androidx.navigation.Navigation;
 
 import com.blankj.utilcode.util.ToastUtils;
 import com.linrty.ctransaction.R;
@@ -47,6 +50,16 @@ public class IndexUserFragment extends Fragment {
      * 保存渲染好的视图，避免重新加载而卡顿,仅仅针对Index及其子页面这些围绕整个Activity都不需要重新加载的页面
      */
     private View saveView = null;
+
+    /**
+     * 全局路由
+     */
+    private NavController navController;
+
+    /**
+     * 最顶部的Activity
+     */
+    private FragmentActivity topActivity;
 
 
     public IndexUserFragment() {
@@ -103,6 +116,8 @@ public class IndexUserFragment extends Fragment {
     }
 
     private void initView(){
+        topActivity = requireParentFragment().requireActivity();
+        navController = Navigation.findNavController(topActivity,R.id.mainNavHost);
         // index user 页面中的列表子项集合
         XUICommonListItemView itemView = null;
         int size = DensityUtils.dp2px(getContext(), 20);
@@ -121,6 +136,7 @@ public class IndexUserFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 ToastUtils.showShort("我的收藏");
+                gotoFragment(R.id.action_indexFragment_to_myCollectFragment);
             }
         });
         // 余额
@@ -138,6 +154,55 @@ public class IndexUserFragment extends Fragment {
             }
         });
         section.addTo(binding.indexUserGroupList);
+
+        binding.myBuyIV.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                gotoFragment(R.id.action_indexFragment_to_buyHistoryFragment);
+            }
+        });
+        binding.myBuyTV.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                gotoFragment(R.id.action_indexFragment_to_buyHistoryFragment);
+            }
+        });
+        binding.myIdentificationIV.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+            }
+        });
+        binding.myIdentificationTV.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+            }
+        });
+        binding.mySellIV.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                gotoFragment(R.id.action_indexFragment_to_sellHistoryFragment);
+            }
+        });
+        binding.mySellTV.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                gotoFragment(R.id.action_indexFragment_to_sellHistoryFragment);
+            }
+        });
+        binding.appealHandlingIV.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+            }
+        });
+        binding.appealHandlingTV.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+            }
+        });
     }
 
 
@@ -152,6 +217,14 @@ public class IndexUserFragment extends Fragment {
         itemView.setImageDrawable(ContextCompat.getDrawable(getContext(),imageId));
         itemView.setAccessoryType(XUICommonListItemView.ACCESSORY_TYPE_CHEVRON);
         return  itemView;
+    }
+
+    /**
+     * 从当前Fragment跳转到指定的Fragment
+     * @param desFragment 目的Fragment
+     */
+    private void gotoFragment(int desFragment){
+        navController.navigate(desFragment);
     }
 
 

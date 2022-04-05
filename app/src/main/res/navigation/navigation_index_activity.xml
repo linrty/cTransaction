@@ -32,6 +32,18 @@
         <action
             android:id="@+id/action_indexFragment_to_workInfoFragment"
             app:destination="@id/workInfoFragment" />
+        <action
+            android:id="@+id/action_indexFragment_to_buyHistoryFragment"
+            app:destination="@id/buyHistoryFragment" />
+        <action
+            android:id="@+id/action_indexFragment_to_sellHistoryFragment"
+            app:destination="@id/sellHistoryFragment" />
+        <action
+            android:id="@+id/action_indexFragment_to_myCollectFragment"
+            app:destination="@id/myCollectFragment" />
+        <action
+            android:id="@+id/action_indexFragment_to_moneyFragment"
+            app:destination="@id/moneyFragment" />
     </fragment>
     <fragment
         android:id="@+id/swapFragment"
@@ -49,4 +61,32 @@
         android:id="@+id/workInfoFragment"
         android:name="com.linrty.ctransaction.fragment.work.WorkInfoFragment"
         android:label="WorkInfoFragment" />
+    <fragment
+        android:id="@+id/buyHistoryFragment"
+        android:name="com.linrty.ctransaction.fragment.buy.BuyHistoryFragment"
+        android:label="BuyHistoryFragment" >
+        <action
+            android:id="@+id/action_buyHistoryFragment_to_workInfoFragment"
+            app:destination="@id/workInfoFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/sellHistoryFragment"
+        android:name="com.linrty.ctransaction.fragment.sell.SellHistoryFragment"
+        android:label="SellHistoryFragment" >
+        <action
+            android:id="@+id/action_sellHistoryFragment_to_workInfoFragment"
+            app:destination="@id/workInfoFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/myCollectFragment"
+        android:name="com.linrty.ctransaction.fragment.collect.MyCollectFragment"
+        android:label="MyCollectFragment" >
+        <action
+            android:id="@+id/action_myCollectFragment_to_workInfoFragment"
+            app:destination="@id/workInfoFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/moneyFragment"
+        android:name="com.linrty.ctransaction.fragment.money.MoneyFragment"
+        android:label="MoneyFragment" />
 </navigation>

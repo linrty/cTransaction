@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data></data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+
+        <com.xuexiang.xui.widget.actionbar.TitleBar
+            android:id="@+id/buyTitleBar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#B0DFE5"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:tb_actionPadding="20dp"
+            app:tb_immersive="true"
+            app:tb_useThemeColor="false" />
+
+        <com.xuexiang.xui.widget.imageview.RadiusImageView
+            android:id="@+id/searchResultImg"
+            android:layout_width="150dp"
+            android:layout_height="100dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="16dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/buyTitleBar"
+            app:riv_corner_radius="@dimen/item_corner_radius"
+            app:riv_is_circle="false"
+            app:srcCompat="@drawable/ic_launcher_background"
+            tools:ignore="ImageContrastCheck" />
+
+
+        <TextView
+            android:id="@+id/searchResultItemTitle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:textColor="@color/black_400"
+            android:textSize="14sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/searchResultImg"
+            app:layout_constraintTop_toTopOf="@+id/searchResultImg"
+            tools:text="测试搜索结果标题" />
+
+        <EditText
+            android:id="@+id/buyMoneyET"
+            style="@style/EditText.Normal"
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:hint="请输入你给出的价格"
+            android:singleLine="true"
+            app:layout_constraintBottom_toBottomOf="@+id/searchResultImg"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/searchResultImg"
+            tools:ignore="TouchTargetSizeCheck" />
+
+
+        <Button
+            android:id="@+id/uploadButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="购买"
+            app:layout_constraintEnd_toEndOf="@+id/buyMoneyET"
+            app:layout_constraintTop_toBottomOf="@+id/buyMoneyET"
+            tools:ignore="TouchTargetSizeCheck" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
