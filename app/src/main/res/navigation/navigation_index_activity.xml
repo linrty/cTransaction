@@ -44,6 +44,12 @@
         <action
             android:id="@+id/action_indexFragment_to_moneyFragment"
             app:destination="@id/moneyFragment" />
+        <action
+            android:id="@+id/action_indexFragment_to_identificationListFragment"
+            app:destination="@id/identificationListFragment" />
+        <action
+            android:id="@+id/action_indexFragment_to_loginFragment"
+            app:destination="@id/loginFragment" />
     </fragment>
     <fragment
         android:id="@+id/swapFragment"
@@ -89,4 +95,12 @@
         android:id="@+id/moneyFragment"
         android:name="com.linrty.ctransaction.fragment.money.MoneyFragment"
         android:label="MoneyFragment" />
+    <fragment
+        android:id="@+id/identificationListFragment"
+        android:name="com.linrty.ctransaction.fragment.identification.IdentificationListFragment"
+        android:label="IdentificationListFragment" />
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="com.linrty.ctransaction.fragment.login.LoginFragment"
+        android:label="LoginFragment" />
 </navigation>

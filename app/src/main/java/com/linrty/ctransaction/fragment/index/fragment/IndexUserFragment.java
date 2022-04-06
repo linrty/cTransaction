@@ -144,6 +144,7 @@ public class IndexUserFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 ToastUtils.showShort("余额");
+                gotoFragment(R.id.action_indexFragment_to_moneyFragment);
             }
         });
         // 设置
@@ -151,6 +152,7 @@ public class IndexUserFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 ToastUtils.showShort("设置");
+                gotoFragment(R.id.action_indexFragment_to_loginFragment);
             }
         });
         section.addTo(binding.indexUserGroupList);
@@ -170,13 +172,13 @@ public class IndexUserFragment extends Fragment {
         binding.myIdentificationIV.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                gotoFragment(R.id.action_indexFragment_to_identificationListFragment);
             }
         });
         binding.myIdentificationTV.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                gotoFragment(R.id.action_indexFragment_to_identificationListFragment);
             }
         });
         binding.mySellIV.setOnClickListener(new View.OnClickListener() {

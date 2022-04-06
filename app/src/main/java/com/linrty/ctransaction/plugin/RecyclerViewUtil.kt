@@ -2,6 +2,7 @@ package com.linrty.ctransaction.plugin
 
 import android.os.Bundle
 import android.util.Log
+import android.widget.Button
 import androidx.navigation.NavController
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -13,6 +14,7 @@ import com.drake.net.utils.scopeNet
 import com.linrty.ctransaction.HeaderModel
 import com.linrty.ctransaction.R
 import com.linrty.ctransaction.bean.Credit
+import com.linrty.ctransaction.bean.Identification
 import com.linrty.ctransaction.bean.Order
 import com.linrty.ctransaction.bean.Work
 import com.linrty.ctransaction.common.net.CommonResult
@@ -22,9 +24,24 @@ import com.linrty.ctransaction.fragment.search.model.SearchResultItemModel
 import com.linrty.ctransaction.fragment.swap.model.SwapUploadItemModel
 import com.linrty.ctransaction.fragment.work.CommentModel
 import com.linrty.ctransaction.util.CodeUtil
+import com.xuexiang.xui.widget.button.roundbutton.RoundButton
 import kotlin.math.log
 
 object RecyclerViewUtil {
+
+
+    public fun bindingIdentificationList(rv: RecyclerView,data: MutableList<Any>){
+        rv.linear().divider(R.drawable.item_divider).setup {
+            addType<Identification>(R.layout.item_identification_process)
+            onBind {
+                val state = (data[modelPosition] as Identification).state
+                var button:RoundButton = findView<RoundButton>(R.id.confirmIdentificationItemButton)
+                if (state == 1){
+
+                }
+            }
+        }.models = data
+    }
 
     public fun bindingCollectList(rv: RecyclerView, data: MutableList<Any>, navController: NavController){
         rv.linear().setup {

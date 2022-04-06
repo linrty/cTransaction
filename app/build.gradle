@@ -183,4 +183,9 @@ dependencies {
 
     /*创建SpannableString和创建字符串一样简单*/
     implementation 'com.github.liangjingkanji:spannable:1.0.5'
+
+    //基础功能的工具类
+    implementation 'com.github.xuexiangjys.XUtil:xutil-core:2.0.0'
+    //附加功能的工具类
+    implementation 'com.github.xuexiangjys.XUtil:xutil-sub:2.0.0'
 }
